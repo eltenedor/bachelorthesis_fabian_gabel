@@ -1,0 +1,62 @@
+% Makros
+
+\newcommand{\N}{\mathbb{N}} % natuerliche Zahlen
+\newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}} % rationale Zahlen
+\newcommand{\R}{\mathbb{R}} % reelle Zahlen
+\newcommand{\K}{\mathbb{K}} % Körper
+\newcommand{\co}{\mathrm{co}} % compact open
+\newcommand{\W}{\mathcal{W}} % Weyl-Gruppe
+
+\DeclareMathOperator{\Ret}{Re} % Realteil
+%\newcommand{\PIT}{\textbf{PIT }} % Prime Ideal Theorem
+\newcommand{\AC}{\textbf{AC}\xspace} % Prime Ideal Theorem
+\newcommand{\UFT}{\textbf{UFT}\xspace} % Prime Ideal Theorem
+\newcommand{\PIT}{\textbf{PIT}\xspace}
+\newcommand{\ZF}{\textbf{ZF}\xspace}
+\newcommand{\ZFC}{\textbf{ZFC}\xspace}
+\newcommand{\CC}{\textbf{CC}\xspace}
+\newcommand{\CCR}{\textbf{CC}($\R$)\xspace}
+\newcommand{\PCC}{\textbf{PCC}\xspace}
+\newcommand{\PCCR}{\textbf{PCC}($\R$)\xspace}
+
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\mathrm{div} #1} % for divergence
+
+\newcommand{\lie}{\textsc{Lie}}
+\newcommand{\weyl}{\textsc{Weyl}}
+\newcommand{\killing}{\textsc{Killing}}
+\newcommand{\euklid}{\textsc{Euklid}}
+
+% Umgebungen für Definitionen, Sätze, usw.
+
+%\newtheorem{defn}{Definition}[section]
+%\newtheorem{ex}{Beispiel}[chapter]
+
+\theoremstyle{plain}
+\newtheorem{thm}{Satz}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Korollar}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\theoremstyle{remark}
+\newtheorem*{bem}{Bemerkung}
+
+\def\Satzrefname{Satz}
+
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\hgt}{ht}
+
+%\renewcommand{\refname}{Literaturverzeichnis}
+\addto\captionsngerman{%
+\renewcommand*{\bibname}{Literaturverzeichnis}
+}
+
+\makeglossaries
