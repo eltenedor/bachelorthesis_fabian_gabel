@@ -1,7 +1,7 @@
 % Vorlage fuer Abschlussarbeiten am Fachbereich Mathematik der TU Darmstadt.
 % Geeignet fuer Bachelorarbeiten, Masterarbeiten und Diplomarbeiten.
 
-\documentclass[12pt,a4paper,twoside]{report}
+\documentclass[11pt,a4paper,twoside]{report}
 % Benutzt man die Option draft, so kann man die Umbrueche ueberpruefen.
 
 % Hier werden alle benoetigten Pakete und Einstellungen geladen. Auch
@@ -26,14 +26,17 @@
 \tableofcontents
 
 % Ab sofort werden Seitenzahlen in der Kopfzeile angezeigt.
-\pagestyle{headings}
+%\pagestyle{headings}
+%\pagestyle{MyStyle}
 
-\input{einleitung}
-\input{grundlagen}
+\include{einleitung}
+\include{grundlagen}
 
 
-\input{literaturverzeichnis}
+\cleardoublepage
+\include{literaturverzeichnis}
 
+\cleardoublepage
 \renewcommand{\glossarysection}[2][\theglstoctitle]{%
     \def\theglstoctitle{#2}%
       \setcounter{secnumdepth}{-1}%
@@ -41,4 +44,7 @@
 }
 \printglossary[title=Symbolverzeichnis,toctitle=Symbolverzeichnis]
       
+
+\include{erklaerung}
+\include{erklaerung}
 \end{document}
