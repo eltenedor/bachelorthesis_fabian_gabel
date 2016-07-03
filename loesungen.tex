@@ -6,12 +6,22 @@
 \end{defn}
 
 \begin{lem}
+  \label{lem:distBoundary}
+  Seien $\emptyset \subsetneq A,B \subsetneq \R^n$. Gilt $A \subseteq B$, so folgt $\dist(x,\partial A) \leq \dist(x \partial B)$ für alle $x \in A$.
+\end{lem}
+
+\begin{bem}
+  Wie aus dem Beweis von Lemma \ref{lem:distBoundary} ersichtlich ist, reicht es bereits aus $A$ und $B$ als Teilmengen der konvexen Hülle von $B$ mit euklidischer Spurmetrik und entsprechender Abstandsfunktion $\dist$ zu betrachten.
+  Die Konvexität ist hierbei notwendig, wie man an einem Beispiel zeigen kann.
+\end{bem}
+
+\begin{lem}
   \label{lem:lipschitzExhaust}
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein Gebiet.
   Dann existiert eine Folge $(\Omega_j)_{j \in \N}$ beschränkter \lipschitz\hyp{}Gebiete $\Omega_j \subseteq \Omega$ und eine Folge $(\varepsilon_j)_{j \in \N}$ positiver reeller Zahlen mit folgenden Eigenschaften:
   \begin{enumerate}[a)]
     \item Für alle $j \in \N$ gilt $\overline{\Omega_j} \subseteq \Omega_{j + 1}$.
-    \item Für alle $j \in \N$ gilt $\dist( \partial \Omega_{j + 1}, \Omega_j) \geq \varepsilon_{j + 1}$. 
+    \item Für alle $j \in \N$ gilt $\varepsilon_{j + 1} \leq \dist(\Omega_j, \partial \Omega_{j + 1}).$
     \item Es gilt $\lim_{j \to \infty} \varepsilon_j = 0$.
     \item Die Gebiete $\Omega_j$ schöpfen $\Omega$ aus.
   \end{enumerate}
@@ -30,10 +40,10 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   Da die Zusammenhangskomponenten eines topologischen Raumes immer eine Partition desselben bilden, ist $\Omega'$ eindeutig bestimmt.
   Insbesondere gilt für den Rand
   $$ 
-  \partial \widetilde\Omega \subseteq \overline{B_1(x_0)}, 
+  \partial \widetilde\Omega_1 \subseteq \overline{B_1(x_0)}, 
   $$
   er ist somit als abgeschlossene Teilmenge des Kompaktums $\overline{B_1(x_0)}$ selbst kompakt.
-  Für alle $\varepsilon > 0$ lässt sich daher $\partial \widetilde\Omega_1$ durch endlich viele Bälle $B\varepsilon(x_j)$, mit $x_j \in \partial \widetilde\Omega_1$ für alle $j = 1,\dots,m$, überdecken:
+  Für alle $\varepsilon > 0$ lässt sich daher $\partial \widetilde\Omega_1$ durch endlich viele Bälle $B_\varepsilon(x_j)$, mit $x_j \in \partial \widetilde\Omega_1$ für alle $j = 1,\dots,m$, überdecken:
   $$ 
   \partial \widetilde\Omega_1 \subseteq \bigcup_{j = 1}^m B_\varepsilon(x_j).
   $$
@@ -43,8 +53,8 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   \widehat\Omega_1 := \widetilde\Omega_1 \setminus \bigcap_{j = 1}^m \overline{B_\varepsilon(x_j)}
   $$
   und wählen $0 < \varepsilon < 1$ so klein, dass zusätzlich $x_0 \in \widehat\Omega_1$ gilt. 
-  Dies lässt sich immer erreichen, da $\widetilde\Omega$ als bezüglich Teilraumtopologie offen-abgeschlossene Menge in $\Omega'$ auch in $\R^n$ offen ist und daher ein $\delta > 0$ mit $B_\delta(x_0) \subseteq \Omega'$ existiert.
-  Hiermit besitzt bereits ein $\varepsilon < \dist(x_0, \partial\widetilde\Omega) - \delta$ die geforderte Eigenschaft.
+  Dies lässt sich immer erreichen, da $\widetilde\Omega_1$ als bezüglich Teilraumtopologie offen-abgeschlossene Menge in $\Omega'$ auch in $\R^n$ offen ist und daher ein $\delta > 0$ mit $B_\delta(x_0) \subseteq \Omega'$ existiert.
+  Hiermit besitzt bereits ein $\varepsilon < \dist(x_0, \partial\widetilde\Omega_1) - \delta$ die geforderte Eigenschaft.
 
   Man erkennt nun $\widehat\Omega_1$ als beschränktes \lipschitz\hyp{}Gebiet, da $\partial\widehat\Omega_1$ sämtlich aus Teilen der Ränder der Bälle $B_\varepsilon(x_j)$ besteht.
   Wir setzen nun $\Omega_1 := \widehat\Omega_1$ und $\epsilon_1 := \epsilon$ und führen diese Konstruktion weiter fort.
@@ -53,15 +63,56 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   $$
   \widetilde\Omega_2 \subseteq \Omega \cap B_2(x_0)
   $$
-  als die $x_0$ enthaltende Zusammenhangskomponente des Schnitts von $\Omega$ und $B_2(x_0)$ und konstruieren analog zum ersten Schritt ein Gebiet $\widehat\Omega_2$ mit $0 < \varepsilon < \tfrac{1}{2}$ und $\varepsilon < \dist(\partial\widetilde\Omega_2, \Omega_1)$.
-  
+  als die $x_0$ enthaltende Zusammenhangskomponente des Schnitts von $\Omega$ und $B_2(x_0)$ und konstruieren analog zum ersten Schritt ein Gebiet $\widehat\Omega_2$ mit $0 < \varepsilon < \tfrac{1}{2}$ und $\varepsilon < \dist(\Omega_1, \partial\widetilde\Omega_2)$.
+  Dies ist jedoch nur möglich, falls $0 < \dist(\Omega_1, \partial\widetilde\Omega_2)$ gilt, was wir im Folgenden beweisen werden.
+
+  Zunächst gilt nach Konstruktion die Inklusionskette
+  $$
+  \widehat\Omega_1 \subseteq \widetilde\Omega_1 \subseteq \widetilde\Omega_2.
+  $$
+  Hieraus folgt mit Lemma \ref{lem:distBoundary}, dass
+  \begin{displaymath}
+    \dist(x,\partial\widehat\Omega_1) 
+    \leq \dist(x,\partial\widetilde\Omega_1) 
+    \leq \dist(x,\partial\widetilde\Omega_2) \tag{$\ast$}
+  \end{displaymath}
+  für alle $x \in \widehat\Omega_1$ gilt.
+  Des Weiteren gilt 
+  \begin{displaymath}
+  0 < \lambda \leq \dist(\widehat\Omega_1,\partial\widetilde\Omega_1) \tag{$\ast\ast$},
+  \end{displaymath}
+  wobei $\lambda$ die \lebesgue sche Zahl der Überdeckung $B_{\varepsilon_1}(x_1),\dots,B_{\varepsilon_1}(x_m)$ von $\partial\widetilde\Omega_1$ aus dem ersten Schritt des Beweises bezeichne.
+  Die Ungleichungen ($\ast$) und ($\ast\ast$) zusammen ergeben nun die Behauptung.
+
+  Setzen wir noch $\Omega_2 := \widehat\Omega_2$ und $\varepsilon_2 := \varepsilon$, so erhalten wir einerseits $\overline\Omega_1 \subseteq \Omega_2$, denn $\Omega_1 \subseteq \Omega_2$ gilt nach Konstruktion, sowie $0 < \dist(x,\partial\widehat\Omega_2) =: d$ für alle $x \in \partial\widehat\Omega_1$. Dann gilt aber auch $B_{\frac{d}{2}}(x) \subseteq \widehat\Omega_2$, also insbesondere $x \in \widehat\Omega_2$ für alle $x \in \partial\widehat\Omega_1$. Damit folgt 
+  $$
+  \widehat\Omega_1 \cup \partial\widehat\Omega_1 = \overline{\widehat\Omega}_1 \subseteq \widehat\Omega_2.
+  $$
+
+  Andererseits gilt $\varepsilon_2 < \dist(\Omega_1, \partial\Omega_2)$, denn
+  \begin{align*}
+  \varepsilon_2 
+  &< \frac{1}{2} \dist(\Omega_1, \partial\widetilde\Omega_2) \\
+  & \leq \frac{1}{2} (\dist(\Omega_1, \partial\widehat\Omega_2) + \dist(\partial\widehat\Omega_2, \widetilde\Omega_2)) \\
+  & \leq \frac{1}{2} (\dist(\Omega_1, \partial\widehat\Omega_2) + \varepsilon_2).
+  \end{align*}
+
+  Setzt man das beschriebene Vorgehen induktiv fort, so erhält man eine Folge $(\Omega_j)_{j \in \N}$ von \lipschitz\hyp{}Gebieten und eine Folge $(\varepsilon_j)_{j \in \N}$ für die nach Konstruktion $0 < \varepsilon_j < \tfrac{1}{j}$ für alle $j \in \N$ gilt.
+  Die Eigenschaften a), b) und c) werden also erfüllt.
+
+  Es gilt noch zu zeigen, dass die so konstruierte Folge $(\Omega_j)_{j \in \N}$ auch Eigenschaft d) erfüllt ist, also $ \Omega \subseteq \bigcup_{j \in \N} \Omega_j $ gilt.
+  Sei dazu $x \in \Omega$ beliebig.
+  Weil $\Omega$ zusammenhängend ist, existiert ein $j_0 \in \N$, sodass
+  $$
+  x \in \widetilde\Omega_{j_0} \subseteq \Omega \cap B_{j_0}(x_0)
+  $$
+  gilt.
+  Sei $d:=\dist(x, \partial\widetilde\Omega_{j_0})$.
+  Dann existiert ein $j_1 > j_0$ mit $\varepsilon_{j_1} < d$.
+  Da die Inklusion $\widetilde\Omega_{j_0} \subseteq \widetilde\Omega_{j_1}$ gilt, folgt mit Lemma \ref{lem:distBoundary} die Ungleichung $\varepsilon_{j_1} < \dist(x,\partial\widetilde\Omega_{j_1})$, was wiederum $x \in \widehat\Omega_{j_1} = \Omega_{j_1}$ impliziert.
+  Damit gilt auch Eigenschaft d).
 \end{proof}
 
-\begin{itemize}
-  \item \cite{sohr2001navier}[S.55, Lemma 1.4.1]
-\end{itemize}
-
-\newpage
 \section{Kompakte Einbettungen}
 
 \begin{itemize}
