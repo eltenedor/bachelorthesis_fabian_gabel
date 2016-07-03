@@ -23,6 +23,7 @@
 \newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
 \let\divsymb=\div % rename builtin command \div to \divsymb
 \renewcommand{\div}[1]{\mathrm{div} #1} % for divergence
+\renewcommand{\d}[1]{\ensuremath\, {\operatorname{d}\!{#1}}}
 
 \newcommand{\lie}{\textsc{Lie}}
 \newcommand{\weyl}{\textsc{Weyl}}
@@ -30,6 +31,11 @@
 \newcommand{\euklid}{\textsc{Euklid}}
 \newcommand{\lipschitz}{\textsc{Lipschitz}}
 \newcommand{\lebesgue}{\textsc{Lebesgue}}
+\newcommand{\poincare}{\textsc{Poincare}}
+\newcommand{\hoelder}{\textsc{Hoelder}}
+\newcommand{\hahn}{\textsc{Hahn}}
+\newcommand{\banach}{\textsc{Banach}}
+
 
 % Umgebungen für Definitionen, Sätze, usw.
 
@@ -56,6 +62,7 @@
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\hgt}{ht}
 \DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\loc}{loc}
 
 %\renewcommand{\refname}{Literaturverzeichnis}
 \addto\captionsngerman{%

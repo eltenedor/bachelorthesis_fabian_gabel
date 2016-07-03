@@ -20,7 +20,7 @@
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein Gebiet.
   Dann existiert eine Folge $(\Omega_j)_{j \in \N}$ beschränkter \lipschitz\hyp{}Gebiete $\Omega_j \subseteq \Omega$ und eine Folge $(\varepsilon_j)_{j \in \N}$ positiver reeller Zahlen mit folgenden Eigenschaften:
   \begin{enumerate}[a)]
-    \item Für alle $j \in \N$ gilt $\overline{\Omega_j} \subseteq \Omega_{j + 1}$.
+    \item Für alle $j \in \N$ gilt $\overline{\Omega}_j \subseteq \Omega_{j + 1}$.
     \item Für alle $j \in \N$ gilt $\varepsilon_{j + 1} \leq \dist(\Omega_j, \partial \Omega_{j + 1}).$
     \item Es gilt $\lim_{j \to \infty} \varepsilon_j = 0$.
     \item Die Gebiete $\Omega_j$ schöpfen $\Omega$ aus.
@@ -100,7 +100,7 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   Setzt man das beschriebene Vorgehen induktiv fort, so erhält man eine Folge $(\Omega_j)_{j \in \N}$ von \lipschitz\hyp{}Gebieten und eine Folge $(\varepsilon_j)_{j \in \N}$ für die nach Konstruktion $0 < \varepsilon_j < \tfrac{1}{j}$ für alle $j \in \N$ gilt.
   Die Eigenschaften a), b) und c) werden also erfüllt.
 
-  Es gilt noch zu zeigen, dass die so konstruierte Folge $(\Omega_j)_{j \in \N}$ auch Eigenschaft d) erfüllt ist, also $ \Omega \subseteq \bigcup_{j \in \N} \Omega_j $ gilt.
+  Es gilt noch zu zeigen, dass die so konstruierte Folge $(\Omega_j)_{j \in \N}$ auch Eigenschaft d) erfüllt, also $ \Omega \subseteq \bigcup_{j \in \N} \Omega_j $ gilt.
   Sei dazu $x \in \Omega$ beliebig.
   Weil $\Omega$ zusammenhängend ist, existiert ein $j_0 \in \N$, sodass
   $$
@@ -122,20 +122,83 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
 \newpage
 \section{Darstellung von Funktionalen}
 
+\begin{lem}
+  \label{lem:divRepresentation}
+  Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beschränktes Gebiet und $f \in W^{-1,q}(\Omega)^n$ mit $1 < q < \infty$.
+  Dann existiert eine Matrix $F \in L^q(\Omega)^{n^2}$, welche die Gleichung
+  $$ f = \div F $$
+  im distributionellen Sinne und die Ungleichungen
+  $$
+  || f ||_{W^{-1,q}(\Omega)^n} 
+  \leq || F ||_{L^q(\Omega)^{n^2}} 
+  \leq C || f ||_{W^{-1,q}(\Omega)^n}
+  $$
+  mit $C = C(\Omega) > 0$ erfüllt.
+\end{lem}
+
+\begin{proof}
+  Wir betrachten den Raum
+  $$
+  D := \{\nabla v \in L^{q'}(\Omega)^{n^2} \colon v \in W_0^{1,q'}(\Omega)^n\} \subseteq L^{q'}(\Omega)^{n^2}
+  $$
+  der Gradienten $\nabla v = (D_j v_l)_{j,l=1}^n$ von Funktionen $v = (v_1,\dots,v_n) \in W_0^{1,q'}(\Omega)^n$.
+  Wir definieren das Funktional
+  $$
+  \tilde f \colon \nabla v \mapsto [\tilde f, \nabla v]\;, \quad \nabla v \in D
+  $$
+  durch $[\tilde f, \nabla v] := [f, v]$ für alle $v \in W_0^{1,q'}(\Omega)^n$.
+  Dann liefert die \poincare\hyp{}Ungleichung zusammen mit der \hoelder\hyp{}Ungleichung eine Konstante $C = C(\Omega) > 0$, sodass 
+  $$
+  |[\tilde f, \nabla v]| 
+  = |[f, v]| 
+  \leq ||f||_{-1,q} ||v||_{1,q'}
+  \leq C ||f||_{-1,q} ||\nabla v ||_{q'}
+  $$
+  für alle $\nabla v \in D$ gilt.
+  Somit ist $\tilde f$ ein stetiges Funktional auf $D \subseteq L^{q'}(\Omega)^{n^2}$.
+  Der Satz von \hahn\hyp{}\banach\ liefert eine normgleiche Fortsetzung von von $D$ nach $L^{q'}(\Omega)^{n^2}$.
+  Nach dem Darstellungssatz über Funktionale existiert nun eine Matrix $F \in L^{q}(\Omega)^{n^2}$ mit
+  $$
+  \langle F, \nabla v \rangle
+  = \sum_{j,l=1}^n \int_\Omega F_{jl}(D_j v_l) \d x
+  = \int_\Omega F \cdot \nabla v \d x
+  = [\tilde f, \nabla v] 
+  = [f, v]
+  $$
+\end{proof}
+
 \begin{itemize}
   \item \cite{sohr2001navier}[S.61, Lemma 1.6.1]
 \end{itemize}
 
 
-\section{Die Glättungsmethode}
-
-\begin{itemize}
-  \item \cite{sohr2001navier}[S.64ff.]
-\end{itemize}
-
 \section{Das Gradientenkriterium}
 
-\begin{itemize}
-  \item \cite{sohr2001navier}[Lemma 2.2.1, S.73]
-\end{itemize}
+\begin{lem}
+  Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein Gebiet $\Omega_0 \subseteq \Omega$ ein beschränktes Teilgebiet mit $\emptyset \neq \overline\Omega_0 \subseteq \Omega$ und $1 < q < \infty$.
+  Angenommen, für $f \in W_{\loc}^{-1,q}(\Omega)^n$ gelte
+  \begin{equation}
+    \label{eq:vKernel}
+    [f,v] = 0, \quad \text{für alle} \quad v \in C_{0,\sigma}^\infty(\Omega).
+  \end{equation}
+  Dann existiert ein eindeutig bestimmtes $p \in L^q_{\loc}(\Omega)$, welches die Gleichung $\nabla p = f$ im distributionellen Sinne erfüllt und für das zusätzlich
+  \begin{equation}
+    \int_{\Omega_0} p \d x = 0
+    \label{eq:0integral}
+  \end{equation}
+  gilt.
+\end{lem}
 
+\begin{proof}
+  Wir zeigen zunächst, dass für ein beliebiges beschränktes \lipschitz\hyp{}Gebiet $\Omega_1 \subseteq \Omega$ mit $\overline\Omega_0 \subseteq \Omega_1 \subseteq \overline\Omega_1 \subseteq \Omega$ ein eindeutig bestimmtes $p \in L^q(\Omega_1)$ existiert, welches die Behauptung des Lemmas erfüllt.
+
+  Ähnlich zum ersten Beweisschritt von Lemma \ref{lem:lipschitzExhaust} finden wir ein weiteres beschränktes \lipschitz\hyp{}Gebiet $\Omega_2$ mit $\overline\Omega_1 \subseteq \Omega_2 \subseteq \overline\Omega_2 \subseteq \Omega$.
+  Dazu wählen wir ein $x_0 \in \Omega_1$ und finden aufgrund der vorausgesetzten Beschränktheit von $\Omega_1$ ein $r > 0$, sodass $\Omega_1 \subseteq B_r(x_0)$ gilt.
+  Wir wählen sodann die $x_0$ enthaltende Zusammenhangskomponente $\widetilde\Omega_2$ von $B_r(x_0) \cap \Omega$ aus und konstruieren wie schon im Beweis von Lemma \ref{lem:lipschitzExhaust} das beschränkte \lipschitz\hyp{}Gebiet $\Omega_2 = \widehat\Omega_2$.
+
+  Der Voraussetzung $f \in W_{\loc}^{-1,q}(\Omega)^n$ entnehmen wir, dass $f \in W^{-1,q}(\Omega_2)^n$ gilt. Zudem existiert aufgrund der Beschränktheit von $\Omega_2$ nach Lemma \ref{lem:divRepresentation} eine Darstellung
+  $$
+  f = \div F \quad\text{mit}\quad F = (F_{jl})_{j,l=1}^n \in L^q(\Omega_2)^{n^2}.
+  $$
+
+\end{proof}
