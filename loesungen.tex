@@ -1,5 +1,5 @@
 \chapter{Lösungen von $\nabla p = f$}
-\section{Lipschitz-Gebiete und Gebietszerlegungen}
+\section{Lipschitz-Gebiete und Gebietsapproximation}
 
 \begin{defn}
   \lipschitz\hyp{}Gebiete  
@@ -81,7 +81,7 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   \begin{displaymath}
   0 < \lambda \leq \dist(\widehat\Omega_1,\partial\widetilde\Omega_1) \tag{$\ast\ast$},
   \end{displaymath}
-  wobei $\lambda$ die \lebesgue sche Zahl der Überdeckung $B_{\varepsilon_1}(x_1),\dots,B_{\varepsilon_1}(x_m)$ von $\partial\widetilde\Omega_1$ aus dem ersten Schritt des Beweises bezeichne.
+  wobei $\lambda$ die \lebesgue\hyp{}Zahl der Überdeckung $B_{\varepsilon_1}(x_1),\dots,B_{\varepsilon_1}(x_m)$ von $\partial\widetilde\Omega_1$ aus dem ersten Schritt des Beweises bezeichne.
   Die Ungleichungen ($\ast$) und ($\ast\ast$) zusammen ergeben nun die Behauptung.
 
   Setzen wir noch $\Omega_2 := \widehat\Omega_2$ und $\varepsilon_2 := \varepsilon$, so erhalten wir einerseits $\overline\Omega_1 \subseteq \Omega_2$, denn $\Omega_1 \subseteq \Omega_2$ gilt nach Konstruktion, sowie $0 < \dist(x,\partial\widehat\Omega_2) =: d$ für alle $x \in \partial\widehat\Omega_1$. Dann gilt aber auch $B_{\frac{d}{2}}(x) \subseteq \widehat\Omega_2$, also insbesondere $x \in \widehat\Omega_2$ für alle $x \in \partial\widehat\Omega_1$. Damit folgt 
@@ -122,6 +122,46 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
 \newpage
 \section{Darstellung von Funktionalen}
 
+Zunächst beschäftigen wir uns mit dem Gradientenoperator.
+Wir wollen zeigen, dass er unter gewissen Zusatzvoraussetzungen ein abgeschlossenes Bild besitzt.
+Dies ist Inhalt des folgenden Lemmas.
+
+\begin{lem}
+  \label{lem:closedImageGradient}
+  Sei $\Omega \subseteq \mathbb{R}^n$ mit $n \geq 2$ ein beschränktes Gebiet und $1 < q < \infty$.
+  Dann gilt für die Abbildung
+  $$
+  \nabla \colon L^{q}(\Omega)^{n} \to (C_0^\infty(\Omega)^n)',
+  $$
+  dass das Bild
+  $$
+  \{\nabla v \in L^{q}(\Omega)^{n^2} \colon v \in W_0^{1,q}(\Omega)^n\} \subseteq L^{q}(\Omega)^{n^2}
+  $$
+  der Einschränkung von $\nabla$ auf $W_0^{1,q}$ eine abgeschlossene Teilmenge des Raumes $L^q(\Omega)^{n^2}$ ist.
+\end{lem}
+
+\begin{proof}
+  Sei $(v_j)_{j \in \N}$ eine Folge in $W_0^{1,q}(\Omega)^n$, sodass die Folge der Gradienten $(\nabla v_j)_{j \in \N}$ in $L^q(\Omega)^{n^2}$ konvergiert.
+  Als konvergente Folge ist diese insbesondere eine \cauchy\hyp{}Folge.
+  Da $\Omega$ nach Voraussetzung ein beschränktes Gebiet ist, lässt sich die \poincare\hyp{}Ungleichung anwenden.
+  Daraus folgt, dass auch die Folge $(v_j)_{j \in \N}$ eine \cauchy\hyp{}Folge in $L^q(\Omega)^n$ ist.
+  Dann gilt jedoch mit der Definition der \sobolev\hyp{}Norm die Ungleichung
+  $$
+  ||v_j - v_k||_{W_{1,q}} \leq c (||v_j - v_k||_q + ||\nabla v_j - \nabla v_k||_q)
+  $$
+  für ein aufgrund der verwendeten Normäquivalenz existierendes $c > 0$ und alle $j,k \in \N$.
+  Die Folge $(v_j)_{j \in \N}$ ist also auch eine \cauchy\hyp{}Folge bezüglich \sobolev\hyp{}Norm
+  Der Raum $W_0^{1,q}$ nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}$ und damit gilt $\lim_{j \to \infty} v_j = v \in W_0^{1,q}$.
+  Da zudem
+  $$
+  ||\nabla v_j||_{L_{1,q}} \leq ||v||_{W_{1,q}}  
+  $$
+  gilt, muss also auch $\lim_{j \to \infty} \nabla v_j = \nabla v$ gelten.
+  Dies beweist, dass $D$ ein abgeschlossener Unterraum von $L^q(\Omega)^{n^2}$ ist.
+\end{proof}
+
+Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Verallgemeinerung dieses Lemmas bewiesen. 
+
 \begin{lem}
   \label{lem:divRepresentation}
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beschränktes Gebiet und $f \in W^{-1,q}(\Omega)^n$ mit $1 < q < \infty$.
@@ -142,6 +182,8 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   D := \{\nabla v \in L^{q'}(\Omega)^{n^2} \colon v \in W_0^{1,q'}(\Omega)^n\} \subseteq L^{q'}(\Omega)^{n^2}
   $$
   der Gradienten $\nabla v = (D_j v_l)_{j,l=1}^n$ von Funktionen $v = (v_1,\dots,v_n) \in W_0^{1,q'}(\Omega)^n$.
+  Nach Lemma \ref{lem:closedImageGradient} ist $D$ ein abgeschlossener Unterraum von $L^{q'}(\Omega)^{n^2}$.
+
   Wir definieren das Funktional
   $$
   \tilde f \colon \nabla v \mapsto [\tilde f, \nabla v]\;, \quad \nabla v \in D
@@ -155,9 +197,10 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   \leq C ||f||_{-1,q} ||\nabla v ||_{q'}
   $$
   für alle $\nabla v \in D$ gilt.
-  Somit ist $\tilde f$ ein stetiges Funktional auf $D \subseteq L^{q'}(\Omega)^{n^2}$.
-  Der Satz von \hahn\hyp{}\banach\ liefert eine normgleiche Fortsetzung von von $D$ nach $L^{q'}(\Omega)^{n^2}$.
-  Nach dem Darstellungssatz über Funktionale existiert nun eine Matrix $F \in L^{q}(\Omega)^{n^2}$ mit
+  Somit ist $\tilde f$ ein stetiges Funktional auf $D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
+  $$||\tilde f|||_{D'} \leq C||f||_{-1,q}.$$
+  Der Satz von \hahn\hyp{}\banach\ liefert eine normgleiche Fortsetzung von $D$ nach $L^{q'}(\Omega)^{n^2}$.
+  Nach dem Darstellungssatz über Funktionale \cite{werner2011fa}[?] existiert nun eine Matrix $F \in L^{q}(\Omega)^{n^2}$ mit
   $$
   \langle F, \nabla v \rangle
   = \sum_{j,l=1}^n \int_\Omega F_{jl}(D_j v_l) \d x
@@ -165,14 +208,36 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   = [\tilde f, \nabla v] 
   = [f, v]
   $$
+  für alle $v = (v_1,\dots,v_n) \in W_0^{1,q'}(\Omega)^n$.
+  Zudem gilt
+  $$ ||F||_{L^q(\Omega)^{n^2}} = ||\tilde f||_{(L^{q'}(\Omega)^{n^2})'} \leq C ||f||_{-1,q},$$
+  da die Identifikation von Funktionalen auf $L^{q'}(\Omega)^{n^2}$ mit Funktionen aus $L^q(\Omega)^{n^2}$ isometrisch ist.
+  Des Weiteren gilt für alle $v \in W_0^{1,q'}(\Omega)^n$ mit der \hoelder\hyp{}Ungleichung
+  \begin{align*}
+    |[f,v]| 
+    &= |\langle F, \nabla v\rangle|  \\
+    &\leq ||F||_q ||\nabla v||_{q'}  \\
+    &\leq ||F||_q (||v||_{q'}^{q'} + ||\nabla v||_{q'}^{q'})^{\frac{1}{q'}} \\
+    &= ||F||_q ||v||_{W_0^{1,q'}(\Omega)^n}.
+  \end{align*}
+  Daraus folgt
+  $$
+  ||f||_{W^{-1,2}(\Omega)} \leq ||F||_2.
+  $$
+  Ist nun $v \in C_0^\infty(\Omega)^n$, so gilt
+  \begin{align*}
+    [f,v]
+    &= \langle F, \nabla v\rangle \\
+    &= \sum_{j,l=1}^n \langle F_{jl}, D_j v_l \rangle \\
+    &= -\sum_{j,l=1}^n \langle D_j F_{jl}, v_l \rangle \\
+    &= -[\div F, v], \\
+  \end{align*}
+  die Abbildungen $[f,\cdot]$ und $[-\div F, \cdot]$ stimmen also im Sinne von Distributionen überein die zu zeigende Aussage folgt durch den Übergang von $F$ zu $-F$.
 \end{proof}
 
-\begin{itemize}
-  \item \cite{sohr2001navier}[S.61, Lemma 1.6.1]
-\end{itemize}
-
-
 \section{Das Gradientenkriterium}
+
+In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundamentales Kriterium vor, welches es ermöglicht, Funktionen $f \in W^{1,q}(\Omega)^n$ als Gradienten $f = \nabla p$ mit $p \in L^q(\Omega)$ darzustellen.
 
 \begin{lem}
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein Gebiet $\Omega_0 \subseteq \Omega$ ein beschränktes Teilgebiet mit $\emptyset \neq \overline\Omega_0 \subseteq \Omega$ und $1 < q < \infty$.
@@ -200,5 +265,7 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   $$
   f = \div F \quad\text{mit}\quad F = (F_{jl})_{j,l=1}^n \in L^q(\Omega_2)^{n^2}.
   $$
+
+  Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ den in Abschnitt \ref{subsec:smoothMolly} definierte Faltung von $F$ mit einem Glättungskern.
 
 \end{proof}
