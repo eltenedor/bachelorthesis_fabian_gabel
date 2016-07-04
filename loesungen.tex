@@ -267,5 +267,22 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   $$
 
   Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ den in Abschnitt \ref{subsec:smoothMolly} definierte Faltung von $F$ mit einem Glättungskern.
+  Wir wollen beweisen, dass eine Darstellung der Form
+  $$
+  \div F^\varepsilon = \nabla U_\varepsilon
+  $$
+  mit einem $U_\varepsilon \in C^\infty(\overline\Omega_1)$ existiert.
+  Aus der Funktionentheorie ist bekannt, dass jede auf der zusammenhängenden Menge $\overline\Omega_1$ definierte glatte Abbildung $g \in C^\infty(\overline\Omega_1)^n$ genau dann ein Potential besitzt, falls das Kurvenintegral entlang jeder in $\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \overline\Omega_1$ verschwindet, also genau dann, falls
+  $$
+  \oint_w g \cdot \d s = \int_0^1 g(w(\tau))\cdot w'(\tau) \d\tau = 0
+  $$
+  für alle glatten Kurven $w$ gilt.
+
+  Um dies zu beweisen definieren wir für alle $x\in\Omega_2$ den Wert des Integrals
+  $$
+  V_{w,\varepsilon}(x) := \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w'(\tau)\d\tau
+  $$
+  und erhalten durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale sofort $ V_{w,\varepsilon} \in C_0^\infty(\Omega_2)^n$
+
 
 \end{proof}
