@@ -119,7 +119,10 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   \item \cite{sohr2001navier}[S.58, Lemma 1.5.4]
 \end{itemize}
 
-\newpage
+\begin{lem}
+  \label{lem:compactEmbedding}
+\end{lem}
+
 \section{Darstellung von Funktionalen}
 
 Zunächst beschäftigen wir uns mit dem Gradientenoperator.
@@ -150,8 +153,8 @@ Dies ist Inhalt des folgenden Lemmas.
   ||v_j - v_k||_{W_{1,q}} \leq c (||v_j - v_k||_q + ||\nabla v_j - \nabla v_k||_q)
   $$
   für ein aufgrund der verwendeten Normäquivalenz existierendes $c > 0$ und alle $j,k \in \N$.
-  Die Folge $(v_j)_{j \in \N}$ ist also auch eine \cauchy\hyp{}Folge bezüglich \sobolev\hyp{}Norm
-  Der Raum $W_0^{1,q}$ nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}$ und damit gilt $\lim_{j \to \infty} v_j = v \in W_0^{1,q}$.
+  Die Folge $(v_j)_{j \in \N}$ ist also auch eine \cauchy\hyp{}Folge bezüglich \sobolev\hyp{}Norm.
+  Der Raum $W_0^{1,q}$ ist nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}$ und damit gilt $\lim_{j \to \infty} v_j = v \in W_0^{1,q}$.
   Da zudem
   $$
   ||\nabla v_j||_{L_{1,q}} \leq ||v||_{W_{1,q}}  
@@ -160,7 +163,7 @@ Dies ist Inhalt des folgenden Lemmas.
   Dies beweist, dass $D$ ein abgeschlossener Unterraum von $L^q(\Omega)^{n^2}$ ist.
 \end{proof}
 
-Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Verallgemeinerung dieses Lemmas bewiesen. 
+Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Verallgemeinerung dieses Lemmas. 
 
 \begin{lem}
   \label{lem:divRepresentation}
@@ -189,12 +192,12 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   \tilde f \colon \nabla v \mapsto [\tilde f, \nabla v]\;, \quad \nabla v \in D
   $$
   durch $[\tilde f, \nabla v] := [f, v]$ für alle $v \in W_0^{1,q'}(\Omega)^n$.
-  Dann liefert die \poincare\hyp{}Ungleichung zusammen mit der \hoelder\hyp{}Ungleichung eine Konstante $C = C(\Omega) > 0$, sodass 
+  Dann liefert die \hoelder\hyp{}Ungleichung zusammen mit der \poincare\hyp{}Ungleichungeine Konstante $C = C(\Omega) > 0$, sodass 
   $$
   |[\tilde f, \nabla v]| 
   = |[f, v]| 
-  \leq ||f||_{-1,q} ||v||_{1,q'}
-  \leq C ||f||_{-1,q} ||\nabla v ||_{q'}
+  \underset{\hoelder}{\leq} ||f||_{-1,q} ||v||_{1,q'}
+  \underset{\poincare}{\leq} C ||f||_{-1,q} ||\nabla v ||_{q'}
   $$
   für alle $\nabla v \in D$ gilt.
   Somit ist $\tilde f$ ein stetiges Funktional auf $D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
@@ -213,13 +216,13 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   $$ ||F||_{L^q(\Omega)^{n^2}} = ||\tilde f||_{(L^{q'}(\Omega)^{n^2})'} \leq C ||f||_{-1,q},$$
   da die Identifikation von Funktionalen auf $L^{q'}(\Omega)^{n^2}$ mit Funktionen aus $L^q(\Omega)^{n^2}$ isometrisch ist.
   Des Weiteren gilt für alle $v \in W_0^{1,q'}(\Omega)^n$ mit der \hoelder\hyp{}Ungleichung
-  \begin{align*}
+  \begin{alignat*}{2}
     |[f,v]| 
     &= |\langle F, \nabla v\rangle|  \\
-    &\leq ||F||_q ||\nabla v||_{q'}  \\
-    &\leq ||F||_q (||v||_{q'}^{q'} + ||\nabla v||_{q'}^{q'})^{\frac{1}{q'}} \\
+    &\leq ||F||_q ||\nabla v||_{q'}  \qquad &&\text{\hoelder\hyp{}Ungleichung}\\
+    &\leq ||F||_q (||v||_{q'}^{q'} + ||\nabla v||_{q'}^{q'})^{\frac{1}{q'}} \qquad &&\text{Übergang zu \sobolev\hyp{}Norm}\\
     &= ||F||_q ||v||_{W_0^{1,q'}(\Omega)^n}.
-  \end{align*}
+  \end{alignat*}
   Daraus folgt
   $$
   ||f||_{W^{-1,2}(\Omega)} \leq ||F||_2.
@@ -272,17 +275,64 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   \div F^\varepsilon = \nabla U_\varepsilon
   $$
   mit einem $U_\varepsilon \in C^\infty(\overline\Omega_1)$ existiert.
-  Aus der Funktionentheorie ist bekannt, dass jede auf der zusammenhängenden Menge $\overline\Omega_1$ definierte glatte Abbildung $g \in C^\infty(\overline\Omega_1)^n$ genau dann ein Potential besitzt, falls das Kurvenintegral entlang jeder in $\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \overline\Omega_1$ verschwindet, also genau dann, falls
+  Aus der Funktionentheorie ist bekannt, dass jede auf der zusammenhängenden Menge $\overline\Omega_1$ definierte glatte Abbildung $g \in C^\infty(\overline\Omega_1)^n$ genau dann ein Potential besitzt, falls das Kurvenintegral entlang jeder in $\overline\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \overline\Omega_1$ verschwindet, also genau dann, falls
   $$
   \oint_w g \cdot \d s = \int_0^1 g(w(\tau))\cdot w'(\tau) \d\tau = 0
   $$
-  für alle glatten Kurven $w$ gilt.
+  für alle glatten Kurven $w$ in $\overline\Omega_1$ gilt.
 
   Um dies zu beweisen definieren wir für alle $x\in\Omega_2$ den Wert des Integrals
   $$
   V_{w,\varepsilon}(x) := \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w'(\tau)\d\tau
   $$
-  und erhalten durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale sofort $ V_{w,\varepsilon} \in C_0^\infty(\Omega_2)^n$
+  und erhalten durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale $ V_{w,\varepsilon} \in C_0^\infty(\Omega_2)^n$.
+  Darüber hinaus gilt für eine geschlossene Kurve $w$ in $\overline\Omega_1$ folgende Rechnung
+  \begin{align*}
+    \div V_{w,\varepsilon}(x) 
+    &= \int_0^1 \sum_{j=1}^n (D_j \mathcal{F}_\varepsilon)(x - w(\tau))w_j'(\tau) \d\tau \\
+    &= -\int_0^1 \frac{\d\ }{\d\tau}\mathcal{F}_\varepsilon(x - w(\tau)) \d\tau \tag{Kettenregel}\\
+    &= \mathcal{F}_\varepsilon(x - w(0)) - \mathcal{F}_\varepsilon(x - w(1)) \tag{Hauptsatz}\\
+    &= 0 \tag{geschlossene Kurve}
+  \end{align*}
 
+  Hiermit folgt $V_{w,\varepsilon} \in C_{0,\sigma}^\infty(\Omega_2)^n$.
+  Unter Verwendung der Voraussetzung aus Gleichung (\ref{eq:vKernel}) und dem Satz von \fubini\ folgt
+  \begin{alignat*}{2}
+    0
+    %
+    &= [f, V_{w, \varepsilon}] \qquad &&\text{Voraussetzung (\ref{eq:vKernel})}\\
+    %
+    &= [\div F, V_{w, \varepsilon}] \\
+    %
+    &= \int_{\Omega_2} \div F \cdot V_{w, \varepsilon} \d x \\
+    %
+    &= \int_{\Omega_2} \sum_{j,l=1}^n D_j F_{jl}(x) \left( \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \right) \d x \\
+    %
+    &= \sum_{j,l=1}^n \int_{\Omega_2} D_j F_{jl}(x) \left( \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \right) \d x \\
+    %
+    &= \sum_{j,l=1}^n \int_{\Omega_2} \int_0^1 D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x \\
+    %
+    &= \sum_{j,l=1}^n \int_0^1 \int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x \qquad &&\text{Satz von \fubini}\\
+    %
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))\d x \right) w_l'(\tau) \d\tau \\
+    %
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(w(\tau) - x)\d x \right) w_l'(\tau) \d\tau \\
+    %
+    &= \sum_{j,l=1}^n \int_0^1 \left(D_j F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \\
+    %
+    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \qquad && \text{(1.7.17)}\\
+    %
+    &= \sum_{j,l=1}^n \int_0^1 (D_j F_{jl}^\varepsilon)(w(\tau)) w_l'(\tau) \d\tau \\
+    %
+    &= \int_0^1 (\div F^\varepsilon)(w(\tau)) \cdot w'(\tau) \d\tau \\
+    %
+    &= \oint_w \div F^\varepsilon \cdot \d s \\
+  \end{alignat*}
+
+  Es existiert also ein $U_\varepsilon \in C^\infty(\overline\Omega_1)$ mit $\div F^\varepsilon = \nabla U_\varepsilon$.
+  Die Funktion $U_\varepsilon$ ist bis auf eine Konstante $C$ eindeutig bestimmt, denn es gilt $\nabla U_\varepsilon = \nabla( U_\varepsilon - C)$.
+  Wir können durch die Wahl $C = \int_{\Omega_0} U_\varepsilon \d x$ erreichen, dass $\int_{\Omega_0} U_\varepsilon - C \d x = 0$  gilt.
+  Im Folgenden bezeichnen wir die so gewählte Funktion wieder mit $U_\varepsilon$.
+  Mit Lemma \ref{lem:compactEmbedding} folgt.
 
 \end{proof}
