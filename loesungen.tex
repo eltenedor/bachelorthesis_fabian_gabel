@@ -279,25 +279,31 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   \div F^\varepsilon = \nabla U_\varepsilon
   $$
   mit einem $U_\varepsilon \in C^\infty(\overline\Omega_1)$ existiert.
-  Aus der Funktionentheorie ist bekannt, dass jede auf der zusammenhängenden Menge $\overline\Omega_1$ definierte glatte Abbildung $g \in C^\infty(\overline\Omega_1)^n$ genau dann ein Potential besitzt, falls das Kurvenintegral entlang jeder in $\overline\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \overline\Omega_1$ verschwindet, also genau dann, falls
+
+  Ein bekanntes Resultat aus der Funktionentheorie besagt, dass jedes auf dem Gebiet $\Omega_1$ definierte glatte Vektorfeld $g \in C^\infty(\Omega_1)^n$ genau dann ein Potential $\Phi \in C^\infty(\Omega_1)$ besitzt, falls das Kurvenintegral entlang jeder in $\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \Omega_1$ verschwindet, also genau dann, falls
   $$
   \oint_w g \cdot \d s = \int_0^1 g(w(\tau))\cdot w'(\tau) \d\tau = 0
   $$
-  für alle glatten Kurven $w$ in $\overline\Omega_1$ gilt.
+  für alle glatten Kurven $w$ in $\Omega_1$ gilt.
+  Da sich stetige Funktionen und damit auch die Ableitungen glatter Funktionen eindeutig und stetig auf den Rand ihres Definitionsbereichs fortsetzen lassen, kann man auch $g \in C^\infty(\overline\Omega_1)^n$ sowie $\Phi \in C^\infty(\overline\Omega_1)$ annehmen.
 
-  Um dies zu beweisen definieren wir für alle $x\in\Omega_2$ den Wert des Integrals
+  Wir nun beweisen, für $\div F^\varepsilon$ beweisen.
+  Dazu definieren wir für alle $x\in\Omega_2$ den Wert des Integrals
   $$
   V_{w,\varepsilon}(x) := \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w'(\tau)\d\tau
   $$
   und erhalten durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale $ V_{w,\varepsilon} \in C_0^\infty(\Omega_2)^n$.
   Darüber hinaus gilt für eine geschlossene Kurve $w$ in $\overline\Omega_1$ folgende Rechnung
+  \begingroup
+  \addtolength{\jot}{0.5em}
   \begin{align*}
     \div V_{w,\varepsilon}(x) 
-    &= \int_0^1 \sum_{j=1}^n (D_j \mathcal{F}_\varepsilon)(x - w(\tau))w_j'(\tau) \d\tau \\
+    &= \int_0^1 \sum_{j=1}^n (D_j \mathcal{F}_\varepsilon)(x - w(\tau))w_j'(\tau) \d\tau \tag{\leibniz}\\
     &= -\int_0^1 \frac{\d\ }{\d\tau}\mathcal{F}_\varepsilon(x - w(\tau)) \d\tau \tag{Kettenregel}\\
     &= \mathcal{F}_\varepsilon(x - w(0)) - \mathcal{F}_\varepsilon(x - w(1)) \tag{Hauptsatz}\\
     &= 0 \tag{geschlossene Kurve}
   \end{align*}
+  \endgroup
 
   Hiermit folgt $V_{w,\varepsilon} \in C_{0,\sigma}^\infty(\Omega_2)^n$.
   Unter Verwendung der Voraussetzung aus Gleichung (\ref{eq:vKernel}) und dem Satz von \fubini\ folgt
