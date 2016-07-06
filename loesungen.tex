@@ -113,6 +113,10 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   Damit gilt auch Eigenschaft d).
 \end{proof}
 
+\begin{bem}
+  Mit der im Beweis von Lemma \ref{lem:lipschitzExhaust} verwendeten Konstruktion gilt nun auch, dass für alle beschränkten Teilgebiete $\Omega' \subseteq \Omega$ mit $\overline{\Omega'} \subseteq \Omega$ ein $j \in \N$ existiert, sodass $\Omega' \subseteq \Omega_j$
+\end{bem}
+
 \section{Kompakte Einbettungen}
 
 \begin{itemize}
@@ -150,14 +154,14 @@ Dies ist Inhalt des folgenden Lemmas.
   Daraus folgt, dass auch die Folge $(v_j)_{j \in \N}$ eine \cauchy\hyp{}Folge in $L^q(\Omega)^n$ ist.
   Dann gilt jedoch mit der Definition der \sobolev\hyp{}Norm die Ungleichung
   $$
-  ||v_j - v_k||_{W_{1,q}} \leq c (||v_j - v_k||_q + ||\nabla v_j - \nabla v_k||_q)
+  \norm{v_j - v_k}_{W_{1,q}} \leq c (\norm{v_j - v_k}_q + \norm{\nabla v_j - \nabla v_k}_q)
   $$
   für ein aufgrund der verwendeten Normäquivalenz existierendes $c > 0$ und alle $j,k \in \N$.
   Die Folge $(v_j)_{j \in \N}$ ist also auch eine \cauchy\hyp{}Folge bezüglich \sobolev\hyp{}Norm.
   Der Raum $W_0^{1,q}$ ist nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}$ und damit gilt $\lim_{j \to \infty} v_j = v \in W_0^{1,q}$.
   Da zudem
   $$
-  ||\nabla v_j||_{L_{1,q}} \leq ||v||_{W_{1,q}}  
+  \norm{\nabla v_j}_{L_{1,q}} \leq \norm{v}_{W_{1,q}}  
   $$
   gilt, muss also auch $\lim_{j \to \infty} \nabla v_j = \nabla v$ gelten.
   Dies beweist, dass $D$ ein abgeschlossener Unterraum von $L^q(\Omega)^{n^2}$ ist.
@@ -172,9 +176,9 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   $$ f = \div F $$
   im distributionellen Sinne und die Ungleichungen
   $$
-  || f ||_{W^{-1,q}(\Omega)^n} 
-  \leq || F ||_{L^q(\Omega)^{n^2}} 
-  \leq C || f ||_{W^{-1,q}(\Omega)^n}
+  \norm{ f }_{W^{-1,q}(\Omega)^n} 
+  \leq \norm{ F }_{L^q(\Omega)^{n^2}} 
+  \leq C \norm{ f }_{W^{-1,q}(\Omega)^n}
   $$
   mit $C = C(\Omega) > 0$ erfüllt.
 \end{lem}
@@ -196,12 +200,12 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   $$
   |[\tilde f, \nabla v]| 
   = |[f, v]| 
-  \underset{\hoelder}{\leq} ||f||_{-1,q} ||v||_{1,q'}
-  \underset{\poincare}{\leq} C ||f||_{-1,q} ||\nabla v ||_{q'}
+  \underset{\hoelder}{\leq} \norm{f}_{-1,q} \norm{v}_{1,q'}
+  \underset{\poincare}{\leq} C \norm{f}_{-1,q} \norm{\nabla v }_{q'}
   $$
   für alle $\nabla v \in D$ gilt.
   Somit ist $\tilde f$ ein stetiges Funktional auf $D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
-  $$||\tilde f|||_{D'} \leq C||f||_{-1,q}.$$
+  $$\norm{\tilde f}_{D'} \leq C\norm{f}_{-1,q}.$$
   Der Satz von \hahn\hyp{}\banach\ liefert eine normgleiche Fortsetzung von $D$ nach $L^{q'}(\Omega)^{n^2}$.
   Nach dem Darstellungssatz über Funktionale \cite{werner2011fa}[?] existiert nun eine Matrix $F \in L^{q}(\Omega)^{n^2}$ mit
   $$
@@ -213,19 +217,19 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   $$
   für alle $v = (v_1,\dots,v_n) \in W_0^{1,q'}(\Omega)^n$.
   Zudem gilt
-  $$ ||F||_{L^q(\Omega)^{n^2}} = ||\tilde f||_{(L^{q'}(\Omega)^{n^2})'} \leq C ||f||_{-1,q},$$
+  $$ \norm{F}_{L^q(\Omega)^{n^2}} = \norm{\tilde f}_{(L^{q'}(\Omega)^{n^2})'} \leq C \norm{f}_{-1,q},$$
   da die Identifikation von Funktionalen auf $L^{q'}(\Omega)^{n^2}$ mit Funktionen aus $L^q(\Omega)^{n^2}$ isometrisch ist.
   Des Weiteren gilt für alle $v \in W_0^{1,q'}(\Omega)^n$ mit der \hoelder\hyp{}Ungleichung
   \begin{alignat*}{2}
     |[f,v]| 
     &= |\langle F, \nabla v\rangle|  \\
-    &\leq ||F||_q ||\nabla v||_{q'}  \qquad &&\text{\hoelder\hyp{}Ungleichung}\\
-    &\leq ||F||_q (||v||_{q'}^{q'} + ||\nabla v||_{q'}^{q'})^{\frac{1}{q'}} \qquad &&\text{Übergang zu \sobolev\hyp{}Norm}\\
-    &= ||F||_q ||v||_{W_0^{1,q'}(\Omega)^n}.
+    &\leq \norm{F}_q \norm{\nabla v}_{q'}  \qquad &&\text{\hoelder\hyp{}Ungleichung}\\
+    &\leq \norm{F}_q (\norm{v}_{q'}^{q'} + \norm{\nabla v}_{q'}^{q'})^{\frac{1}{q'}} \qquad &&\text{Übergang zu \sobolev\hyp{}Norm}\\
+    &= \norm{F}_q \norm{v}_{W_0^{1,q'}(\Omega)^n}.
   \end{alignat*}
   Daraus folgt
   $$
-  ||f||_{W^{-1,2}(\Omega)} \leq ||F||_2.
+  \norm{f}_{W^{-1,2}(\Omega)} \leq \norm{F}_2.
   $$
   Ist nun $v \in C_0^\infty(\Omega)^n$, so gilt
   \begin{align*}
@@ -297,26 +301,28 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
 
   Hiermit folgt $V_{w,\varepsilon} \in C_{0,\sigma}^\infty(\Omega_2)^n$.
   Unter Verwendung der Voraussetzung aus Gleichung (\ref{eq:vKernel}) und dem Satz von \fubini\ folgt
+  \begingroup
+  \addtolength{\jot}{1em}
   \begin{alignat*}{2}
     0
     %
-    &= [f, V_{w, \varepsilon}] \qquad &&\text{Voraussetzung (\ref{eq:vKernel})}\\
+    &= [f, V_{w, \varepsilon}] %\qquad &&\text{Voraussetzung (\ref{eq:vKernel})}\\
     %
-    &= [\div F, V_{w, \varepsilon}] \\
+    = [\div F, V_{w, \varepsilon}] %\\
     %
-    &= \int_{\Omega_2} \div F \cdot V_{w, \varepsilon} \d x \\
+    = \int_{\Omega_2} \div F \cdot V_{w, \varepsilon} \d x \\
     %
     &= \int_{\Omega_2} \sum_{j,l=1}^n D_j F_{jl}(x) \left( \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \right) \d x \\
     %
-    &= \sum_{j,l=1}^n \int_{\Omega_2} D_j F_{jl}(x) \left( \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \right) \d x \\
+    %&= \sum_{j,l=1}^n \int_{\Omega_2} D_j F_{jl}(x) \left( \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \right) \d x \\
     %
-    &= \sum_{j,l=1}^n \int_{\Omega_2} \int_0^1 D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x \\
+    %&= \sum_{j,l=1}^n \int_{\Omega_2} \int_0^1 D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x \\
     %
-    &= \sum_{j,l=1}^n \int_0^1 \int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x \qquad &&\text{Satz von \fubini}\\
+    %&= \sum_{j,l=1}^n \int_0^1 \int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x 
     %
-    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))\d x \right) w_l'(\tau) \d\tau \\
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))\d x \right) w_l'(\tau) \d\tau \qquad &&\text{Satz von \fubini}\\
     %
-    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(w(\tau) - x)\d x \right) w_l'(\tau) \d\tau \\
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(w(\tau) - x)\d x \right) w_l'(\tau) \d\tau \qquad &&\mathcal{F}_\varepsilon(x) = \mathcal{F}_\varepsilon(-x)\\
     %
     &= \sum_{j,l=1}^n \int_0^1 \left(D_j F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \\
     %
@@ -326,13 +332,75 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     %
     &= \int_0^1 (\div F^\varepsilon)(w(\tau)) \cdot w'(\tau) \d\tau \\
     %
-    &= \oint_w \div F^\varepsilon \cdot \d s \\
+    &= \oint_w \div F^\varepsilon \cdot \d s.
   \end{alignat*}
+  \endgroup
 
   Es existiert also ein $U_\varepsilon \in C^\infty(\overline\Omega_1)$ mit $\div F^\varepsilon = \nabla U_\varepsilon$.
-  Die Funktion $U_\varepsilon$ ist bis auf eine Konstante $C$ eindeutig bestimmt, denn es gilt $\nabla U_\varepsilon = \nabla( U_\varepsilon - C)$.
-  Wir können durch die Wahl $C = \int_{\Omega_0} U_\varepsilon \d x$ erreichen, dass $\int_{\Omega_0} U_\varepsilon - C \d x = 0$  gilt.
+  Die Funktion $U_\varepsilon$ ist bis auf eine Konstante $\gamma$ eindeutig bestimmt, denn es gilt $\nabla U_\varepsilon = \nabla( U_\varepsilon - \gamma)$.
+  Wir können durch die Wahl $\gamma = \int_{\Omega_0} U_\varepsilon \d x$ erreichen, dass $\int_{\Omega_0} U_\varepsilon - \gamma \d x = 0$  gilt.
   Im Folgenden bezeichnen wir die so gewählte Funktion wieder mit $U_\varepsilon$.
-  Mit Lemma \ref{lem:compactEmbedding} folgt.
+  Mit Lemma \ref{lem:compactEmbedding} folgt
+  \begingroup
+  \addtolength{\jot}{1em}
+  \begin{align*}
+    \norm{U_\varepsilon}_{L^q(\Omega_1)}
+    &\leq C \norm{ \nabla U_\varepsilon }_{W^{-1,q}(\Omega_1)} \\
+    &= C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left(\frac{|[\nabla U_\varepsilon, v]|}{\norm{\nabla v}_{q'}} \right) \\
+    &\overset{(\ast)}{=} C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left( \frac{|\langle F^\varepsilon, \nabla v \rangle|}{\norm{v}_{q'}}\right) \\
+    &\leq C \norm{F^\varepsilon}_{L^q(\Omega_1} \tag{$\star$}
+  \end{align*}
+  \endgroup
+  für ein $C = C(q,\Omega_0,\Omega_1)$, welches nicht von $\varepsilon$ abhängt. 
+  Die Gleichheit ($\ast$) ergibt sich dabei wie folgt:
+  \begin{align*}
+    \langle F^\varepsilon, \nabla v \rangle
+    &= \int_{\Omega_1} F^\varepsilon \cdot \nabla v \d x \\
+    &= \int_{\Omega_1} \sum_{j,l=1}^n F_{jl}^\varepsilon (D_j v_l) \d x \\
+    &= \int_{\Omega_1} \sum_{j,l=1}^n -(D_jF_{jl}^\varepsilon) v_l \d x \tag{Kompakter Träger}\\
+    &= \int_{\Omega_1} -\div F^\varepsilon \cdot v \d x \\
+    &= \int_{\Omega_1} -\nabla U_\varepsilon \cdot v \d x \\
+    &= -[\nabla U_\varepsilon, v].
+  \end{align*}
 
+  Eine wesentliche Eigenschaft der Glättungskerne ist, dass $\lim_{\varepsilon \to 0} \norm{F - F^\varepsilon}_{L^q(\Omega_1)} = 0$ gilt.
+  Das Netz $(F^\varepsilon)_{\varepsilon \in \R^+}$ ist aufgrund der Konvergenz auch ein \cauchy-Netz.
+  Mit Gleichung ($\star$) gilt dann für alle $0 < \eta < \varepsilon$ die Ungleichung
+  $$
+    \norm{U_\varepsilon - U_\eta}_{L^q(\Omega_1)}
+    \leq C \norm{F^\varepsilon - F^\eta}_{L^q(\Omega_1}.
+  $$
+  Also ist auch $(U_\varepsilon)_{\varepsilon \in R^+}$ ein \cauchy-Netz, welches aufgrund der Vollständigkeit des Raumes $L^q(\Omega_1)$ einen eindeutig bestimmten Grenzwert $U \in L^q(\Omega_1)$ besitzt.
+  Da zudem $\Omega_0$ beschränkt ist, gilt die Inklusionsbeziehung $L^1(\Omega_0) \subseteq L^q(\Omega_0)$.
+  Damit folgt
+  $$
+    | \int_{\Omega_0} U - U_\varepsilon \d x |
+    \leq  \int_{\Omega_0} | U - U_\varepsilon | \d x 
+    = \norm{U - U_\varepsilon}_{L^1(\Omega_0)} 
+    \to 0 \quad\text{für } \varepsilon \to 0,
+  $$
+  also auch
+  $$
+    \int_{\Omega_0} U \d x = \lim_{\varepsilon \to 0} \int_{\Omega_0} U_\varepsilon \d x =  0,
+  $$
+  aufgrund der Wahl von $U^\varepsilon$.
+
+  Nun zeigen wir noch dass $\div F = \nabla U$ im distributionellen Sinne gilt. 
+  Wir halten dazu fest, dass die Konvergenz auf $L^q(\Omega_1)^n$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
+  Es gilt somit $\norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} \to 0$ für $\varepsilon \to 0$.
+  Sei dazu $v \in C_0^\infty(\Omega_1)^n$.
+  Dann gilt
+  \begin{align*}
+    [\nabla U, v]
+    &= \int_{\Omega_1} \nabla U \cdot v \d x \\
+    &= \int_{\Omega_1} \sum_{j = 1}^n (D_j U) v_j \d x \\
+    &= -\int_{\Omega_1} \sum_{j = 1}^n U (D_j v_j) \d x \\ 
+    &= -\int_{\Omega_1} \sum_{j = 1}^n \lim_{\varepsilon \to 0} U_\varepsilon (D_j v_j) \d x \\
+    &\overset{(\clubsuit)}{=} -\lim_{\varepsilon \to 0} \int_{\Omega_1} \nabla U_\varepsilon \cdot v \d x \\
+    &= -\lim_{\varepsilon \to 0} \int_{\Omega_1} \div F^\varepsilon \cdot v \d x \\
+    &= -\lim_{\varepsilon \to 0} \int_{\Omega_1} \sum_{j,l=1}^n F_{jl}^\varepsilon (D_j v_l) \d x \\
+    &\overset{(\clubsuit)}{=} \int_{\Omega_1} \sum_{j,l=1}^n (D_j F_{jl}) v_l \d x \\
+    &= \langle \div F, v \rangle,
+  \end{align*}
+  wobei bei ($\clubsuit$) verwendet wurde, dass $\Omega_1$ beschränkt ist.
 \end{proof}

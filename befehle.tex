@@ -22,8 +22,9 @@
 
 \newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
 \let\divsymb=\div % rename builtin command \div to \divsymb
-\renewcommand{\div}[1]{\mathrm{div} #1} % for divergence
+\renewcommand{\div}[1]{\mathrm{div\,} #1} % for divergence
 \renewcommand{\d}[1]{\ensuremath\, {\operatorname{d}\!{#1}}}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
 
 \newcommand{\banach}{\textsc{Banach}}
 \newcommand{\cauchy}{\textsc{Cauchy}}
@@ -40,6 +41,7 @@
 \newcommand{\poincare}{\textsc{Poincaré}}
 \newcommand{\sobolev}{\textsc{Sobolev}}
 \newcommand{\weyl}{\textsc{Weyl}}
+
 
 
 % Umgebungen für Definitionen, Sätze, usw.
