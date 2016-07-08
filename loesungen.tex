@@ -196,7 +196,7 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   \tilde f \colon \nabla v \mapsto [\tilde f, \nabla v]\;, \quad \nabla v \in D
   $$
   durch $[\tilde f, \nabla v] := [f, v]$ für alle $v \in W_0^{1,q'}(\Omega)^n$.
-  Dann liefert die \hoelder\hyp{}Ungleichung zusammen mit der \poincare\hyp{}Ungleichungeine Konstante $C = C(\Omega) > 0$, sodass 
+  Dann liefert die \hoelder\hyp{}Ungleichung zusammen mit der \poincare\hyp{}Ungleichung eine Konstante $C = C(\Omega) > 0$, sodass 
   $$
   |[\tilde f, \nabla v]| 
   = |[f, v]| 
@@ -207,7 +207,7 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   Somit ist $\tilde f$ ein stetiges Funktional auf $D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
   $$\norm{\tilde f}_{D'} \leq C\norm{f}_{-1,q}.$$
   Der Satz von \hahn\hyp{}\banach\ liefert eine normgleiche Fortsetzung von $D$ nach $L^{q'}(\Omega)^{n^2}$.
-  Nach dem Darstellungssatz über Funktionale \cite{werner2011fa}[?] existiert nun eine Matrix $F \in L^{q}(\Omega)^{n^2}$ mit
+  Nach dem Darstellungssatz von \riesz\ über Funktionale auf $L^{q}$  existiert nun eine Matrix $F \in L^{q}(\Omega)^{n^2}$ mit
   $$
   \langle F, \nabla v \rangle
   = \sum_{j,l=1}^n \int_\Omega F_{jl}(D_j v_l) \d x
@@ -216,17 +216,18 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   = [f, v]
   $$
   für alle $v = (v_1,\dots,v_n) \in W_0^{1,q'}(\Omega)^n$.
+  Beweise des Darstellungssatzes finden sich in \cite{adams2003sobolev}[S.47, Theorem 2.44] und \cite{werner2011fa}[?].
   Zudem gilt
   $$ \norm{F}_{L^q(\Omega)^{n^2}} = \norm{\tilde f}_{(L^{q'}(\Omega)^{n^2})'} \leq C \norm{f}_{-1,q},$$
   da die Identifikation von Funktionalen auf $L^{q'}(\Omega)^{n^2}$ mit Funktionen aus $L^q(\Omega)^{n^2}$ isometrisch ist.
   Des Weiteren gilt für alle $v \in W_0^{1,q'}(\Omega)^n$ mit der \hoelder\hyp{}Ungleichung
-  \begin{alignat*}{2}
+  \begin{align*}
     |[f,v]| 
     &= |\langle F, \nabla v\rangle|  \\
-    &\leq \norm{F}_q \norm{\nabla v}_{q'}  \qquad &&\text{\hoelder\hyp{}Ungleichung}\\
-    &\leq \norm{F}_q (\norm{v}_{q'}^{q'} + \norm{\nabla v}_{q'}^{q'})^{\frac{1}{q'}} \qquad &&\text{Übergang zu \sobolev\hyp{}Norm}\\
+    &\leq \norm{F}_q \norm{\nabla v}_{q'}  \tag{\hoelder\hyp{}Ungleichung}\\
+    &\leq \norm{F}_q (\norm{v}_{q'}^{q'} + \norm{\nabla v}_{q'}^{q'})^{\frac{1}{q'}} \tag{Übergang zu \sobolev\hyp{}Norm}\\
     &= \norm{F}_q \norm{v}_{W_0^{1,q'}(\Omega)^n}.
-  \end{alignat*}
+  \end{align*}
   Daraus folgt
   $$
   \norm{f}_{W^{-1,2}(\Omega)} \leq \norm{F}_2.
@@ -239,7 +240,7 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
     &= -\sum_{j,l=1}^n \langle D_j F_{jl}, v_l \rangle \\
     &= -[\div F, v], \\
   \end{align*}
-  die Abbildungen $[f,\cdot]$ und $[-\div F, \cdot]$ stimmen also im Sinne von Distributionen überein die zu zeigende Aussage folgt durch den Übergang von $F$ zu $-F$.
+  die Abbildungen $[f,\cdot]$ und $[-\div F, \cdot]$ stimmen also im Sinne von Distributionen überein, die zu zeigende Aussage folgt durch den Übergang von $F$ zu $-F$.
 \end{proof}
 
 \section{Das Gradientenkriterium}
@@ -273,7 +274,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   f = \div F \quad\text{mit}\quad F = (F_{jl})_{j,l=1}^n \in L^q(\Omega_2)^{n^2}.
   $$
 
-  Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ den in Abschnitt \ref{subsec:smoothMolly} definierte Faltung von $F$ mit einem Glättungskern.
+  Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ die in Abschnitt \ref{subsec:smoothMolly} definierte Faltung von $F$ mit einem Glättungskern.
   Wir wollen beweisen, dass eine Darstellung der Form
   $$
   \div F^\varepsilon = \nabla U_\varepsilon
@@ -309,7 +310,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   Unter Verwendung der Voraussetzung aus Gleichung (\ref{eq:vKernel}) und dem Satz von \fubini\ folgt
   \begingroup
   \addtolength{\jot}{1em}
-  \begin{alignat*}{2}
+  \begin{align*}
     0
     %
     &= [f, V_{w, \varepsilon}] %\qquad &&\text{Voraussetzung (\ref{eq:vKernel})}\\
@@ -326,20 +327,20 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     %
     %&= \sum_{j,l=1}^n \int_0^1 \int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x 
     %
-    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))\d x \right) w_l'(\tau) \d\tau \qquad &&\text{Satz von \fubini}\\
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))\d x \right) w_l'(\tau) \d\tau \tag{Satz von \fubini}\\
     %
-    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(w(\tau) - x)\d x \right) w_l'(\tau) \d\tau \qquad &&\mathcal{F}_\varepsilon(x) = \mathcal{F}_\varepsilon(-x)\\
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(w(\tau) - x)\d x \right) w_l'(\tau) \d\tau \tag{$\mathcal{F}_\varepsilon(x) = \mathcal{F}_\varepsilon(-x)$}\\
     %
     &= \sum_{j,l=1}^n \int_0^1 \left(D_j F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \\
     %
-    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \qquad && \text{(1.7.17)}\\
+    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \tag{1.7.17}\\
     %
     &= \sum_{j,l=1}^n \int_0^1 (D_j F_{jl}^\varepsilon)(w(\tau)) w_l'(\tau) \d\tau \\
     %
     &= \int_0^1 (\div F^\varepsilon)(w(\tau)) \cdot w'(\tau) \d\tau \\
     %
     &= \oint_w \div F^\varepsilon \cdot \d s.
-  \end{alignat*}
+  \end{align*}
   \endgroup
 
   Es existiert also ein $U_\varepsilon \in C^\infty(\overline\Omega_1)$ mit $\div F^\varepsilon = \nabla U_\varepsilon$.
