@@ -11,15 +11,61 @@
 
 \section{Funktionalanalytische Grundlagen -- Distributionen und Sobolevräume}
 
+Dieses Unterkapitel beschäftigt sich mit den für die kommenden Kapitel zentralen Funktionenräumen und dient zudem der Einführung der verwendeten Notation und Bildung der verwendeten Begriffe.
+Die Notation ist an \cite{sohr2001navier} angelehnt.
+
 %\subsection{Theorie des Hilbertraums}
 %Hauptsächlich zur Einführung der Verwendeten Notation
 \subsection{Glatte Funktionen und Glättungskerne}
 \label{subsec:smoothMolly}
 
+Ziel dieses Abschnittes ist es die nötigen Begriffe und Definitionen im Zusammenhang mit glatten Funktionen bereitzustellen.
+Im Folgenden bezeichne $\Omega \subseteq \R^n$ stets ein nichtleeres Gebiet.
+
+Sei $k \in \N$ so bezeichne $C^k(\Omega)$ die Menge aller Funktionen
+$$
+u \colon \Omega \to \R, \quad x \mapsto u(x),
+$$
+sodass alle partiellen Ableitungen $D^\alpha u$ existieren und stetig sind für alle Multiindices $\alpha \in N_0^n$ mit $0 \leq |\alpha| \leq k$. Mit
+$$
+  C^\infty(\Omega) := \bigcap_{k = 0}^\infty C^k(\Omega)
+$$
+bezeichnen wir den Raum der glatten Funktionen auf $\Omega$.
+
+Im Kontext von $L^p$-Räumen spielt ein Funktionenraum eine wichtige Rolle bei der Approximation von $L^p$-Funktionen: der Raum der glatten Funktionen mit kompaktem Träger
+$$
+C_0^\infty := \{ u \in C^\infty(\Omega) \mid \supp u \text{ kompakt und } \supp u \subseteq \Omega\}.
+$$
+Wir werden zudem den Raum $C^\infty(\overline\Omega)$ aller Restriktionen $u|_{\overline\Omega}$ von Funktionen aus $C^\infty(\Omega)$ mit
+\begin{displaymath}
+  \sup_{|\alpha| < \infty, x \in \R^n} |D^\alpha u(x)| < \infty \tag{$\ast$}
+\end{displaymath}
+benötigen.
+Unter der Voraussetzung aus ($\ast$) lässt sich der Raum $C^\infty(\overline\Omega)$ mit einer Norm ausstatten:
+$$
+\norm{u}_{C^\infty} = \norm{u}_{C^\infty(\overline\Omega} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
+$$
+
+Alle eingeführten Räume lassen sich auf natürliche Weise auf Räume von Vektorfeldern verallgemeinern.
+Man erhält so
+\begin{align*}
+  C^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\Omega), j = 1,\dots,m\} \\
+  C_0^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C_0^\infty(\Omega), j = 1,\dots,m\} \\
+  C^\infty(\overline\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\overline\Omega), j = 1,\dots,m\} 
+\end{align*}
+wobei der letzte Vektorraum durch die Norm
+$$
+\norm{u}_{C^\infty} = \norm{u}_{C^\infty(\overline\Omega)}^m := \sup_{j = 1,\dots, m} \norm{u_j}_{C^k(\overline\Omega)}
+$$
+zu einem normierten Vektorraum wird.
+
+Von besonderer Rolle für die Lösungstheorie der stationären inkompressiblen \navier\hyp{}\stokes\hyp{}Gleichungen ist der Raum
+$$
+C_{0,\sigma}^\infty(\Omega) := \{u \in C_0^\infty(\Omega)^n \mid \div u = 0\}
+$$
+der divergenzfreien Vektorfelder.
+
 \begin{itemize}
-  \item \cite{sohr2001navier}[S.22ff.]
-  \item glatte / Testfunktionen definieren
-  \item Normfamilien und Teilräume angeben
   \item \cite{sohr2001navier}[Die Glättungsmethode S.64ff.]
 \end{itemize}
 
