@@ -1,14 +1,64 @@
 \chapter{Lösungen von $\nabla p = f$}
 \section{Lipschitz-Gebiete und Gebietsapproximation}
 
+Im Folgenden sei $\R^n$ immer mit der \euklid ischen Metrik versehen. Es bezeichne zudem
+$$
+\dist(X,Y) := \inf\{ \norm{x - y} \mid x \in X, y \in Y\}
+$$
+den \euklid ischen Abstand zweier Mengen $X,Y \subseteq \R^n$.
+
 \begin{defn}
   \lipschitz\hyp{}Gebiete  
 \end{defn}
 
 \begin{lem}
   \label{lem:distBoundary}
-  Seien $\emptyset \subsetneq A,B \subsetneq \R^n$. Gilt $A \subseteq B$, so folgt $\dist(x,\partial A) \leq \dist(x \partial B)$ für alle $x \in A$.
+  Seien $\emptyset \subsetneq A,B \subsetneq \R^n$. Gilt $A \subseteq B$, so folgt $\dist(a,\partial A) \leq \dist(a, \partial B)$ für alle $a \in A$.
 \end{lem}
+
+\begin{proof}
+  Da $\R^n$ ein zusammenhängender Raum ist, sind die einzigen Mengen mit leerem Rand die leere Menge und der ganze Raum.
+  Dies wurde jedoch in der Voraussetzung des Lemmas bereits ausgeschlossen, daher nimmt $\dist$ nur endliche Werte an.
+
+  Sei nun $a \in A$ und $b \in \partial B$
+  Wir betrachten den Strahl $s \colon [0,1] \to \mathbb{R}^n$ mit $s(0) = a$ und $s(1) = b$.
+  Zudem können wir annehmen, dass $a,b \not\in \partial A$ gilt, da ansonsten die Ungleichung sofort erfüllt ist.
+  Wir wollen im Folgenden nachweisen, dass ein $t' \in (0,1)$ mit $s(t') \in \partial A$ existiert.
+
+  Dazu definieren wir die Funktion
+  $$
+  f(x) := (1 - 2\chi_A(x)) \cdot \dist(x, \partial A), \quad x \in \R^n,
+  $$
+  wobei $\chi_A$ die charakteristische Funktion der Menge $A$ bezeichne.
+  Als Nächstes weisen wir nach, dass $f$ auf $\R^n$ stetig ist.
+  Es ist bekannt, dass die Funktion $\dist(\cdot, \partial A)$ stetig ist \cite{koenigsberger}.
+  Auf $\R^n \setminus \partial A$ ist zudem $(1 - 2\chi_A(x))$ konstant gleich $-1$ beziehungsweise $1$, also ist $f$ dort stetig.
+
+  Sei nun $(x_n)_{n \in \N}$ eine Folge in $\R^n$ mit $\lim_{n \to \infty} x_n = x \in \partial A$.
+  Dann gilt
+  $$
+  |(1 - 2\chi_A(x_n)) \cdot \dist(x_n, \partial A)| 
+  \leq \dist(x_n,\partial A)
+  \to \dist(x,\partial A) 
+  = 0,
+  $$
+  also auch 
+  $$
+  \lim_{n \to \infty} f(x_n) = 0 = f(x),
+  $$
+  da aufgrund der Abgeschlossenheit von $\partial A$ die Gleichheit $\dist(x,\partial A) = 0$ äquivalent zu $x \in \partial A$ ist ($\ast$).
+
+  Auf $f \circ s$ lässt sich nun der Zwischenwertsatz anwenden, denn nach Voraussetzung gelten
+  $$
+  (f \circ s)(0) = f(a) = -1 \quad\text{und}\quad (f \circ s)(1) = f(b) = 1.
+  $$
+  Somit existiert also ein $t' \in (0,1)$ mit $(f\circ s)(t') = f(s(t')) = 0$, was nach ($\ast$) äquivalent zu $s(t') \in \partial A$ ist.
+  Es ist also
+  $$
+  \norm{a - b} \geq \norm{a - s(t')} - \norm{s(t') - b} \geq \norm{a - s(t')} \geq \dist(x,\partial A).
+  $$
+  Da dies für alle $b \in \partial B$ gilt folgt sogleich $ \dist(a, \partial B) \geq \dist(a, \partial A)$.
+\end{proof}
 
 \begin{bem}
   Wie aus dem Beweis von Lemma \ref{lem:distBoundary} ersichtlich ist, reicht es bereits aus $A$ und $B$ als Teilmengen der konvexen Hülle von $B$ mit euklidischer Spurmetrik und entsprechender Abstandsfunktion $\dist$ zu betrachten.
