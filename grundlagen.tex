@@ -34,9 +34,9 @@ bezeichnen wir den Raum der glatten Funktionen auf $\Omega$.
 
 Im Kontext von $L^p$-Räumen spielt ein Funktionenraum eine wichtige Rolle bei der Approximation von $L^p$-Funktionen: der Raum der glatten Funktionen mit kompaktem Träger
 $$
-C_0^\infty := \{ u \in C^\infty(\Omega) \mid \supp u \text{ kompakt und } \supp u \subseteq \Omega\}.
+C_0^\infty(\Omega) := \{ u \in C^\infty(\Omega) \mid \supp u \text{ kompakt und } \supp u \subseteq \Omega\}.
 $$
-Wir werden zudem den Raum $C^\infty(\overline\Omega)$ aller Restriktionen $u|_{\overline\Omega}$ von Funktionen aus $C^\infty(\Omega)$ mit
+Wir werden zudem den Raum $C^\infty(\overline\Omega)$ aller Restriktionen $u|_{\overline\Omega}$ von Funktionen aus $C^\infty(\R^n)$ mit
 \begin{displaymath}
   \sup_{|\alpha| < \infty, x \in \R^n} |D^\alpha u(x)| < \infty \tag{$\ast$}
 \end{displaymath}
@@ -46,12 +46,12 @@ $$
 \norm{u}_{C^\infty} = \norm{u}_{C^\infty(\overline\Omega} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
 $$
 
-Alle eingeführten Räume lassen sich auf natürliche Weise auf Räume von Vektorfeldern verallgemeinern.
+Alle eingeführten Räume lassen sich auf natürliche Weise zu Räumen von Vektorfeldern verallgemeinern.
 Man erhält so
 \begin{align*}
-  C^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\Omega), j = 1,\dots,m\} \\
-  C_0^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C_0^\infty(\Omega), j = 1,\dots,m\} \\
-  C^\infty(\overline\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\overline\Omega), j = 1,\dots,m\} 
+  C^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\Omega), j = 1,\dots,m\}, \\
+  C_0^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C_0^\infty(\Omega), j = 1,\dots,m\} \quad\text{und} \\
+  C^\infty(\overline\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\overline\Omega), j = 1,\dots,m\},
 \end{align*}
 wobei der letzte Vektorraum durch die Norm
 $$
@@ -63,7 +63,7 @@ zu einem normierten Vektorraum wird.
   \item Andere Definition aus Adams vergleichen und Äquivalenz (?) beweisen.
 \end{itemize}
 
-Von besonderer Rolle für die Lösungstheorie der stationären inkompressiblen \navier\hyp{}\stokes\hyp{}Gleichungen ist der Raum
+Von besonderer Rolle für die Lösungstheorie der stationären inkompressiblen \navier\hyp{}\stokes\hyp{}Gleichungen ist der Untervektorraum
 $$
 C_{0,\sigma}^\infty(\Omega) := \{u \in C_0^\infty(\Omega)^n \mid \div u = 0\}
 $$
@@ -84,6 +84,24 @@ der divergenzfreien Vektorfelder.
   \item lokale Integrierbarkeit beide Definitionen und Äquivalenz
   \item Einbettung von $L^1_{\mathrm{loc}}$ in $C_0^\infty(\Omega)'$
 \end{itemize}
+
+\subsubsection{Lokal integrierbare Funktionen}
+
+Sei $\Omega \subseteq \R^n$ ein Gebiet. Für $1 \leq q \leq \infty$ schreiben wir
+$$
+  u \in L^q_{\loc}(\Omega),
+$$
+und nennen $u$ \emph{lokal integrierbar}, falls $u \in L^q(B)$ für alle offenen Bälle $B \subseteq \Omega$ mit $\overline B \subseteq \Omega$ gilt.
+
+
+\begin{bem}
+  Eine Funktion $u$ ist genau dann lokal integrierbar über $\Omega$, falls $u \in L^q(K)$ für alle Kompakta $K \subseteq \Omega$ gilt.
+
+  Diese Aussage findet man ebenfalls in der Literatur zur Definition lokaler Integrierbarkeit.
+  Tatsächlich ist sie äquivalent zur obigen Definiton.
+  Denn einerseits ist für alle Bälle $B$ auch $\overline B$ ein Kompaktum und die Aussage folgt aus der Inklusionsbeziehung $L^q(\overline B) \subseteq L^q(B)$.
+  Andererseits lässt sich jedes Kompaktum $K$ mit endlich vielen Bällen $B_1, \dots, B_n$ mit $\overline B_i \subseteq \Omega, i =1,\dots,n,$ überdecken und die Umkehrung der Aussage folgt aus der Inklusionsbeziehung $\bigcap_{i = 1}^n L^q(B_i) \subseteq L^q(K)$.
+\end{bem}
 
 \subsection{Differentiation von Distributionen -- Schwache Differenzierbarkeit und Sobolevräume}
 

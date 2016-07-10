@@ -163,9 +163,10 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   Damit gilt auch Eigenschaft d).
 \end{proof}
 
-\begin{bem}
+\begin{bemnumber}
+  \label{bem:boundedSubset}
   Mit der im Beweis von Lemma \ref{lem:lipschitzExhaust} verwendeten Konstruktion gilt nun auch, dass für alle beschränkten Teilgebiete $\Omega' \subseteq \Omega$ mit $\overline{\Omega'} \subseteq \Omega$ ein $j \in \N$ existiert, sodass $\Omega' \subseteq \Omega_j$
-\end{bem}
+\end{bemnumber}
 
 \section{Kompakte Einbettungen}
 
@@ -336,9 +337,9 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   \oint_w g \cdot \d s = \int_0^1 g(w(\tau))\cdot w'(\tau) \d\tau = 0
   $$
   für alle glatten Kurven $w$ in $\Omega_1$ gilt.
-  Da sich stetige Funktionen und damit auch die Ableitungen glatter Funktionen eindeutig und stetig auf den Rand ihres Definitionsbereichs fortsetzen lassen, kann man auch $g \in C^\infty(\overline\Omega_1)^n$ sowie $\Phi \in C^\infty(\overline\Omega_1)$ annehmen.
+  %Da sich stetige Funktionen und damit auch die Ableitungen glatter Funktionen eindeutig und stetig auf den Rand ihres Definitionsbereichs fortsetzen lassen, kann man auch $g \in C^\infty(\overline\Omega_1)^n$ sowie $\Phi \in C^\infty(\overline\Omega_1)$ annehmen.
 
-  Wir nun beweisen, für $\div F^\varepsilon$ beweisen.
+  Wir wollen dies nun für $\div F^\varepsilon$ beweisen.
   Dazu definieren wir für alle $x\in\Omega_2$ den Wert des Integrals
   $$
   V_{w,\varepsilon}(x) := \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w'(\tau)\d\tau
@@ -427,7 +428,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     \norm{U_\varepsilon - U_\eta}_{L^q(\Omega_1)}
     \leq C \norm{F^\varepsilon - F^\eta}_{L^q(\Omega_1}.
   $$
-  Also ist auch $(U_\varepsilon)_{\varepsilon \in R^+}$ ein \cauchy-Netz, welches aufgrund der Vollständigkeit des Raumes $L^q(\Omega_1)$ einen eindeutig bestimmten Grenzwert $U \in L^q(\Omega_1)$ besitzt.
+  Also ist auch $(U_\varepsilon)_{\varepsilon \in \R^+}$ ein \cauchy-Netz, welches aufgrund der Vollständigkeit des Raumes $L^q(\Omega_1)$ einen eindeutig bestimmten Grenzwert $U \in L^q(\Omega_1)$ besitzt.
   Da zudem $\Omega_0$ beschränkt ist, gilt die Inklusionsbeziehung $L^1(\Omega_0) \subseteq L^q(\Omega_0)$.
   Damit folgt
   $$
@@ -443,9 +444,9 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   aufgrund der Wahl von $U^\varepsilon$.
 
   Nun zeigen wir noch dass $\div F = \nabla U$ im distributionellen Sinne gilt. 
-  Wir halten dazu fest, dass die Konvergenz auf $L^q(\Omega_1)^n$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
+  Wir halten dazu zunächst fest, dass die Konvergenz auf $L^q(\Omega_1)^n$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
   Es gilt somit $\norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} \to 0$ für $\varepsilon \to 0$.
-  Sei dazu $v \in C_0^\infty(\Omega_1)^n$.
+  Sei nun $v \in C_0^\infty(\Omega_1)^n$.
   Dann gilt
   \begin{align*}
     [\nabla U, v]
@@ -460,4 +461,20 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     &= \langle \div F, v \rangle,
   \end{align*}
   wobei bei ($\clubsuit$) verwendet wurde, dass $\Omega_1$ beschränkt ist.
+
+  Zuletzt zeigen wir, wie sich die gesuchte Funktion $p$ konstruieren lässt.
+  Wie der Beweis zeigt, lässt sich für jedes beschränkte \lipschitz\hyp{}Gebiet $\Omega_1$ ein $U \in L^q(\Omega_1)$ finden, welches zudem aufgrund der Forderung 
+  $$
+  \int_{\Omega_0} U \d x = 0
+  $$
+  eindeutig bestimmt ist.
+  Nach Lemma \ref{lem:lipschitzExhaust} lässt sich jedes Gebiet $\Omega$ durch eine Folge $(\Omega_j)_{j \in \N}$ beschränkter \lipschitz\hyp{}Gebiete ausschöpfen.
+  Zudem gilt nach Bemerkung \ref{bem:boundedSubset} jedes beschränkte Teilgebiet $\Omega' \subseteq \Omega$ in einem beschränkten \lipschitz\hyp{}Gebiet $\Omega_j, j \in \N$ enthalten ist.
+  Wir können direkt annehmen, dass dies bereits für $j = 1$ erfüllt ist.
+  Führen wir nun den vorangehenden Beweis für $\Omega_j$, so erhalten wir eine eindeutig bestimmte Funktion $p \in L^q(\Omega_j)$, die die Gleichung $f = \nabla p$ auf $\Omega_j$ im distributionellen Sinne erfüllt und für die des Weiteren das Integral $\int_{\Omega_0} p \d x$ verschwindet.
+  Da nach Lemma \ref{lem:lipschitzExhaust} die Gleichheit $\bigcup_{j \in \N} \Omega_j = \Omega$ gilt, lässt sich $p$ auch eindeutig bis auf Nullmengen auf $\Omega$ definieren.
+  Ist zudem $B$ ein Ball mit $\overline B \subseteq \Omega$, so existiert ein $j \in \N$ mit $\overline B \subseteq \Omega_j$.
+  Da $p \in L^q(\Omega_j)$ gilt, folgt sofort $p \in L^q(B)$.
+  Die Definition der lokalen Integrierbarkeit liefert hiermit $p \in L^q_{\loc}(\Omega)$.
+  Dies beweist die Behauptung.
 \end{proof}
