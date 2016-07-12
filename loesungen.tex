@@ -175,7 +175,31 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
 \end{itemize}
 
 \begin{lem}
+  \label{lem:compactEmbedding0}
+  Sei $\Omega \subseteq \R^n$ mit $n \geq 1$ ein beschränktes Gebiet und $1 < q < \infty$.
+  Dann ist die Einbettung
+  $$
+  L^q(\Omega) \subseteq W^{-1,q}(\Omega)
+  $$
+  kompakt.
+\end{lem}
+
+\begin{lem}
   \label{lem:compactEmbedding}
+  Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beschränktes \lipschitz\hyp{}Gebiet und $\Omega_0 \subseteq \Omega$ ein nichtleeres Teilgebiet.
+  Zudem sei $1 < q < \infty$.
+  Dann gilt die Ungleichung
+  $$
+  \norm{u}_{L^q(\Omega)} 
+  \leq C_1 \norm{\nabla u}_{W^{-1,q}(\Omega)^n}
+  \leq C_1 C_2 \norm{u}_{L^q(\Omega)}
+  $$
+  für alle $u \in L^q(\Omega)$, welche die Integralgleichung
+  $$
+  \int_{\Omega_0} u \d x = 0
+  $$
+  erfüllen.
+  Hierbei bezeichnen $C_1 = C_1(q, \Omega, \Omega_0) > 0$ sowie $C_2 = C_2(n) > 0$ Konstanten.
 \end{lem}
 
 \section{Darstellung von Funktionalen}
