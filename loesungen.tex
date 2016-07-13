@@ -189,11 +189,12 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beschränktes \lipschitz\hyp{}Gebiet und $\Omega_0 \subseteq \Omega$ ein nichtleeres Teilgebiet.
   Zudem sei $1 < q < \infty$.
   Dann gilt die Ungleichung
-  $$
-  \norm{u}_{L^q(\Omega)} 
-  \leq C_1 \norm{\nabla u}_{W^{-1,q}(\Omega)^n}
-  \leq C_1 C_2 \norm{u}_{L^q(\Omega)}
-  $$
+  \begin{equation}
+    \label{eq:compactInequality}
+    \norm{u}_{L^q(\Omega)} 
+    \leq C_1 \norm{\nabla u}_{W^{-1,q}(\Omega)^n}
+    \leq C_1 C_2 \norm{u}_{L^q(\Omega)}
+  \end{equation}
   für alle $u \in L^q(\Omega)$, welche die Integralgleichung
   $$
   \int_{\Omega_0} u \d x = 0
@@ -201,6 +202,103 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   erfüllen.
   Hierbei bezeichnen $C_1 = C_1(q, \Omega, \Omega_0) > 0$ sowie $C_2 = C_2(n) > 0$ Konstanten.
 \end{lem}
+
+\begin{proof}
+  Wir halten zunächst fest, dass für alle Folgen $(v_n)_{n \in \N}$ mit $v_n \in C_0^\infty(\Omega)^m$ für alle $n \in \N$ und $\lim_{n \to \infty} \norm{v_n - v}_{1,q} = 0$ für ein $v \in \overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$ auch $\lim_{n \to \infty} \norm{\div v_n - \div v} = 0$ gilt.
+
+  Hiermit ergibt sich für ein $u \in L^q(\Omega)$ folgende Darstellung der linearen Fortsetzung der Distribution $\nabla u \in (C_0^\infty(\Omega)^n)'$ auf den Raum $\overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$
+  $$
+    [\nabla u, \cdot] \colon v \to [\nabla u, v] 
+    = - \langle u, \div v \rangle 
+    = \int_{\Omega} u\; \div v \d x.
+  $$
+  Wir können somit $\nabla u$ als Element von $W^{-1,q}(\Omega)$ auffassen.
+  Mit dieser Eigenschaft lässt sich der zweite Teil der Ungleichung (\ref{eq:compactInequality}) beweisen. 
+  Es gilt nämlich für alle $v \in W_0^{1,q'}(\Omega)^n$
+  \begin{align*}
+    |[\nabla u, v]|
+    &= | \langle u, \div v \rangle| \\
+    &\leq \norm{u}_q \norm{\div v}_{q'} \tag{\hoelder}\\
+    &\leq \sum_{|\alpha| = 1} \norm{u}_q \norm{D^\alpha v}_{q'} \\
+    &\leq C_2 \norm{u}_q \norm{v}_{W^{1,q'}(\Omega)^n},
+  \end{align*}
+  mit einem aus der Normäquivalenz auf $\R^n$ stammenden $C_2 = C_2(n)$.
+
+  Wir beweisen nun den ersten Teil der Ungleichung (\ref{eq:compactInequality}) durch einen Widerspruchsbeweis.
+  Dazu nehmen wir an, es existiere keine Konstante $C > 0$, sodass die Ungleichung
+  $$
+  \norm{u}_q \leq C \norm{\nabla u}_{-1,q}
+  $$
+  für alle $u \in L^q(\Omega)$ mit $\int_{\Omega0} u \d x = 0$ gelte.
+  Dann existiert insbesondere für alle $j \in \N$ ein $u_j \in L^q(\Omega)$ mit
+  $$
+  \norm{u_j}_q > j \norm{\nabla u_j}_{-1,q}
+  $$
+  und $\int_{\Omega_0} u_j \d x = 0$.
+  Wir betrachten nun die normierte Folge $(\tilde u_j)_{n \in \N}$ mit 
+  $$
+  \tilde u_j := \frac{u_j}{\norm{u_j}_{q}}, \quad n \in \N.
+  $$
+  So gilt weiterhin aufgrund der Homogenität des Integrals $\int_{\Omega_0} \tilde u_j \d x = 0$. 
+  Darüberhinaus gilt $\norm{\tilde u_j}_q = 1$ und die Ungleichung 
+  \begin{displaymath}
+    \norm{\nabla \tilde u_j}_{-1,q} < \frac{1}{j}, \quad j \in \N. \tag{$\ast$}
+  \end{displaymath}
+
+  Nach dem Satz von \banach\hyp{}\alaoglu\ ist die Einheitskugel in reflexiven Räumen schwach kompakt.
+  Damit folgt, dass die beschränkte Folge $(\tilde u_j)_{j \in \N}$ eine schwach konvergente Teilfolge enthält mit Grenzwert $u \in L^q(\Omega)$.
+  Zur Vereinfachung nehmen bezeichnen wir diese konvergente Teilfolge wieder mit $(\tilde u_j)_{j \in \N}$.
+  Nach Definition der schwachen Konvergenz gilt somit
+  $$
+  \langle u, v \rangle = \lim_{j \to \infty} \langle \tilde u_j, v \rangle
+  $$
+  für alle $v \in L^{q'}(\Omega)$.
+  Insbesondere gilt aufgrund der vorausgesetzten Beschränktheit von $\Omega$ auch $\mathbb{1} \in L^q(\Omega)$ und damit
+  $$
+  \langle u, \mathbb{1} \rangle = \int_{\Omega_0} u \d x = 0.
+  $$
+  Unter verwendung der Ungleichung ($\ast$) folgt
+  \begin{displaymath}
+    \lim_{j \to \infty} \norm{\nabla \tilde u_j}_{-1,q} = 0 \tag{$\ast\ast$}.
+  \end{displaymath}
+  Für alle $v \in W_0^{1,q'}(\Omega)^n$ und $j \in \N$ gilt zudem 
+  \begin{align*}
+    |\nabla \tilde u_j, v]|
+    &= |\langle \tilde u_j, \div v \rangle| \\
+    &\leq \norm{\tilde u_j}_q \norm{\div v}_{1,q} \tag{\hoelder}\\
+    &\leq \norm{\tilde u_j}_q \norm{v}_{1,q} \\
+    &\leq \norm{\nabla \tilde u_j}_{-1,q} \norm{v}_{1,q}, \tag{\poincare}
+  \end{align*}
+  woraus schließlich
+  \begin{align*}
+    |[\nabla u, v]|
+    &= |\langle u, \div v \rangle \\
+    &= \lim_{j \to \infty}|\langle \tilde u_j, \div v \rangle \\
+    &= \lim_{j \to \infty} |[\nabla \tilde u_j, v ]| \\
+    &= 0
+  \end{align*}
+  folgt.
+  Im distributionellen Sinne gilt damit $\nabla u = 0$.
+  In Abschnitt \ref{subsec:smoothMolly} haben wir gezeigt, das dies gerade impliziert, dass $u$ konstant ist.
+  Aus der Bedingung $\int_{\Omega_0} u \d x = 0$ folgt nun $u = 0$. 
+  
+  Nach \cite{sohr2001navier}[S.45 Lemma 1.1.3] existiert eine Konstante $C > 0$, sodass für alle $j \in \N$ die Ungleichung
+  \begin{displaymath}
+    1 = \norm{\tilde u_j}_q \leq C (\norm{\nabla \tilde u_j}_{-1,q} + \norm{\tilde u_j}_{-1,q}) \tag{$\ast\ast\ast$}
+  \end{displaymath}
+  gilt.
+  Da die Folge $(\tilde u_j)_{j \in \N}$ beschränkt in $L^q(\Omega)$ ist und zudem die Einbettung nach Lemma $\ref{lem:compactEmbedding0}$ kompakt ist existiert eine bezüglich der Norm auf $W^{-1,q}(\Omega)$ konvergente Teilfolge von $(\tilde u_j)_{j \in \N}$, welche gegen eine Funktion $\tilde u$ konvergiert. 
+  Wir wollen die Teilfolge wieder mit $(\tilde u_j)_{j \in \N}$ bezeichnen.
+  Insbesondere konvergiert die Folge $(\tilde u_j)_{j \in \N}$ schwach gegen $\tilde u$.
+  Dann gilt aber $\lim_{j \to infty} \tilde u_j = \tilde u = u = 0$ aufgrund der \hausdorff\hyp{}Eigenschaft der schwachen Topologie.
+
+  Aus den Gleichungen ($\ast\ast$) und ($\ast\ast\ast$) folgt nun der Widerspruch
+  \begin{displaymath}
+  1 \leq \lim_{j \to \infty} ( \norm{\nabla \tilde u_j }_{-1,q} + \norm{\tilde u_j}_{-1,q} ) = 0.\qedhere
+  \end{displaymath}
+  
+
+\end{proof}
 
 \section{Darstellung von Funktionalen}
 
