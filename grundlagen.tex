@@ -22,7 +22,7 @@ Die Notation ist an \cite{sohr2001navier} angelehnt.
 Ziel dieses Abschnittes ist es die nötigen Begriffe und Definitionen im Zusammenhang mit glatten Funktionen bereitzustellen.
 Im Folgenden bezeichne $\Omega \subseteq \R^n$ stets ein nichtleeres Gebiet.
 
-Sei $k \in \N$ so bezeichne $C^k(\Omega)$ die Menge aller Funktionen
+Sei $k \in \N$ und es bezeichne $C^k(\Omega)$ die Menge aller Funktionen
 $$
 u \colon \Omega \to \R, \quad x \mapsto u(x),
 $$
@@ -32,7 +32,7 @@ $$
 $$
 bezeichnen wir den Raum der glatten Funktionen auf $\Omega$.
 
-Im Kontext von $L^p$-Räumen spielt ein Funktionenraum eine wichtige Rolle bei der Approximation von $L^p$-Funktionen: der Raum der glatten Funktionen mit kompaktem Träger
+Im Kontext der Approximation von $L^p$-Funktionen spielt ein Funktionenraum eine wichtige Rolle: der Raum der glatten Funktionen mit kompaktem Träger
 $$
 C_0^\infty(\Omega) := \{ u \in C^\infty(\Omega) \mid \supp u \text{ kompakt und } \supp u \subseteq \Omega\}.
 $$
@@ -68,6 +68,41 @@ $$
 C_{0,\sigma}^\infty(\Omega) := \{u \in C_0^\infty(\Omega)^n \mid \div u = 0\}
 $$
 der divergenzfreien Vektorfelder.
+
+Aus der Integrationstheorie ist bekannt, dass sich $L^q$-Funktionen durch Faltungen mit Glättungskernen approximieren lassen.
+
+\begin{lem}
+  Sei $\Omega \subseteq \R^n$ mit $n \geq 1$ ein Gebiet und $1 \leq q < \infty$ sowie $\varepsilon > 0$.
+  Für alle $u \in L^q(\Omega)$ gilt dann
+  $$
+  \norm{(\mathcal{F}_\varepsilon \ast u)}_{L^q(\Omega)} \leq  \norm{u}_{L^q(\Omega)}
+  $$
+  und
+  \begin{displaymath}
+    \lim_{\varepsilon \to 0} \norm{(\mathcal{F}_\varepsilon \ast u) - u}_{L^q(\Omega)} = 0. 
+  \end{displaymath}
+\end{lem}
+
+Sei nun $\Omega_0 \subseteq \overline\Omega_0 \subseteq \Omega$ ein beschränktes Teilgebiet und
+$$
+0 < \varepsilon < \dist(\Omega_0, \partial\Omega).
+$$
+Zusätzlich sei $u \in L^1_{\loc}(\Omega)$.
+Setzt man $u(x) := 0$ für alle $x \in \R^n \setminus \Omega$ so gilt $u \in L^1_{\loc}(\R^n)$.
+Ein Resultat aus der Integrationstheorie besagt nun dass für die Glättung
+$$
+u^\varepsilon := \mathcal{F}_\varepsilon \ast u
+$$
+auch $u^\varepsilon \in C^\infty(\R^n)$ und da $\Omega_0$ als beschränkt vorausgestzt wurde sogar $u^\varepsilon \in C^\infty(\overline\Omega_0)$ gilt.
+Wie \cite{rudin1991fa}[S.171, Theorem 6.30(b)] zeigt, gilt dies sogar noch unter der Voraussetzung, dass $u$ eine Distribution ist.
+Zudem ist für alle Multiindices $\alpha$ die folgende Gleichung gültig:
+\begin{equation}
+  (D^\alpha u^\varepsilon)(x) 
+  = (\mathcal{F}_\varepsilon \ast (D^\alpha u))(x)
+  = ( (D^\alpha \mathcal{F}_\varepsilon) \ast u)(x), \quad x \in \Omega_0.
+\end{equation}
+
+
 
 \begin{itemize}
   \item \cite{sohr2001navier}[Die Glättungsmethode S.64ff.]
