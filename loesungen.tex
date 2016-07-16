@@ -204,8 +204,8 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
 \end{lem}
 
 \begin{proof}
-  Wir halten zunächst fest, dass für alle Folgen $(v_j)_{j \in \N}$ mit $v_j \in C_0^\infty(\Omega)^n$ für alle $j \in \N$ und $\lim_{j \to \infty} \norm{v_j - v}_{1,q} = 0$ für ein $v \in \overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$ auch $\lim_{j \to \infty} \norm{\div v_j - \div v} = 0$ gilt.  
-  Hiermit ergibt sich für ein $u \in L^q(\Omega)$ folgende Darstellung der linearen Fortsetzung der Distribution $\nabla u \in (C_0^\infty(\Omega)^n)'$ auf den Raum $\overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$:
+  Wir halten zunächst fest, dass für alle Folgen $(v_j)_{j \in \N}$ mit $v_j \in \C_0^\infty(\Omega)^n$ für alle $j \in \N$ und $\lim_{j \to \infty} \norm{v_j - v}_{1,q} = 0$ für ein $v \in \overline{\C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$ auch $\lim_{j \to \infty} \norm{\div v_j - \div v} = 0$ gilt.  
+  Hiermit ergibt sich für ein $u \in L^q(\Omega)$ folgende Darstellung der linearen Fortsetzung der Distribution $\nabla u \in (\C_0^\infty(\Omega)^n)'$ auf den Raum $\overline{\C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$:
   $$
     [\nabla u, \cdot] \colon v \to [\nabla u, v] 
     = - \langle u, \div v \rangle 
@@ -310,7 +310,7 @@ Dies ist Inhalt des folgenden Lemmas.
   Sei $\Omega \subseteq \mathbb{R}^n$ mit $n \geq 2$ ein beschränktes Gebiet und $1 < q < \infty$.
   Dann gilt für die Abbildung
   $$
-  \nabla \colon L^{q}(\Omega)^{n} \to (C_0^\infty(\Omega)^n)',
+  \nabla \colon L^{q}(\Omega)^{n} \to (\C_0^\infty(\Omega)^n)',
   $$
   dass das Bild
   $$
@@ -404,7 +404,7 @@ Basierend auf \cite{sohr2001navier}[S.61, Lemma 1.6.1] beweisen wir nun eine Ver
   $$
   \norm{f}_{W^{-1,2}(\Omega)} \leq \norm{F}_2.
   $$
-  Ist nun $v \in C_0^\infty(\Omega)^n$, so gilt
+  Ist nun $v \in \C_0^\infty(\Omega)^n$, so gilt
   \begin{align*}
     [f,v]
     &= \langle F, \nabla v\rangle \\
@@ -424,7 +424,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   Angenommen, für $f \in W_{\loc}^{-1,q}(\Omega)^n$ gelte
   \begin{equation}
     \label{eq:vKernel}
-    [f,v] = 0, \quad \text{für alle} \quad v \in C_{0,\sigma}^\infty(\Omega).
+    [f,v] = 0, \quad \text{für alle} \quad v \in \C_{0,\sigma}^\infty(\Omega).
   \end{equation}
   Dann existiert ein eindeutig bestimmtes $p \in L^q_{\loc}(\Omega)$, welches die Gleichung $\nabla p = f$ im distributionellen Sinne erfüllt und für das zusätzlich
   \begin{equation}
@@ -446,26 +446,26 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   f = \div F \quad\text{mit}\quad F = (F_{jl})_{j,l=1}^n \in L^q(\Omega_2)^{n^2}.
   $$
 
-  Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ die in Abschnitt \ref{subsec:mollification} definierte Faltung von $F$ mit einem Glättungskern, für den wie bereits gezeigt $F^\varepsilon \in C^\infty(\overline\Omega_1)^{n^2}$ gilt.
+  Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ die in Abschnitt \ref{subsec:mollification} definierte Faltung von $F$ mit einem Glättungskern, für den wie bereits gezeigt $F^\varepsilon \in \C^\infty(\overline\Omega_1)^{n^2}$ gilt.
   Wir wollen beweisen, dass eine Darstellung der Form
   $$
   \div F^\varepsilon = \nabla U_\varepsilon
   $$
-  mit einem $U_\varepsilon \in C^\infty(\overline\Omega_1)$ existiert.
+  mit einem $U_\varepsilon \in \C^\infty(\overline\Omega_1)$ existiert.
 
-  Ein bekanntes Resultat aus der Funktionentheorie besagt, dass jedes auf dem Gebiet $\Omega_1$ definierte glatte Vektorfeld $g \in C^\infty(\Omega_1)^n$ genau dann ein Potential $\Phi \in C^\infty(\Omega_1)$ besitzt, falls das Kurvenintegral entlang jeder in $\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \Omega_1$ verschwindet, also genau dann, falls
+  Ein bekanntes Resultat aus der Funktionentheorie besagt, dass jedes auf dem Gebiet $\Omega_1$ definierte glatte Vektorfeld $g \in \C^\infty(\Omega_1)^n$ genau dann ein Potential $\Phi \in \C^\infty(\Omega_1)$ besitzt, falls das Kurvenintegral entlang jeder in $\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \Omega_1$ verschwindet, also genau dann, falls
   $$
   \oint_w g \cdot \d s = \int_0^1 g(w(\tau))\cdot w'(\tau) \d\tau = 0
   $$
   für alle glatten Kurven $w$ in $\Omega_1$ gilt.
-  %Da sich stetige Funktionen und damit auch die Ableitungen glatter Funktionen eindeutig und stetig auf den Rand ihres Definitionsbereichs fortsetzen lassen, kann man auch $g \in C^\infty(\overline\Omega_1)^n$ sowie $\Phi \in C^\infty(\overline\Omega_1)$ annehmen.
+  %Da sich stetige Funktionen und damit auch die Ableitungen glatter Funktionen eindeutig und stetig auf den Rand ihres Definitionsbereichs fortsetzen lassen, kann man auch $g \in \C^\infty(\overline\Omega_1)^n$ sowie $\Phi \in \C^\infty(\overline\Omega_1)$ annehmen.
 
   Wir wollen dies nun für $\div F^\varepsilon$ beweisen.
   Dazu definieren wir für alle $x\in\Omega_2$ den Wert des Integrals
   $$
   V_{w,\varepsilon}(x) := \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w'(\tau)\d\tau
   $$
-  und erhalten durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale $ V_{w,\varepsilon} \in C_0^\infty(\Omega_2)^n$.
+  und erhalten durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale $ V_{w,\varepsilon} \in \C_0^\infty(\Omega_2)^n$.
   Darüber hinaus gilt für eine geschlossene Kurve $w$ in $\overline\Omega_1$ folgende Rechnung
   \begingroup
   \addtolength{\jot}{0.5em}
@@ -478,7 +478,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   \end{align*}
   \endgroup
 
-  Hiermit folgt $V_{w,\varepsilon} \in C_{0,\sigma}^\infty(\Omega_2)^n$.
+  Hiermit folgt $V_{w,\varepsilon} \in \C_{0,\sigma}^\infty(\Omega_2)^n$.
   Unter Verwendung der Voraussetzung aus Gleichung (\ref{eq:vKernel}) und dem Satz von \fubini\ folgt
   \begingroup
   \addtolength{\jot}{1em}
@@ -505,7 +505,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     %
     &= \sum_{j,l=1}^n \int_0^1 \left(D_j F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \\
     %
-    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \tag{(\ref{eq:convolutionDiff}) mit $F_{jl} \in L^2(\Omega) \subseteq C_0^\infty(\Omega)'$}\\
+    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \tag{(\ref{eq:convolutionDiff}) mit $F_{jl} \in L^2(\Omega) \subseteq \C_0^\infty(\Omega)'$}\\
     %
     &= \sum_{j,l=1}^n \int_0^1 (D_j F_{jl}^\varepsilon)(w(\tau)) w_l'(\tau) \d\tau \\
     %
@@ -515,7 +515,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   \end{align*}
   \endgroup
 
-  Es existiert also ein $U_\varepsilon \in C^\infty(\overline\Omega_1)$ mit $\div F^\varepsilon = \nabla U_\varepsilon$.
+  Es existiert also ein $U_\varepsilon \in \C^\infty(\overline\Omega_1)$ mit $\div F^\varepsilon = \nabla U_\varepsilon$.
   Die Funktion $U_\varepsilon$ ist bis auf eine Konstante $\gamma$ eindeutig bestimmt, denn es gilt $\nabla U_\varepsilon = \nabla( U_\varepsilon - \gamma)$.
   Wir können durch die Wahl $\gamma = \int_{\Omega_0} U_\varepsilon \d x$ erreichen, dass $\int_{\Omega_0} U_\varepsilon - \gamma \d x = 0$  gilt.
   Im Folgenden bezeichnen wir die so gewählte Funktion wieder mit $U_\varepsilon$.
@@ -525,8 +525,8 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   \begin{align*}
     \norm{U_\varepsilon}_{L^q(\Omega_1)}
     &\leq C \norm{ \nabla U_\varepsilon }_{W^{-1,q}(\Omega_1)} \\
-    &= C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left(\frac{|[\nabla U_\varepsilon, v]|}{\norm{\nabla v}_{q'}} \right) \\
-    &\overset{(\ast)}{=} C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left( \frac{|\langle F^\varepsilon, \nabla v \rangle|}{\norm{v}_{q'}}\right) \\
+    &= C \sup_{0 \neq v \in \C_0^\infty(\Omega_1)^n} \left(\frac{|[\nabla U_\varepsilon, v]|}{\norm{\nabla v}_{q'}} \right) \\
+    &\overset{(\ast)}{=} C \sup_{0 \neq v \in \C_0^\infty(\Omega_1)^n} \left( \frac{|\langle F^\varepsilon, \nabla v \rangle|}{\norm{v}_{q'}}\right) \\
     &\leq C \norm{F^\varepsilon}_{L^q(\Omega_1} \tag{$\star$}
   \end{align*}
   \endgroup
@@ -567,7 +567,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   Nun zeigen wir noch dass $\div F = \nabla U$ im distributionellen Sinne gilt. 
   Wir halten dazu zunächst fest, dass die Konvergenz auf $L^q(\Omega_1)^n$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
   Es gilt somit $\norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} \to 0$ für $\varepsilon \to 0$.
-  Sei nun $v \in C_0^\infty(\Omega_1)^n$.
+  Sei nun $v \in \C_0^\infty(\Omega_1)^n$.
   Dann gilt
   \begin{align*}
     [\nabla U, v]
