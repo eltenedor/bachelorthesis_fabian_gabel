@@ -139,6 +139,34 @@ Andererseits ist für alle Multiindices $\alpha \in \N_0^n$ und alle $x \in \Ome
 
 Es bezeichne im Folgenden wieder $\Omega \subseteq \R^n$ ein offenes Gebiet mit $n \geq 1$.
 
+\subsubsection{Lokal integrierbare Funktionen}
+
+Wir werden im Folgenden oft eine Obermenge der bezüglich des \lebesgue\hyp{}Maßes auf $\R^n$ integrierbaren Funktionen verwenden.
+Für $1 \leq q \leq \infty$ schreiben wir
+$$
+  u \in L^q_{\loc}(\Omega),
+$$
+und nennen $u$ \emph{lokal integrierbar}, falls $u \in L^q(B)$ für alle offenen Bälle $B \subseteq \Omega$ mit $\overline B \subseteq \Omega$ gilt.
+
+\begin{bem}
+  Eine Funktion $u$ ist genau dann lokal integrierbar über $\Omega$, falls $u \in L^q(K)$ für alle Kompakta $K \subseteq \Omega$ gilt.
+
+  Diese Aussage findet man ebenfalls in der Literatur zur Definition lokaler Integrierbarkeit.
+  Tatsächlich ist sie äquivalent zur obigen Definiton.
+  Denn einerseits ist für alle Bälle $B$ auch $\overline B$ ein Kompaktum und die Aussage folgt aus der Inklusionsbeziehung $L^q(\overline B) \subseteq L^q(B)$.
+  Andererseits lässt sich jedes Kompaktum $K$ mit endlich vielen Bällen $B_1, \dots, B_n$ mit $\overline B_i \subseteq \Omega, i =1,\dots,n,$ überdecken und die Umkehrung der Aussage folgt aus der Inklusionsbeziehung $\bigcap_{i = 1}^n L^q(B_i) \subseteq L^q(K)$.
+\end{bem}
+
+Des Weiteren schreiben wir
+$$
+u \in L^q_{\loc}(\overline\Omega),
+$$
+falls $u \in L^q(B \cap \Omega)$ für jeden offenen Ball $B \subseteq \R^n$ mit $B \cap \Omega \neq \emptyset$ gilt.
+Zusammenfassend gilt also die folgende Inklusionsbeziehung:
+$$
+L^q(\Omega) \subseteq L^q_{\loc}(\overline\Omega) \subseteq L^q_{\loc}(\Omega).
+$$
+
 \subsubsection{Distributionen}
 
 In Abschnitt \ref{subsec:smooth} hatten wir bereits den Raum der Testfunktionen $\C_0^\infty(\Omega)$ kennegelernt.
@@ -300,5 +328,39 @@ Für $1 < q < \infty$ definieren wir die \sobolev\hyp{}Räume negativer Ordnung
 $$
   W^{-1,q}(\Omega) := W_0^{k,q'}(\Omega)'.
 $$
+Wie für den Dualraum eines normierten Raumes üblich, ist auch $W^{-1,q}(\Omega)$ mit Operatornorm ein \banach\hyp{}Raum.
 
+Es ist möglich einen \sobolev\hyp{}Raum $W^{k,q}(\Omega)$ für $1 < q < \infty$ als abgeschlossenen Teilraum eines $L^q$\hyp{}Raumes zu realisieren \cite{adams2003sobolev}[S.61, 3.5].
+Als solcher ist er insbesondere reflexiv.
+Wir halten diese wichtige Eigenschaft in einem Lemma fest.
+
+\begin{lem}
+  Für ein Gebiet $\Omega \subseteq \R^n$ mit $n \geq 1$ und $1 < q < \infty$ ist $W^{k,q} = W^{k,q}(\Omega)$ ausgestattet mit der \sobolev\hyp{}Norm ein reflexiver Raum. \qed
+\end{lem}
+
+Aus der Reflexivität der \sobolev\hyp{}Räume leiten wir für $1 < q < \infty$ die folgende Identität ab:
+$$
+  W_0^{1,q'}(\Omega) = W^{-1,q}(\Omega)'.
+$$
+Wir können also jede Funktion $u \in W_0^{1,q'}(\Omega)$ mit dem Funktional
+$$
+[\cdot, u] \colon F \mapsto [F, u], \quad F \in W^{-1,q}(\Omega)
+$$
+identifizieren.
+
+Wir definieren nun die $W^{k,q}_{\loc}$\hyp{}Räume.
+Wir bezeichnen mit $W^{k,q}(\Omega)$ den aller Funktionen $u$ mit $D^\alpha u \in L^q_{\loc}(\Omega)$ für alle Multiindices $|\alpha| \leq k$.
+Des Weiteren definieren definieren wir $W^{k,q}(\overline\Omega)$ als den Raum aller Funktionen $u$ mit $D^\alpha u \in L^q_{\loc}(\overline\Omega)$.
+
+Wie schon im Unterabschnitt zu glatten Funktionen können wir auch die Definition der \sobolev\hyp{}Räue auf Produkträume ausdehnen. 
+Wir definieren hierzu
+$$
+W^{k,q}(\Omega)^m := \{ (u_1,\dots,u_m) \mid u_j \in W^{k,q}(\Omega), \quad j = 1,\dots, m\}
+$$
+und versehen den so entstandenen Vektorraum mit der Norm
+$$
+\norm{u}_{W^{k,q}(\Omega)^m} 
+:= \norm{u}_{k,q}
+:= \left( \sum_{j = 1}^m \norm{u_j}_{k,q}^q \right)^{\frac{1}{q}}
+$$
 
