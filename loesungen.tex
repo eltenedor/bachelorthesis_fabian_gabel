@@ -31,7 +31,7 @@ den \euklid ischen Abstand zweier Mengen $X,Y \subseteq \R^n$.
   $$
   wobei $\chi_A$ die charakteristische Funktion der Menge $A$ bezeichne.
   Als Nächstes weisen wir nach, dass $f$ auf $\R^n$ stetig ist.
-  Es ist bekannt, dass die Funktion $\dist(\cdot, \partial A)$ stetig ist \cite{koenigsberger}.
+  Es ist bekannt, dass die Funktion $\dist(\cdot, \partial A)$ stetig ist \cite{koenigsberger2004ana2}[S.14].
   Auf $\R^n \setminus \partial A$ ist zudem $(1 - 2\chi_A(x))$ konstant gleich $-1$ beziehungsweise $1$, also ist $f$ dort stetig.
 
   Sei nun $(x_n)_{n \in \N}$ eine Folge in $\R^n$ mit $\lim_{n \to \infty} x_n = x \in \partial A$.
@@ -278,7 +278,7 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   \end{align*}
   folgt.
   Im distributionellen Sinne gilt damit $\nabla u = 0$.
-  In Abschnitt \ref{subsec:smoothMolly} haben wir gezeigt, das dies gerade impliziert, dass $u$ konstant ist.
+  In Abschnitt \ref{subsec:mollification} haben wir gezeigt, das dies gerade impliziert, dass $u$ konstant ist.
   Aus der Bedingung $\int_{\Omega_0} u \d x = 0$ folgt nun $u = 0$. 
   
   Nach \cite{sohr2001navier}[S.45 Lemma 1.1.3] existiert eine Konstante $C > 0$, sodass für alle $j \in \N$ die Ungleichung
@@ -446,7 +446,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   f = \div F \quad\text{mit}\quad F = (F_{jl})_{j,l=1}^n \in L^q(\Omega_2)^{n^2}.
   $$
 
-  Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ die in Abschnitt \ref{subsec:smoothMolly} definierte Faltung von $F$ mit einem Glättungskern, für den wie bereits gezeigt $F^\varepsilon \in C^\infty(\overline\Omega_1)^{n^2}$ gilt.
+  Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ die in Abschnitt \ref{subsec:mollification} definierte Faltung von $F$ mit einem Glättungskern, für den wie bereits gezeigt $F^\varepsilon \in C^\infty(\overline\Omega_1)^{n^2}$ gilt.
   Wir wollen beweisen, dass eine Darstellung der Form
   $$
   \div F^\varepsilon = \nabla U_\varepsilon
@@ -505,7 +505,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     %
     &= \sum_{j,l=1}^n \int_0^1 \left(D_j F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \\
     %
-    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \tag{1.7.17}\\
+    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \tag{(\ref{eq:convolutionDiff}) mit $F_{jl} \in L^2(\Omega) \subseteq C_0^\infty(\Omega)'$}\\
     %
     &= \sum_{j,l=1}^n \int_0^1 (D_j F_{jl}^\varepsilon)(w(\tau)) w_l'(\tau) \d\tau \\
     %
