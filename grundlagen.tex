@@ -24,7 +24,7 @@ Sei $k \in \N$ und es bezeichne $\C^k(\Omega)$ die Menge aller Funktionen
 $$
 u \colon \Omega \to \R, \quad x \mapsto u(x),
 $$
-sodass alle partiellen Ableitungen $D^\alpha u$ existieren und stetig sind für alle Multiindices $\alpha \in N_0^n$ mit $0 \leq |\alpha| \leq k$. Mit
+sodass alle partiellen Ableitungen $D^\alpha u$ für alle Multiindices $\alpha \in N_0^n$ mit $0 \leq |\alpha| \leq k$ existieren und stetig sind . Mit
 $$
   \C^\infty(\Omega) := \bigcap_{k = 0}^\infty \C^k(\Omega)
 $$
@@ -34,7 +34,7 @@ Im Kontext der Approximation von $L^p$-Funktionen spielt ein Funktionenraum eine
 $$
 \C_0^\infty(\Omega) := \{ u \in \C^\infty(\Omega) \mid \supp u \text{ kompakt und } \supp u \subseteq \Omega\}.
 $$
-Wir werden diesem Raum in Abschnitt \ref{subset:distributionsSobolev} nochmals als Raum der Testfunktionen begegnen.
+Wir werden diesem Raum in Abschnitt \ref{subsec:distributionsSobolev} nochmals als Raum der Testfunktionen begegnen.
 Wir werden zudem den Raum $\C^\infty(\overline\Omega)$ aller Restriktionen $u|_{\overline\Omega}$ von Funktionen aus $\C^\infty(\R^n)$ mit
 \begin{displaymath}
   \sup_{|\alpha| < \infty, x \in \R^n} |D^\alpha u(x)| < \infty \tag{$\ast$}
@@ -42,7 +42,7 @@ Wir werden zudem den Raum $\C^\infty(\overline\Omega)$ aller Restriktionen $u|_{
 benötigen.
 Aufgrund der Eigenschaft ($\ast$) lässt sich der Raum $\C^\infty(\overline\Omega)$ mit einer Norm ausstatten:
 $$
-\norm{u}_{\C^\infty} = \norm{u}_{\C^\infty(\overline\Omega} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
+\norm{u}_{\C^\infty} = \norm{u}_{\C^\infty(\overline\Omega)} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
 $$
 
 Alle eingeführten Räume lassen sich auf natürliche Weise zu Räumen von Vektorfeldern verallgemeinern.
@@ -54,19 +54,64 @@ Man erhält so
 \end{align*}
 wobei der letzte Vektorraum durch die Norm
 $$
-\norm{u}_{\C^\infty} = \norm{u}_{\C^\infty(\overline\Omega)}^m := \sup_{j = 1,\dots, m} \norm{u_j}_{\C^k(\overline\Omega)}
+\norm{u}_{\C^\infty} = \norm{u}_{\C^\infty(\overline\Omega)}^m := \sup_{j = 1,\dots, m} \norm{u_j}_{\C^\infty(\overline\Omega)}
 $$
 zu einem normierten Vektorraum wird.
 
-\begin{itemize}
-  \item Andere Definition aus Adams vergleichen und Äquivalenz (?) beweisen.
-\end{itemize}
+In der Literatur findet man eine Reihe anderer Definitionen des Symbols $\C^\infty(\overline\Omega)$.
+Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lemma beweist.
 
-Von besonderer Rolle für die Lösungstheorie der stationären inkompressiblen \navier\hyp{}\stokes\hyp{}Gleichungen ist der Untervektorraum
+\begin{lem}
+  Sei $\Omega \subseteq \R^n$ ein beschränktes Gebiet.
+  Wir schreiben
+  \begin{enumerate}[(a)]
+    \item $u \in \C^\infty_\bullet(\overline\Omega)$,
+  falls eine Funktion $f \in \C^\infty(\R^n)$ mit $\sup_{|\alpha| < \infty, x \in \R^n} \norm{D^\alpha f(x)} <  \infty$ exsistiert, die $u$ fortsetzt, also $u = f|_{\overline\Omega}$ gilt.
+    \item $u \in \C^\infty_{\bullet\bullet}(\overline\Omega)$,
+  falls eine offene Obermenge $\overline\Omega \subseteq U \subseteq R^n$ und eine differenzierbare Fortsetzung $\tilde u \colon U \to \R$ von $u$ existieren.
+  \item $ u \in \C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$,
+  falls $u \in C^\infty(\Omega)$ gilt, und sich für alle Multiindices $|\alpha|\leq k$ die Funktion $D^\alpha u$ auf $\overline\Omega$ fortsetzen lässt.
+  \end{enumerate}
+
+  Dann gilt
+  $$
+    \C^\infty_{\bullet}(\overline\Omega) =
+    \C^\infty_{\bullet\bullet}(\overline\Omega) =
+    \C^\infty_{\bullet\bullet\bullet}(\overline\Omega).
+  $$
+\end{lem}
+
+\begin{proof}
+  Zunächst ist $\overline\Omega$ als beschränkte abgeschlossene Teilmenge von $\R^n$ kompakt.
+  Es gilt $$\C^\infty_\bullet(\overline\Omega) \subseteq \C_{\bullet\bullet},$$ da jedes $u\in \C^\infty_\bullet(\overline\Omega)$ bereits eine differenzierbare Fortsetzung auf $\R^n$ besitzt.
+
+  Die Inklusion $$\C^\infty_{\bullet\bullet}(\overline\Omega) \subseteq \C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$$ folgt direkt aus der Definition.
+  
+  Die letzte Inklusion $$\C^\infty_{\bullet\bullet\bullet}(\overline\Omega) \subseteq \C^\infty_{\bullet}(\overline\Omega)$$ erfordert mehr Arbeit.
+  Sei dazu $u \in \C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$.
+  Es ist eine Eigenschaft von \hausdorff\hyp{}Räumen, dass stetige Abbildungen höchstens eine Fortsetzung auf den Abschluss ihres Definitionsberechs besitzen \cite{bartsch2015topologie}[S.112, Lemma 4.2.4].
+  Wir wollen daher $u$ mit seiner Fortsetzung auf $\overline\Omega$ identifizieren.
+  Diese Menge ist kompakt.
+  Über das \urysohn\hyp{}Lemma für glatte Funktionen \cite{rochskriptehernicht} setzen wir in einem weiteren schritt $u$ auf ganz $\R^n$ zu einer Funktion $\tilde u$ fort.
+  Diese Fortsetzung besitzt jedoch im Allgemeinen keine beschränkten Ableitungen wie in der Definition von $\C^\infty_{\bullet}(\overline\Omega)$ gefordert.
+  Da jedoch $\Omega$ als beschränkt vorausgesetzt wurde, existiert ein offener Ball $B_r$ mit $\Omega \subseteq \overline\Omega \subsetneq B_r$. 
+  Wir multiplizieren nun diese Fortsetzung mit einer glatten \emph{cut-off}\hyp{}Funktion $\psi$, für die
+  $\psi(x) = 1$ für alle $x \in \overline\Omega$, $\psi(x) = 0$ für alle $x \in \R^n \setminus B_r$ und $\supp \psi \subseteq B_r$ gilt.
+  Mit $f := \tilde u \cdot \psi$ erhalten wir
+  $$
+  \sup_{|\alpha| < \infty, x \in \R^n}\norm{ D^\alpha f}
+   = \sup_{|\alpha| < \infty, x \in \overline B_r}\norm{ D^\alpha f}
+   < \infty,
+  $$
+  da auch $\overline B_r$ kompakt ist.
+  Da $f|_{\overline\Omega} = u$
+\end{proof}
+
+Zuletzt erwähnen wir den Untervektorraum der divergenzfreien glatten Vektorfelder
 $$
-\C_{0,\sigma}^\infty(\Omega) := \{u \in \C_0^\infty(\Omega)^n \mid \div u = 0\}
+\C_{0,\sigma}^\infty(\Omega) := \{u \in \C_0^\infty(\Omega)^n \mid \div u = 0\},
 $$
-der divergenzfreien Vektorfelder.
+ welcher den natürlichen Lösungsraum der stationären inkompressiblen \navier\hyp{}\stokes\hyp{}Gleichungen darstellt.
 
 \subsection{``Falten glättet'' und weitere Eigenschaften}
 \label{subsec:mollification}
