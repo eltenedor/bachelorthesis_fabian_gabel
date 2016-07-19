@@ -6,13 +6,19 @@
 \begin{itemize}
   \item Physikalische Motivation dieses Gleichungssystems
   \item Linearisierung der Navier-Stokes-Gleichungen (Motivation der Stokes-Gleichung)
-  \item Schleichende Strömungen z.B. \cite{spurk10stroemungslehre}[S.112,S.489]. 
+  \item Schleichende Strömungen z.B. \cite[S.112,S.489]{spurk10stroemungslehre}. 
 \end{itemize}
 
 \section{Funktionalanalytische Grundlagen}
 
 Dieses Unterkapitel beschäftigt sich mit den für die kommenden Kapitel zentralen Funktionenräumen und dient zudem der Einführung der verwendeten Notation und Bildung der verwendeten Begriffe.
 Die Notation ist an \cite{sohr2001navier} angelehnt.
+In Anlehnung an die für \hilbert\hyp{}Räume verbreitete Schreibweise $\langle \cdot, \cdot \rangle$ für das Skalarprodukt wollen wir nicht nur für den Raum $L^2$ sondern auch für alle anderen $L^q$\hyp{}Räume diese Symbolik verwenden.
+Wir definieren also für geeignete Funktionen $f$ und $g$ den Ausdruck
+$$
+\langle f, g \rangle := \int f \cdot g \d x.
+$$
+
 
 \subsection{Glatte Funktionen und der Raum der Testfunktionen}
 \label{subsec:smooth}
@@ -20,80 +26,80 @@ Die Notation ist an \cite{sohr2001navier} angelehnt.
 Ziel dieses Abschnittes ist es die nötigen Begriffe und Definitionen im Zusammenhang mit glatten Funktionen bereitzustellen.
 Im Folgenden bezeichne $\Omega \subseteq \R^n$ stets ein nichtleeres Gebiet.
 
-Sei $k \in \N$ und es bezeichne $\C^k(\Omega)$ die Menge aller Funktionen
+Sei $k \in \N$ und es bezeichne $C^k(\Omega)$ die Menge aller Funktionen
 $$
 u \colon \Omega \to \R, \quad x \mapsto u(x),
 $$
 sodass alle partiellen Ableitungen $D^\alpha u$ für alle Multiindices $\alpha \in N_0^n$ mit $0 \leq |\alpha| \leq k$ existieren und stetig sind . Mit
 $$
-  \C^\infty(\Omega) := \bigcap_{k = 0}^\infty \C^k(\Omega)
+  C^\infty(\Omega) := \bigcap_{k = 0}^\infty C^k(\Omega)
 $$
 bezeichnen wir den Raum der glatten Funktionen auf $\Omega$.
 
 Im Kontext der Approximation von $L^p$-Funktionen spielt ein Funktionenraum eine wichtige Rolle: der Raum der glatten Funktionen mit kompaktem Träger
 $$
-\C_0^\infty(\Omega) := \{ u \in \C^\infty(\Omega) \mid \supp u \text{ kompakt und } \supp u \subseteq \Omega\}.
+C_0^\infty(\Omega) := \{ u \in C^\infty(\Omega) \mid \supp u \text{ kompakt und } \supp u \subseteq \Omega\}.
 $$
 Wir werden diesem Raum in Abschnitt \ref{subsec:distributionsSobolev} nochmals als Raum der Testfunktionen begegnen.
-Wir werden zudem den Raum $\C^\infty(\overline\Omega)$ aller Restriktionen $u|_{\overline\Omega}$ von Funktionen aus $\C^\infty(\R^n)$ mit
+Wir werden zudem den Raum $C^\infty(\overline\Omega)$ aller Restriktionen $u|_{\overline\Omega}$ von Funktionen aus $C^\infty(\R^n)$ mit
 \begin{displaymath}
   \sup_{|\alpha| < \infty, x \in \R^n} |D^\alpha u(x)| < \infty \tag{$\ast$}
 \end{displaymath}
 benötigen.
-Aufgrund der Eigenschaft ($\ast$) lässt sich der Raum $\C^\infty(\overline\Omega)$ mit einer Norm ausstatten:
+Aufgrund der Eigenschaft ($\ast$) lässt sich der Raum $C^\infty(\overline\Omega)$ mit einer Norm ausstatten:
 $$
-\norm{u}_{\C^\infty} = \norm{u}_{\C^\infty(\overline\Omega)} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
+\norm{u}_{C^\infty} = \norm{u}_{C^\infty(\overline\Omega)} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
 $$
 
 Alle eingeführten Räume lassen sich auf natürliche Weise zu Räumen von Vektorfeldern verallgemeinern.
 Man erhält so
 \begin{align*}
-  \C^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in \C^\infty(\Omega), j = 1,\dots,m\}, \\
-  \C_0^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in \C_0^\infty(\Omega), j = 1,\dots,m\} \quad\text{und} \\
-  \C^\infty(\overline\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in \C^\infty(\overline\Omega), j = 1,\dots,m\},
+  C^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\Omega), j = 1,\dots,m\}, \\
+  C_0^\infty(\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C_0^\infty(\Omega), j = 1,\dots,m\} \quad\text{und} \\
+  C^\infty(\overline\Omega)^m &:= \{(u_1,\dots,u_m) \mid u_j \in C^\infty(\overline\Omega), j = 1,\dots,m\},
 \end{align*}
 wobei der letzte Vektorraum durch die Norm
 $$
-\norm{u}_{\C^\infty} = \norm{u}_{\C^\infty(\overline\Omega)}^m := \sup_{j = 1,\dots, m} \norm{u_j}_{\C^\infty(\overline\Omega)}
+\norm{u}_{C^\infty} = \norm{u}_{C^\infty(\overline\Omega)}^m := \sup_{j = 1,\dots, m} \norm{u_j}_{C^\infty(\overline\Omega)}
 $$
 zu einem normierten Vektorraum wird.
 
-In der Literatur findet man eine Reihe anderer Definitionen des Symbols $\C^\infty(\overline\Omega)$.
+In der Literatur findet man eine Reihe anderer Definitionen des Symbols $C^\infty(\overline\Omega)$.
 Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lemma beweist.
 
 \begin{lem}
   Sei $\Omega \subseteq \R^n$ ein beschränktes Gebiet.
   Wir schreiben
   \begin{enumerate}[(a)]
-    \item $u \in \C^\infty_\bullet(\overline\Omega)$,
-  falls eine Funktion $f \in \C^\infty(\R^n)$ mit $\sup_{|\alpha| < \infty, x \in \R^n} \norm{D^\alpha f(x)} <  \infty$ exsistiert, die $u$ fortsetzt, also $u = f|_{\overline\Omega}$ gilt.
-    \item $u \in \C^\infty_{\bullet\bullet}(\overline\Omega)$,
-  falls eine offene Obermenge $\overline\Omega \subseteq U \subseteq R^n$ und eine differenzierbare Fortsetzung $\tilde u \colon U \to \R$ von $u$ existieren.
-  \item $ u \in \C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$,
+    \item $u \in C^\infty_\bullet(\overline\Omega)$,
+  falls eine Funktion $f \in C^\infty(\R^n)$ mit $\sup_{|\alpha| < \infty, x \in \R^n} \norm{D^\alpha f(x)} <  \infty$ exsistiert, die $u$ fortsetzt, also $u = f|_{\overline\Omega}$ gilt.
+    \item $u \in C^\infty_{\bullet\bullet}(\overline\Omega)$,
+  falls eine offene Obermenge $\overline\Omega \subseteq U \subseteq R^n$ und eine glatte Fortsetzung $\tilde u \colon U \to \R$ von $u$ existieren.
+  \item $ u \in C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$,
   falls $u \in C^\infty(\Omega)$ gilt, und sich für alle Multiindices $|\alpha|\leq k$ die Funktion $D^\alpha u$ auf $\overline\Omega$ fortsetzen lässt.
   \end{enumerate}
 
   Dann gilt
   $$
-    \C^\infty_{\bullet}(\overline\Omega) =
-    \C^\infty_{\bullet\bullet}(\overline\Omega) =
-    \C^\infty_{\bullet\bullet\bullet}(\overline\Omega).
+    C^\infty_{\bullet}(\overline\Omega) =
+    C^\infty_{\bullet\bullet}(\overline\Omega) =
+    C^\infty_{\bullet\bullet\bullet}(\overline\Omega).
   $$
 \end{lem}
 
 \begin{proof}
   Zunächst ist $\overline\Omega$ als beschränkte abgeschlossene Teilmenge von $\R^n$ kompakt.
-  Es gilt $$\C^\infty_\bullet(\overline\Omega) \subseteq \C_{\bullet\bullet},$$ da jedes $u\in \C^\infty_\bullet(\overline\Omega)$ bereits eine differenzierbare Fortsetzung auf $\R^n$ besitzt.
+  Es gilt $$C^\infty_\bullet(\overline\Omega) \subseteq C_{\bullet\bullet},$$ da jedes $u\in C^\infty_\bullet(\overline\Omega)$ bereits eine glatte Fortsetzung auf die offene Obermenge $\R^n$ besitzt.
 
-  Die Inklusion $$\C^\infty_{\bullet\bullet}(\overline\Omega) \subseteq \C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$$ folgt direkt aus der Definition.
+  Die Inklusion $$C^\infty_{\bullet\bullet}(\overline\Omega) \subseteq C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$$ folgt direkt aus der Definition.
   
-  Die letzte Inklusion $$\C^\infty_{\bullet\bullet\bullet}(\overline\Omega) \subseteq \C^\infty_{\bullet}(\overline\Omega)$$ erfordert mehr Arbeit.
-  Sei dazu $u \in \C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$.
-  Es ist eine Eigenschaft von \hausdorff\hyp{}Räumen, dass stetige Abbildungen höchstens eine Fortsetzung auf den Abschluss ihres Definitionsberechs besitzen \cite{bartsch2015topologie}[S.112, Lemma 4.2.4].
+  Die letzte Inklusion $$C^\infty_{\bullet\bullet\bullet}(\overline\Omega) \subseteq C^\infty_{\bullet}(\overline\Omega)$$ erfordert mehr Arbeit.
+  Sei dazu $u \in C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$.
+  Es ist eine Eigenschaft von \hausdorff\hyp{}Räumen, dass stetige Abbildungen höchstens eine Fortsetzung auf den Abschluss ihres Definitionsberechs besitzen \cite[S.112, Lemma 4.2.4]{bartsch2015topologie}.
   Wir wollen daher $u$ mit seiner Fortsetzung auf $\overline\Omega$ identifizieren.
   Diese Menge ist kompakt.
-  Über das \urysohn\hyp{}Lemma für glatte Funktionen \cite{rochskriptehernicht} setzen wir in einem weiteren schritt $u$ auf ganz $\R^n$ zu einer Funktion $\tilde u$ fort.
-  Diese Fortsetzung besitzt jedoch im Allgemeinen keine beschränkten Ableitungen wie in der Definition von $\C^\infty_{\bullet}(\overline\Omega)$ gefordert.
+  Über das \urysohn\hyp{}Lemma (Eher Fortsetzungssatz von \steiner?) für glatte Funktionen \cite{rochskriptehernicht} setzen wir in einem weiteren Schritt $u$ auf ganz $\R^n$ zu einer Funktion $\tilde u$ fort.
+  Diese Fortsetzung besitzt jedoch im Allgemeinen keine beschränkten Ableitungen wie in der Definition von $C^\infty_{\bullet}(\overline\Omega)$ gefordert.
   Da jedoch $\Omega$ als beschränkt vorausgesetzt wurde, existiert ein offener Ball $B_r$ mit $\Omega \subseteq \overline\Omega \subsetneq B_r$. 
   Wir multiplizieren nun diese Fortsetzung mit einer glatten \emph{cut-off}\hyp{}Funktion $\psi$, für die
   $\psi(x) = 1$ für alle $x \in \overline\Omega$, $\psi(x) = 0$ für alle $x \in \R^n \setminus B_r$ und $\supp \psi \subseteq B_r$ gilt.
@@ -109,7 +115,7 @@ Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lem
 
 Zuletzt erwähnen wir den Untervektorraum der divergenzfreien glatten Vektorfelder
 $$
-\C_{0,\sigma}^\infty(\Omega) := \{u \in \C_0^\infty(\Omega)^n \mid \div u = 0\},
+C_{0,\sigma}^\infty(\Omega) := \{u \in C_0^\infty(\Omega)^n \mid \div u = 0\},
 $$
  welcher den natürlichen Lösungsraum der stationären inkompressiblen \navier\hyp{}\stokes\hyp{}Gleichungen darstellt.
 
@@ -139,13 +145,13 @@ Sei nun $\Omega_0 \subseteq \overline\Omega_0 \subseteq \Omega$ ein beschränkte
 \end{equation}
 Zusätzlich sei $u \in L^1_{\loc}(\Omega)$.
 Setzt man $u(x) := 0$ für alle $x \in \R^n \setminus \Omega$, so folgt $u \in L^1_{\loc}(\R^n)$.
-Wie \cite{rudin1991fa}[S.171, Theorem 6.30(b)] zeigt, lassen sich aus der Integrationstheorie bekannte Eigenschaften der Glättungen auch auf Faltungen 
+Wie \cite[S.171, Theorem 6.30(b)]{rudin1991fa} zeigt, lassen sich aus der Integrationstheorie bekannte Eigenschaften der Glättungen auch auf Faltungen 
 $$
 u^\varepsilon := \mathcal{F}_\varepsilon \ast u
 $$
-von Glättungskernen $\mathcal{F}_\varepsilon \ast u$ mit Distributionen $u \in \C_0^\infty(\Omega)'$ erweitern.
-Dazu zählt einerseits, dass $u^\varepsilon \in \C^\infty(\R^n)$ gilt.
-Da $\Omega_0$ als beschränkt vorausgestzt wurde, gilt sogar $u^\varepsilon \in \C^\infty(\overline\Omega_0)$.
+von Glättungskernen $\mathcal{F}_\varepsilon \ast u$ mit Distributionen $u \in C_0^\infty(\Omega)'$ erweitern.
+Dazu zählt einerseits, dass $u^\varepsilon \in C^\infty(\R^n)$ gilt.
+Da $\Omega_0$ als beschränkt vorausgestzt wurde, gilt sogar $u^\varepsilon \in C^\infty(\overline\Omega_0)$.
 Andererseits ist für alle Multiindices $\alpha \in \N_0^n$ und alle $x \in \Omega_0$ die folgende Gleichung gültig:
 \begin{equation}
   \label{eq:convolutionDiff}
@@ -168,15 +174,15 @@ Andererseits ist für alle Multiindices $\alpha \in \N_0^n$ und alle $x \in \Ome
     &= (0, \dots, 0)^T.
   \end{align*}
   Es ist $u^\varepsilon$ eine glatte Funktion.
-  Zudem ist $\Omega_0$ als offene zusammenhängende Teilmenge von $\R^n$ insbesondere Wegzusammenhängend.
-  Ausgehend von der Integraldarstellung des Funktionszuwachses \cite{koenigsberger2004ana2}[S.57] gilt $u_\varepsilon = C_\varepsilon$ auf ganz $\Omega_0$.
+  Zudem ist $\Omega_0$ als offene zusammenhängende Teilmenge von $\R^n$ insbesondere wegzusammenhängend.
+  Ausgehend von der Integraldarstellung des Funktionszuwachses \cite[S.57]{koenigsberger2004ana2} gilt $u_\varepsilon = C_\varepsilon$ auf ganz $\Omega_0$.
   Mit Lemma \ref{lem:mollification} folgt nun die Netzkonvergenz $C_\varepsilon \to C$ für $\varepsilon \to 0$ auf $\Omega_0$.
   Da sich zudem aufgrund von Lemma \ref{lem:lipschitzExhaust} das Gebiet $\Omega$ von einer Folge $(\Omega_j)_{j \in \N}$ offener beschränkter \lipschitz\hyp{}Gebiete ausschöpfen lässt, erhalten wir durch Anwendung des beschriebenen Arguments auf die Folgenglieder $\Omega_j$ sogar $u = C$ auf ganz $\Omega$.
 \end{proof}
 
 \begin{itemize}
   \item \cite{sohr2001navier}[Die Glättungsmethode S.64ff.]
-  \item \cite{adams2003sobolev}[S.10, S.9(alt), S.36, S.30(alt)]
+  \item \cite[S.10, S.9(alt), S.36, S.30(alt)]{adams2003sobolev}
 \end{itemize}
 
 \subsection{Schwache Differenzierberkeit \\-- Distributionen und Sobolev-Räume}
@@ -214,93 +220,88 @@ $$
 
 \subsubsection{Distributionen}
 
-In Abschnitt \ref{subsec:smooth} hatten wir bereits den Raum der Testfunktionen $\C_0^\infty(\Omega)$ kennegelernt.
-Wir werden und vor allem für seinen Dualraum, den Raum der stetigen Funktionale auf $\C_0^\infty(\Omega)$ existieren.
-Um überhaupt über Stetigkeit von Funktionalen auf $\C_0^\infty(\Omega)$ sprechen zu können, müssen wir jedoch zunächst eine Topologie festlegen.
+In Abschnitt \ref{subsec:smooth} hatten wir bereits den Raum der Testfunktionen $C_0^\infty(\Omega)$ kennegelernt.
+Wir werden und vor allem für seinen Dualraum, den Raum der stetigen Funktionale auf $C_0^\infty(\Omega)$ existieren.
+Um überhaupt über Stetigkeit von Funktionalen auf $C_0^\infty(\Omega)$ sprechen zu können, müssen wir jedoch zunächst eine Topologie festlegen.
 Wir werden dies durch die Spezifikation einer Konvergenzstruktur tun.
-Ein lineares Funktional $F \colon \C_0^\infty(\Omega) \to \R$ ist stetig, genau dann wenn für jedes beschränkte Teilgebiet $G \subseteq \Omega$ mit $\overline G \subseteq \Omega$ ein $k \in \N_0$ und $C = C(F,G)$ existiert, sodass
+Ein lineares Funktional $F \colon C_0^\infty(\Omega) \to \R$ ist stetig, genau dann wenn für jedes beschränkte Teilgebiet $G \subseteq \Omega$ mit $\overline G \subseteq \Omega$ ein $k \in \N_0$ und $C = C(F,G)$ existiert, sodass
 $$
-|F(\varphi)| \leq C \norm{\varphi}_{\C^k}(\overline G)
+|F(\varphi)| \leq C \norm{\varphi}_{C^k}(\overline G)
 $$
-gilt, wobei $\norm{\cdot}_{\C^k}(\overline G)$ gerade die
-Diese Konvergenzstruktur ist topologisierbar und macht $\C_0^\infty(\Omega)$ zu einem lokalkonvexen Vektorraum.
-Genauere Ausführungen finden sich in \cite{werner2011fa}[S.433f.].
-Den Raum $\C_0^\infty(\Omega)'$ aller im obigen Sinne stetigen Funktionale
+gilt, wobei $\norm{\cdot}_{C^k}(\overline G)$ gerade die
+Diese Konvergenzstruktur ist topologisierbar und macht $C_0^\infty(\Omega)$ zu einem lokalkonvexen Vektorraum.
+Genauere Ausführungen finden sich in \cite[S.433f.]{werner2011fa}.
+Den Raum $C_0^\infty(\Omega)'$ aller im obigen Sinne stetigen Funktionale
 $$
-F \colon \C_0^\infty(\Omega) \to \R, \quad \varphi \mapsto F(\varphi) = [F, \varphi],
+F \colon C_0^\infty(\Omega) \to \R, \quad \varphi \mapsto F(\varphi) = [F, \varphi],
 $$
 bezeichnen wir als den Raum der \emph{Distributionen}.
 Hierbei stellt $[\cdot,\cdot]$ die duale Paarung auf $\Omega$ dar. 
 
 Wir betrachten nun spezielle Distributionen.
-Ist $f \in L^1_{\loc}$ so induziert bezeichnet man 
+Ist $f \in L^1_{\loc}$ so bezeichnet man 
 $$
-f \mapsto \langle f, \varphi \rangle := \int_\Omega f \varphi \d x.
+f \mapsto \langle f, \varphi \rangle := \int_\Omega f \varphi \d x
 $$
 als zugehörige \emph{reguläre} Distribution.
-Dass diese Zuodrnung sogar injektiv ist und somit zur Inklusionsbeziehung $L^1_{\loc}(\Omega) \subseteq \C^\infty_0(\Omega)'$ führt, lässt sich in \cite{werner2011fa}[S.432, Beispiel (a)] nachlesen.
+Dass diese Zuodrnung sogar injektiv ist und somit zur Inklusionsbeziehung $L^1_{\loc}(\Omega) \subseteq C^\infty_0(\Omega)'$ führt, lässt sich in \cite[S.432, Beispiel (a)]{werner2011fa} nachlesen.
 
 \subsubsection{Differentiation von Distributionen}
 
 Distributionen ermöglichen es, den für die Analysis grundlegenden Begriff der Differenzierbarkeit zu verallgemeinern.
-Ist $\alpha \in \N_0^n$ ein Multiindex und $D^\alpha \colon \C_0^\infty(\Omega) \to \C_0^\infty(\Omega)$ der zugehörige Ableitungsoperator, so definieren wir für eine Distribution $F \in \C_0^\infty(\Omega)'$ ihre distributionelle Ableitung $D^\alpha F \in \C_0^\infty(\Omega)'$ durch
+Ist $\alpha \in \N_0^n$ ein Multiindex und $D^\alpha \colon C_0^\infty(\Omega) \to C_0^\infty(\Omega)$ der zugehörige Ableitungsoperator, so definieren wir für eine Distribution $F \in C_0^\infty(\Omega)'$ ihre distributionelle Ableitung $D^\alpha F \in C_0^\infty(\Omega)'$ durch
 $$
   [D^\alpha F, \varphi] := (-1)^{|\alpha|} [F, D^\alpha \varphi].
 $$
-Bis auf ein Vorzeichen stimmt also die distributionelle Ableitung mit der zum Ableitungsoperator dualen Abbildung $(D^\alpha)' \colon \C_0^\infty(\Omega)' \to \C_0^\infty(\Omega)'$ überein.
-Dass die distributionelle Ableitung wohldefiniert und sogar schwach*-stetig ist, lässt sich in \cite{werner2011fa}[S.434, Lemma VIII.5.7] nachlesen.
+Bis auf ein Vorzeichen stimmt also die distributionelle Ableitung mit der zum Ableitungsoperator dualen Abbildung $(D^\alpha)' \colon C_0^\infty(\Omega)' \to C_0^\infty(\Omega)'$ überein.
+Dass die distributionelle Ableitung wohldefiniert und sogar schwach*-stetig ist, lässt sich in \cite[S.434, Lemma VIII.5.7]{werner2011fa} nachlesen.
 
 Im Unterabschnitt zu glatten Funktionen hatten wir die dortigen Definitionen auf auf Produkträume ausgeweitet.
-Wir versehen den so entstandenen Produktraum $\C_0^\infty(\Omega)^m$ mit der Produkttopologie und wenden uns nun dem zugehörigen Distributionenraum $\C_0^\infty(\Omega)'^m$ zu.
+Wir versehen den so entstandenen Produktraum $C_0^\infty(\Omega)^m$ mit der Produkttopologie und wenden uns nun dem zugehörigen Distributionenraum $C_0^\infty(\Omega)'^m$ zu.
 
 Wir betrachten dazu die Funktion
 $$
-  F = (F_1, \dots, F_m), \quad F_j \in \C_0^\infty(\Omega)', \quad j = 1, \dots, m
+  F = (F_1, \dots, F_m), \quad F_j \in C_0^\infty(\Omega)', \quad j = 1, \dots, m
 $$
 und definieren für alle 
-$$\varphi = (\varphi_1, \dots, \varphi_m) \in \C_0^\infty(\Omega)^m$$
+$$\varphi = (\varphi_1, \dots, \varphi_m) \in C_0^\infty(\Omega)^m$$
 die Distribution
 $$
 [F, \varphi] := [F_1, \varphi_1] + \dots + [F_m, \varphi_m].
 $$
-Durch Betrachtung von Funktionen des Typs $\psi^{(i)} = (0, \dots,0, \psi_i, 0,\dots,0) \in \C_0^\infty(\Omega)^m$ mit $i \in \{1,\dots,m\}$ erkennen wir, dass jedes stetige Funktional auf $\C_0^\infty(\Omega)^m$ diese Form besitzt.
-Der Raum der Distributionen zu den Testfunktionen $\C_0^\infty(\Omega)^m$ besitzt also die Form
-\begin{align*}
-  \C_0^\infty(\Omega)'^{\,m}
-  &= (\C_0^\infty(\Omega)^m)' \\
-  &= \{(F_1,\dots,F_m) \mid F_j \in \C_0^\infty(\Omega)', \quad j = 1,\dots,m\}
-\end{align*}
+Durch Betrachtung von Funktionen des Typs $\psi^{(i)} = (0, \dots,0, \psi_i, 0,\dots,0) \in C_0^\infty(\Omega)^m$ mit $i \in \{1,\dots,m\}$ erkennen wir, dass jedes stetige Funktional auf $C_0^\infty(\Omega)^m$ diese Form besitzt.
+Der Raum der Distributionen zu den Testfunktionen $C_0^\infty(\Omega)^m$ besitzt also die Form
 
-Wir erinnern uns an dem im Unterabschnitt zu glatten Funktionen definierten Lösungsraum $\C_{0, \sigma}^\infty(\Omega)$ der divergenzfreien Funktionen.
-Nach dem Fortetzungssatz von \hahn\hyp{}\banach\ für lokalkonvexe Vektorräume (\cite{werner2011fa}[S.408, Satz VIII.2.8]) erhalten wir die stetigen Funktionale auf $\C_{0,\sigma}^\infty$ gerade als Einschränkungen der stetigen Funktionale auf $\C_0^\infty(\Omega)^n$. Es gilt somit
+Wir erinnern uns an dem im Unterabschnitt zu glatten Funktionen definierten Lösungsraum $C_{0, \sigma}^\infty(\Omega)$ der divergenzfreien Funktionen.
+Nach dem Fortetzungssatz von \hahn\hyp{}\banach\ für lokalkonvexe Vektorräume (\cite[S.408, Satz VIII.2.8]{werner2011fa}) erhalten wir die stetigen Funktionale auf $C_{0,\sigma}^\infty$ gerade als Einschränkungen der stetigen Funktionale auf $C_0^\infty(\Omega)^n$. Es gilt somit
 $$
-\C_{0,\sigma}^\infty(\Omega)' = \{F|_{\C_{0,\sigma}^\infty(\Omega)} \mid F \in (\C_0^\infty(\Omega)^n)'\}.
+C_{0,\sigma}^\infty(\Omega)' = \{F|_{C_{0,\sigma}^\infty(\Omega)} \mid F \in (C_0^\infty(\Omega)^n)'\}.
 $$
 
 Betrachten wir nun den \hilbert\hyp{}Raum $L^2(\Omega)^n$.
 Aus Lemma \ref{lem:mollification} ist bekannt, dass die glatten Funktionen mit kompaktem Träger dicht in $L^2(\Omega)$ liegen. 
-Ebenso stellt der Produktraum $\C_0^\infty(\Omega)^n$ einen dichten Unterraum von $L^2(\Omega)^n$ dar.
-Um diese Tatsache zu immitieren definieren wir den Unterraum 
+Ebenso stellt der Produktraum $C_0^\infty(\Omega)^n$ einen dichten Unterraum von $L^2(\Omega)^n$ dar.
+Um diese Tatsache zu immitieren, definieren wir den Unterraum 
 $$
   L^2_\sigma(\Omega) 
   := \overline{C_{0,\sigma}^\infty(\Omega)}^{\norm{\cdot}_2}
-  \subseteq L^2(\Omega)^n
+  \subseteq L^2(\Omega)^n.
 $$
-Identifizieren wir nun jedes Funktion $u \in L^2(\Omega)^n$ mit dem Funktional
+Identifizieren wir nun jede Funktion $u \in L^2(\Omega)^n$ mit dem Funktional
 $$
-\langle u, \cdot \rangle \colon \varphi \mapsto \langle u, \varphi \rangle, \quad \varphi \in C_0^\infty(\Omega)^n
+\langle u, \cdot \rangle \colon \varphi \mapsto \langle u, \varphi \rangle, \quad \varphi \in C_0^\infty(\Omega)^n,
 $$
 so erhalten wir die Einbettung 
 $$
   L^2(\Omega)^n \subseteq (C_0^\infty(\Omega)^n)'.
 $$
-Ebenso lassen sich Funktionen $u \in L^2_\sigma(\omega)$ mit der entsprechenden Einschränkung
+Ebenso lassen sich Funktionen $u \in L^2_\sigma(\Omega)$ mit der entsprechenden Einschränkung
 $$
 \langle u, \cdot \rangle \colon \varphi \mapsto \langle u, \varphi \rangle, \quad \varphi \in C_{0,\sigma}^\infty(\Omega)^n
 $$
 identifizieren, was die Einbettung
 $$
-  L^2(\Omega)^n \subseteq (C_0^\infty(\Omega)^n)'.
+  L^2_\sigma(\Omega)^n \subseteq (C_{0,\sigma}^\infty(\Omega)^n)'
 $$
 liefert.
 
@@ -364,7 +365,7 @@ $$
 
 Wir definieren den Unterraum
 $$
-  W_0^{k,q}(\Omega) := \overline{\C_0^\infty(\Omega)}^{\norm{\cdot}_{k,q}},
+  W_0^{k,q}(\Omega) := \overline{C_0^\infty(\Omega)}^{\norm{\cdot}_{k,q}},
 $$
 welcher die glatten Funktionen mit kompaktem Träger als dichte Teilmenge bezüglich der \sobolev\hyp{}Norm enthält.
 
@@ -375,7 +376,7 @@ $$
 $$
 Wie für den Dualraum eines normierten Raumes üblich, ist auch $W^{-1,q}(\Omega)$ mit Operatornorm ein \banach\hyp{}Raum.
 
-Es ist möglich einen \sobolev\hyp{}Raum $W^{k,q}(\Omega)$ für $1 < q < \infty$ als abgeschlossenen Teilraum eines $L^q$\hyp{}Raumes zu realisieren \cite{adams2003sobolev}[S.61, 3.5].
+Es ist möglich einen \sobolev\hyp{}Raum $W^{k,q}(\Omega)$ für $1 < q < \infty$ als abgeschlossenen Teilraum eines $L^q$\hyp{}Raumes zu realisieren \cite[S.61, 3.5]{adams2003sobolev}.
 Als solcher ist er insbesondere reflexiv.
 Wir halten diese wichtige Eigenschaft in einem Lemma fest.
 
@@ -396,6 +397,16 @@ identifizieren.
 Wir definieren nun die $W^{k,q}_{\loc}$\hyp{}Räume.
 Wir bezeichnen mit $W^{k,q}(\Omega)$ den aller Funktionen $u$ mit $D^\alpha u \in L^q_{\loc}(\Omega)$ für alle Multiindices $|\alpha| \leq k$.
 Des Weiteren definieren definieren wir $W^{k,q}(\overline\Omega)$ als den Raum aller Funktionen $u$ mit $D^\alpha u \in L^q_{\loc}(\overline\Omega)$.
+Nun zu den \sobolev\hyp{}Räumen negativer Ordnung. 
+Wir definieren den Raum $W^{-k,q}_{\loc}(\Omega)$ als den Raum aller Distributionen
+$$
+F \colon \varphi \mapsto [F,\varphi], \quad \varphi \in C_0^\infty(\Omega),
+$$
+sodass für die Operatornorm die Ungleichung
+$$
+\norm{F}_{-k,q} := \sup_{0 \neq \varphi \in C_0^\infty(\Omega_0)}  \frac{|[F,\varphi]|}{\norm{\varphi}_{k,q'}} < \infty
+$$
+für alle beschränkten Teilgebiete $\Omega_0 \subseteq \Omega$ mit $\overline\Omega_0 \subseteq \Omega$ gilt.
 
 Wie schon im Unterabschnitt zu glatten Funktionen können wir auch die Definition der \sobolev\hyp{}Räue auf Produkträume ausdehnen. 
 Wir definieren hierzu
@@ -406,6 +417,6 @@ und versehen den so entstandenen Vektorraum mit der Norm
 $$
 \norm{u}_{W^{k,q}(\Omega)^m} 
 := \norm{u}_{k,q}
-:= \left( \sum_{j = 1}^m \norm{u_j}_{k,q}^q \right)^{\frac{1}{q}}
+:= \left( \sum_{j = 1}^m \norm{u_j}_{k,q}^q \right)^{\frac{1}{q}}.
 $$
 
