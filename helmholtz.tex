@@ -1,6 +1,66 @@
 \chapter{Helmholtz-Zerlegung in $L^2$}
 
-\begin{itemize}
-  \item Lemma 2.5.1, 2.5.2 \cite{sohr2001navier}[S.81ff.]
-\end{itemize}
+Nach der in den vorangehenden Kapiteln geleisteten Vorarbeit sind wir nun in der Lage den zentralen Satz dieser Arbeit zu behandeln.
+Wir interessieren uns dafür, unter welchen Bedingungen sich die Vektorräume $L^q(\Omega)^n$ in für die Strömungsmechanik interessante Teilräume zerlegen lassen.
+Die Darstellung in dieser Arbeit begrenzt sich auf die Zerlegung für $q = 2$.
+Hier ermöglicht der in Theorie der \hilbert\hyp{}Räume grundlegende Begriff der Orthogonalität eine orthogonale Zerlegung des Lösungsraumes $L^2(\Omega)^n$.
 
+Wir bezeichnen mit 
+$$
+G_2(\Omega) := \{f \in L^2(\Omega)^n \mid f = \nabla p \text{ für ein } p \in L^2_{\loc}(\Omega)\}
+$$
+den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne ein skalares Potential besitzen.
+
+\begin{lem}
+  Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beliebiges Gebiet.
+  Dann gilt
+  $$
+  L^2(\Omega)^n = G_2(\Omega) \oplus L^2_\sigma(\Omega).
+  $$
+\end{lem}
+
+\begin{proof}
+  Wir zeigen, dass 
+  $$
+  G_2(\Omega) = L_\sigma^2(\Omega)^\perp
+  $$
+  gilt
+  Die zu zeigende Aussage folgt dann aus dem Fundament der Theorie der \hilbert\hyp{}Räume: dem Satz von der Orthogonalprojektion.
+
+  Sei dazu $f \in L_\sigma^2(\Omega)^\perp$.
+  Wir fassen $f$ als Distribution, also als Element von $(C_0^\infty(\Omega)^n)'$ auf.
+  Für jedes beschränkte Teilgebiet $\Omega_0 \subseteq \Omega$ mit $\overline\Omega_0 \subseteq \Omega$ folgt für alle $v \in C_0^\infty(\Omega_0)^n$ mit der \poincare\hyp{}Ungleichung
+  $$
+  |[f, v]| 
+  = |\langle f, v \rangle| 
+  \underset{\hoelder}{\leq}  \norm{f}_2 \norm{v}_{L^2(\Omega_0)^n}
+  \underset{\poincare}{\leq} C \norm{f}_2 \norm{\nabla v}_{L^2(\Omega_0)^{n^2}},
+  $$
+  mit einer Konstante $C = C(\Omega_0) > 0$.
+  Daraus folgt $f \in W_{\loc}^{-1,2}(\Omega)^n$.
+  Nach Voraussetzung gilt zudem 
+  $$
+  [f,v] = \langle f, v \rangle = 0
+  $$
+  für alle $v \in C_{0, \sigma}^\infty(\Omega)$.
+  Die Anwendung des Gradientenkriteriums \ref{lem:gradientCriterion} liefert nun die Existenz einer Funktion $p \in L_{\loc}^2(\Omega)$, welche die Gleichung
+  $$
+  f = \nabla p
+  $$
+  im distributionellen Sinne erfüllt.
+  Daraus folgt $f \in G_2(\Omega)$.
+
+  Sei umgekehrt $f \in G_2(\Omega)$ mit $f = \nabla p$ für ein $p \in L^2_{\loc}(\Omega)$.
+  Dann gilt
+  \begin{align*}
+  \langle \nabla p, v \rangle
+  &= \sum_{j = 1}^n \int_\Omega (D^j p)\;v_j \d x \\
+  &= - \sum_{j = 1}^n \int_\Omega p\;(D^j v_j) \d x \\
+  &= - \langle p, \div v \rangle  \\
+  &= - \langle p, 0 \rangle  \\
+  &= 0
+  \end{align*}
+  für alle $v \in C_{0, \sigma}^\infty(\Omega)$ und da $\nabla p \in L^2(\Omega)$ gilt dies aufgrund der Stetigkeit des Skalarproduktes auch für alle $v \in \overline{C_{0, \sigma}^\infty(\Omega)} = L_\sigma^2(\Omega)$.
+  Damit ist $f \in L_{0,\sigma}^2(\Omega)^\perp$.
+  
+\end{proof}

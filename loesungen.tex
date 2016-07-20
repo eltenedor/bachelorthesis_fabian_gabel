@@ -346,6 +346,12 @@ Dies ist Inhalt des folgenden Lemmas.
 \end{proof}
 
 Basierend auf \cite[S.61, Lemma 1.6.1]{sohr2001navier} beweisen wir nun eine Verallgemeinerung des zitierten Lemmas. 
+Hierzu erweitern wir die Wirkung des Divergenzoperators zunächst auf Matrizen $F = (F_{jl})_{j,l=1}^n$ durch
+\begin{equation}
+  \label{eq:divMatrix}
+  \div(F) := (\sum_{j = 1}^n D_j F_{jl})_{l = 1,\dots,n},
+\end{equation}
+der Operator berechnet also spaltenweise die Divergenz.
 
 \begin{lem}
   \label{lem:divRepresentation}
@@ -425,8 +431,31 @@ Basierend auf \cite[S.61, Lemma 1.6.1]{sohr2001navier} beweisen wir nun eine Ver
 
 In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundamentales Kriterium vor, nach welchem es möglich ist, Funktionen $f \in W^{1,q}(\Omega)^n$ als Gradienten $f = \nabla p$ mit $p \in L^q(\Omega)$ darzustellen.
 
+Wir stellen eine Modifikation eines aus der Funktionentheorie bekannten Lemmas voran.
+
 \begin{lem}
-  Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein Gebiet $\Omega_0 \subseteq \Omega$ ein beschränktes Teilgebiet mit $\emptyset \neq \Omega_0 \subseteq \overline\Omega_0 \subseteq \Omega$ und $1 < q < \infty$.
+  \label{lem:existencePotential}
+  Sei $\Omega \subseteq \R^n$ ein beschränktes Gebiet und $g = (g_1, \dots, g_n) \in C^\infty(\overline\Omega)$.
+  Falls für jede geschlossene $PC^1$-Kurve $\gamma \colon [0,1] \to \overline\Omega$ das Kurvenintegral verschwindet,
+$$
+  \int_0^1 g(\gamma(t)) \cdot \gamma'(t) \d t = 0,  
+$$
+  dann existiert ein $U\in C^\infty(\overline\Omega)$ mit $g = \nabla U$.
+\end{lem}
+
+\begin{proof}
+  Mit dem Wissen aus der Funktionentheorie folgt zunächst die Existenz einer Funktion $U \in C^\infty(\Omega)$, welche auf $\Omega$ die Gleichung $g = \nabla U$ erfüllt.
+  Nach Voraussetzung ist $g \in C^\infty(\overline\Omega)$.
+  Daraus folgt mit Lemma \ref{lem:CInftyClosedOmega}, dass $g|_\Omega = \nabla U$ und sämtliche partiellen Ableitungen der Komponenten von $\nabla U$ gleichmäßgig stetig auf $\Omega$ sind und sich daher stetig auf $\overline\Omega$ fortsetzen lassen.
+  Also folgt wieder nach Lemma \ref{lem:CInftyClosedOmega}, dass auch $U \in C^\infty(\overline\Omega)$ gilt.
+  Insbesondere ist aufgrund der Kompaktheit von $\overline\Omega$ die Funktion $U$ \lipschitz\hyp{}stetig, wie durch eine Anwendung des Schrankensatzes folgt.
+  Als \lipschitz\hyp{}stetige Funktion besitzt $U$ somit auch eine stetige Fortsetzung auf $\overline\Omega$.
+  Daraus folgt $U \in C^\infty(\overline\Omega)$ mit Lemma \ref{lem:CInftyClosedOmega}.
+\end{proof}
+
+\begin{lem}
+  \label{lem:gradientCriterion}
+  Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein Gebiet und $\Omega_0 \subseteq \Omega$ ein beschränktes Teilgebiet mit $\emptyset \neq \Omega_0 \subseteq \overline\Omega_0 \subseteq \Omega$ und $1 < q < \infty$.
   Angenommen, für $f \in W_{\loc}^{-1,q}(\Omega)^n$ gelte
   \begin{equation}
     \label{eq:vKernel}
@@ -454,50 +483,48 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
 
   Im Folgenden bezeichne $F^\varepsilon := \mathcal{F}_\varepsilon \ast F = (\mathcal{F}_\varepsilon \ast F_{jl})_{j,l=1}^n$ mit $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$ die in Abschnitt \ref{subsec:mollification} definierte Faltung von $F$ mit einem Glättungskern, für den, wie bereits gezeigt, $F^\varepsilon \in C^\infty(\overline\Omega_1)^{n^2}$ gilt.
   Wir wollen beweisen, dass eine Darstellung der Form
+  \begin{equation}
+    \label{eq:divNabla}
+    \div F^\varepsilon = \nabla U_\varepsilon
+  \end{equation}
+  mit einem $U_\varepsilon \in C^\infty(\overline\Omega_1)$ existiert, wobei die Divergenz, wie in Gleichung (\ref{eq:divMatrix}) definiert, spaltenweise wirkt.
+  Nach Lemma \ref{lem:existencePotential} ist dies genau dann der Fall, wenn
   $$
-  \div F^\varepsilon = \nabla U_\varepsilon
+  \oint_\gamma \div F^\varepsilon \cdot \d s = \int_0^1 \div F^\varepsilon(\gamma(\tau))\cdot \gamma'(\tau) \d\tau = 0
   $$
-  mit einem $U_\varepsilon \in C^\infty(\overline\Omega_1)$ existiert.
+  für alle $PC^1$-Kurven $\gamma \colon [0,1] \to \overline\Omega_1$ gilt.
 
-  Ein bekanntes Resultat aus der Funktionentheorie besagt, dass jedes auf dem Gebiet $\Omega_1$ definierte glatte Vektorfeld $g \in C^\infty(\Omega_1)^n$ genau dann ein Potential $\Phi \in C^\infty(\Omega_1)$ besitzt, falls das Kurvenintegral entlang jeder in $\Omega_1$ verlaufenden glatten Kurve $w \colon [0,1] \to \Omega_1$ verschwindet, also genau dann, falls
+  Dazu definieren wir für alle $x\in\Omega_2$ und $PC^1$\hyp{}Kurven $\gamma \colon [0,1] \to \overline\Omega_1$ den Wert des Integrals
   $$
-  \oint_w g \cdot \d s = \int_0^1 g(w(\tau))\cdot w'(\tau) \d\tau = 0
+  V_{\gamma,\varepsilon}(x) := \int_0^1 \mathcal{F}_\varepsilon(x - \gamma(\tau))\gamma'(\tau)\d\tau
   $$
-  für alle glatten Kurven $w$ in $\Omega_1$ gilt.
-  %Da sich stetige Funktionen und damit auch die Ableitungen glatter Funktionen eindeutig und stetig auf den Rand ihres Definitionsbereichs fortsetzen lassen, kann man auch $g \in C^\infty(\overline\Omega_1)^n$ sowie $\Phi \in C^\infty(\overline\Omega_1)$ annehmen.
-
-  Wir wollen dies nun für $\div F^\varepsilon$ beweisen.
-  Dazu definieren wir für alle $x\in\Omega_2$ den Wert des Integrals
-  $$
-  V_{w,\varepsilon}(x) := \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w'(\tau)\d\tau
-  $$
-  und erhalten durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale $ V_{w,\varepsilon} \in C_0^\infty(\Omega_2)^n$.
-  Darüber hinaus gilt für eine geschlossene Kurve $w$ in $\overline\Omega_1$ folgende Rechnung
+  und erhalten $V_{\gamma,\varepsilon} \in C_0^\infty(\Omega_2)^n$ durch wiederholte Anwendung der \leibniz\hyp{}Regel für Parameterintegrale.
+  Darüber hinaus gilt für eine geschlossene Kurve $\gamma$ in $\overline\Omega_1$ folgende Rechnung
   \begingroup
   \addtolength{\jot}{0.5em}
   \begin{align*}
-    \div V_{w,\varepsilon}(x) 
-    &= \int_0^1 \sum_{j=1}^n (D_j \mathcal{F}_\varepsilon)(x - w(\tau))w_j'(\tau) \d\tau \tag{\leibniz}\\
-    &= -\int_0^1 \frac{\d\ }{\d\tau}\mathcal{F}_\varepsilon(x - w(\tau)) \d\tau \tag{Kettenregel}\\
-    &= \mathcal{F}_\varepsilon(x - w(0)) - \mathcal{F}_\varepsilon(x - w(1)) \tag{Hauptsatz}\\
+    \div V_{\gamma,\varepsilon}(x) 
+    &= \int_0^1 \sum_{j=1}^n (D_j \mathcal{F}_\varepsilon)(x - \gamma(\tau))\gamma_j'(\tau) \d\tau \tag{\leibniz}\\
+    &= -\int_0^1 \frac{\d\ }{\d\tau}\mathcal{F}_\varepsilon(x - \gamma(\tau)) \d\tau \tag{Kettenregel}\\
+    &= - \mathcal{F}_\varepsilon(x - \gamma(1)) + \mathcal{F}_\varepsilon(x - \gamma(0)) \tag{Hauptsatz}\\
     &= 0 \tag{geschlossene Kurve}
   \end{align*}
   \endgroup
 
-  Hiermit folgt $V_{w,\varepsilon} \in C_{0,\sigma}^\infty(\Omega_2)^n$.
+  Hiermit folgt $V_{\gamma,\varepsilon} \in C_{0,\sigma}^\infty(\Omega_2)^n$.
   Unter Verwendung der Voraussetzung aus Gleichung (\ref{eq:vKernel}) und dem Satz von \fubini\ folgt
   \begingroup
   \addtolength{\jot}{1em}
   \begin{align*}
     0
     %
-    &= [f, V_{w, \varepsilon}] %\qquad &&\text{Voraussetzung (\ref{eq:vKernel})}\\
+    &= [f, V_{\gamma, \varepsilon}] %\qquad &&\text{Voraussetzung (\ref{eq:vKernel})}\\
     %
-    = [\div F, V_{w, \varepsilon}] %\\
+    = [\div F, V_{\gamma, \varepsilon}] %\\
     %
-    = \int_{\Omega_2} \div F \cdot V_{w, \varepsilon} \d x \\
+    = \int_{\Omega_2} \div F \cdot V_{\gamma, \varepsilon} \d x \tag{duale Paarung aus (\ref{eq:pairingVector})} \\
     %
-    &= \int_{\Omega_2} \sum_{j,l=1}^n D_j F_{jl}(x) \left( \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \right) \d x \\
+    &= \int_{\Omega_2} \sum_{j,l=1}^n D_j F_{jl}(x) \cdot \left( \int_0^1 \mathcal{F}_\varepsilon(x - \gamma(\tau))\gamma_l'(\tau) \d\tau \right) \d x \\
     %
     %&= \sum_{j,l=1}^n \int_{\Omega_2} D_j F_{jl}(x) \left( \int_0^1 \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \right) \d x \\
     %
@@ -505,26 +532,28 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     %
     %&= \sum_{j,l=1}^n \int_0^1 \int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))w_l'(\tau) \d\tau \d x 
     %
-    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - w(\tau))\d x \right) w_l'(\tau) \d\tau \tag{Satz von \fubini}\\
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(x - \gamma(\tau))\d x \right) \cdot \gamma_l'(\tau) \d\tau \tag{Satz von \fubini}\\
     %
-    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(w(\tau) - x)\d x \right) w_l'(\tau) \d\tau \tag{$\mathcal{F}_\varepsilon(x) = \mathcal{F}_\varepsilon(-x)$}\\
+    &= \sum_{j,l=1}^n \int_0^1 \left(\int_{\Omega_2}  D_j F_{jl}(x) \mathcal{F}_\varepsilon(\gamma(\tau) - x)\d x \right) \cdot \gamma_l'(\tau) \d\tau \tag{$\mathcal{F}_\varepsilon(x) = \mathcal{F}_\varepsilon(-x)$}\\
     %
-    &= \sum_{j,l=1}^n \int_0^1 \left(D_j F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \\
+    &= \sum_{j,l=1}^n \int_0^1 \left(D_j F_{jl} \ast \mathcal{F}_\varepsilon\right)(\gamma(\tau)) \cdot \gamma_l'(\tau) \d\tau \\
     %
-    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(w(\tau)) w_l'(\tau) \d\tau \tag{(\ref{eq:convolutionDiff}) mit $F_{jl} \in L^2(\Omega) \subseteq C_0^\infty(\Omega)'$}\\
+    &= \sum_{j,l=1}^n \int_0^1 D_j\left(F_{jl} \ast \mathcal{F}_\varepsilon\right)(\gamma(\tau)) \cdot \gamma_l'(\tau) \d\tau \tag{(\ref{eq:convolutionDiff}) mit $F_{jl} \in L^2(\Omega) \subseteq C_0^\infty(\Omega)'$}\\
     %
-    &= \sum_{j,l=1}^n \int_0^1 (D_j F_{jl}^\varepsilon)(w(\tau)) w_l'(\tau) \d\tau \\
+    &= \sum_{j,l=1}^n \int_0^1 (D_j F_{jl}^\varepsilon)(\gamma(\tau)) \cdot \gamma_l'(\tau) \d\tau \\
     %
-    &= \int_0^1 (\div F^\varepsilon)(w(\tau)) \cdot w'(\tau) \d\tau \\
+    &= \int_0^1 (\div F^\varepsilon)(\gamma(\tau)) \cdot \gamma'(\tau) \d\tau \\
     %
-    &= \oint_w \div F^\varepsilon \cdot \d s.
+    &= \oint_\gamma \div F^\varepsilon \cdot \d s.
   \end{align*}
   \endgroup
+  \footnote{Ich habe cdot durchgehend verwendet um etwas Übersichtlichkeit zu schaffen, auch wenn cdot in meiner Arbeit nur für das Standardskalarprodukt verwendet werden sollte}
 
   Es existiert also ein $U_\varepsilon \in C^\infty(\overline\Omega_1)$ mit $\div F^\varepsilon = \nabla U_\varepsilon$.
-  Die Funktion $U_\varepsilon$ ist bis auf eine Konstante $\gamma$ eindeutig bestimmt, denn es gilt $\nabla U_\varepsilon = \nabla( U_\varepsilon - \gamma)$.
-  Wir können durch die Wahl $\gamma = \int_{\Omega_0} U_\varepsilon \d x$ erreichen, dass $\int_{\Omega_0} U_\varepsilon - \gamma \d x = 0$  gilt.
+  Die Funktion $U_\varepsilon$ ist bis auf eine Konstante $c$ eindeutig bestimmt, denn es gilt $\nabla U_\varepsilon = \nabla( U_\varepsilon - c)$.
+  Wir können durch die Wahl $c = \int_{\Omega_0} U_\varepsilon \d x$ erreichen, dass $\int_{\Omega_0} U_\varepsilon - \gamma \d x = 0$  gilt.
   Im Folgenden bezeichnen wir die so gewählte Funktion wieder mit $U_\varepsilon$.
+  Da $\overline\Omega_1$ kompakt ist, gilt insbesondere $U_\varepsilon \in L^q(\Omega_1)$.
   Mit Lemma \ref{lem:compactEmbedding} folgt
   \begingroup
   \addtolength{\jot}{1em}
@@ -533,7 +562,7 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     &\leq C \norm{ \nabla U_\varepsilon }_{W^{-1,q}(\Omega_1)} \\
     &= C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left(\frac{|[\nabla U_\varepsilon, v]|}{\norm{\nabla v}_{q'}} \right) \\
     &\overset{(\ast)}{=} C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left( \frac{|\langle F^\varepsilon, \nabla v \rangle|}{\norm{v}_{q'}}\right) \\
-    &\leq C \norm{F^\varepsilon}_{L^q(\Omega_1} \tag{$\star$}
+    &\leq C \norm{F^\varepsilon}_{L^q(\Omega_1)} \tag{$\star$}
   \end{align*}
   \endgroup
   für ein $C = C(q,\Omega_0,\Omega_1)$, welches nicht von $\varepsilon$ abhängt. 
@@ -544,16 +573,16 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     &= \int_{\Omega_1} \sum_{j,l=1}^n F_{jl}^\varepsilon (D_j v_l) \d x \\
     &= \int_{\Omega_1} \sum_{j,l=1}^n -(D_jF_{jl}^\varepsilon) v_l \d x \tag{Kompakter Träger}\\
     &= \int_{\Omega_1} -\div F^\varepsilon \cdot v \d x \\
-    &= \int_{\Omega_1} -\nabla U_\varepsilon \cdot v \d x \\
+    &= \int_{\Omega_1} -\nabla U_\varepsilon \cdot v \d x \tag{Gleichung (\ref{eq:divNabla}) gilt}\\
     &= -[\nabla U_\varepsilon, v].
   \end{align*}
 
-  Eine wesentliche Eigenschaft der Glättungskerne ist, dass $\lim_{\varepsilon \to 0} \norm{F - F^\varepsilon}_{L^q(\Omega_1)} = 0$ gilt.
-  Das Netz $(F^\varepsilon)_{\varepsilon \in \R^+}$ ist aufgrund der Konvergenz auch ein \cauchy-Netz.
+  Eine wesentliche Eigenschaft der Glättungskerne ist, dass $\lim_{\varepsilon \to 0} \norm{F - F^\varepsilon}_{L^q(\Omega_1)} = 0$ nach Lemma \ref{lem:mollification} gilt.
+  Das Netz $(F^\varepsilon)_{\varepsilon \in \R^+}$ ist, da es konvergiert, auch ein \cauchy-Netz.
   Mit Gleichung ($\star$) gilt dann für alle $0 < \eta < \varepsilon$ die Ungleichung
   $$
     \norm{U_\varepsilon - U_\eta}_{L^q(\Omega_1)}
-    \leq C \norm{F^\varepsilon - F^\eta}_{L^q(\Omega_1}.
+    \leq C \norm{F^\varepsilon - F^\eta}_{L^q(\Omega_1)}.
   $$
   Also ist auch $(U_\varepsilon)_{\varepsilon \in \R^+}$ ein \cauchy-Netz, welches aufgrund der Vollständigkeit des Raumes $L^q(\Omega_1)$ einen eindeutig bestimmten Grenzwert $U \in L^q(\Omega_1)$ besitzt.
   Da zudem $\Omega_0$ beschränkt ist, gilt die Inklusionsbeziehung $L^1(\Omega_0) \subseteq L^q(\Omega_0)$.
@@ -570,9 +599,9 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   $$
   aufgrund der Wahl von $U^\varepsilon$.
 
-  Nun zeigen wir noch dass $\div F = \nabla U$ im distributionellen Sinne gilt. 
-  Wir halten dazu zunächst fest, dass die Konvergenz auf $L^q(\Omega_1)^n$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
-  Es gilt somit $\norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} \to 0$ für $\varepsilon \to 0$.
+  Nun zeigen wir noch, dass auf $\Omega_1$ die Gleichheit $\div F = \nabla U$ im distributionellen Sinne gilt. 
+  Wir halten dazu zunächst fest, dass die Konvergenz auf $L^q(\Omega_1)^{n^2}$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
+  Es gilt somit $\norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} \to 0$ für $\varepsilon \to 0$ für alle $j,l \in \{ 1,\dots,n\}$.
   Sei nun $v \in C_0^\infty(\Omega_1)^n$.
   Dann gilt
   \begin{align*}
@@ -581,8 +610,8 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
     &= \int_{\Omega_1} \sum_{j = 1}^n (D_j U) v_j \d x \\
     &= -\int_{\Omega_1} \sum_{j = 1}^n U (D_j v_j) \d x \\ 
     &= -\int_{\Omega_1} \sum_{j = 1}^n \lim_{\varepsilon \to 0} U_\varepsilon (D_j v_j) \d x \\
-    &\overset{(\clubsuit)}{=} -\lim_{\varepsilon \to 0} \int_{\Omega_1} \nabla U_\varepsilon \cdot v \d x \\
-    &= -\lim_{\varepsilon \to 0} \int_{\Omega_1} \div F^\varepsilon \cdot v \d x \\
+    &\overset{(\clubsuit)}{=} \lim_{\varepsilon \to 0} \int_{\Omega_1} \nabla U_\varepsilon \cdot v \d x \\
+    &= \lim_{\varepsilon \to 0} \int_{\Omega_1} \div F^\varepsilon \cdot v \d x \\
     &= -\lim_{\varepsilon \to 0} \int_{\Omega_1} \sum_{j,l=1}^n F_{jl}^\varepsilon (D_j v_l) \d x \\
     &\overset{(\clubsuit)}{=} \int_{\Omega_1} \sum_{j,l=1}^n (D_j F_{jl}) v_l \d x \\
     &= \langle \div F, v \rangle,
@@ -596,12 +625,13 @@ In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundament
   $$
   eindeutig bestimmt ist.
   Nach Lemma \ref{lem:lipschitzExhaust} lässt sich jedes Gebiet $\Omega$ durch eine Folge $(\Omega_j)_{j \in \N}$ beschränkter \lipschitz\hyp{}Gebiete ausschöpfen.
-  Zudem gilt nach Bemerkung \ref{bem:boundedSubset} jedes beschränkte Teilgebiet $\Omega' \subseteq \Omega$ in einem beschränkten \lipschitz\hyp{}Gebiet $\Omega_j, j \in \N$ enthalten ist.
+  Zudem gilt nach Bemerkung \ref{bem:boundedSubset}, dass jedes beschränkte Teilgebiet $\Omega' \subseteq \Omega$ in einem beschränkten \lipschitz\hyp{}Gebiet $\Omega_j, j \in \N$ enthalten ist.
   Wir können direkt annehmen, dass dies bereits für $j = 1$ erfüllt ist.
   Führen wir nun den vorangehenden Beweis für $\Omega_j$, so erhalten wir eine eindeutig bestimmte Funktion $p \in L^q(\Omega_j)$, die die Gleichung $f = \nabla p$ auf $\Omega_j$ im distributionellen Sinne erfüllt und für die des Weiteren das Integral $\int_{\Omega_0} p \d x$ verschwindet.
   Da nach Lemma \ref{lem:lipschitzExhaust} die Gleichheit $\bigcup_{j \in \N} \Omega_j = \Omega$ gilt, lässt sich $p$ auch eindeutig bis auf Nullmengen auf $\Omega$ definieren.
   Ist zudem $B$ ein Ball mit $\overline B \subseteq \Omega$, so existiert ein $j \in \N$ mit $\overline B \subseteq \Omega_j$.
   Da $p \in L^q(\Omega_j)$ gilt, folgt sofort $p \in L^q(B)$.
-  Die Definition der lokalen Integrierbarkeit liefert hiermit $p \in L^q_{\loc}(\Omega)$.
+  Die Definition zum Begriff der lokalen Integrierbarkeit in Abschnitt \ref{subsec:distributionsSobolev} liefert hiermit $p \in L^q_{\loc}(\Omega)$.
+
   Dies beweist die Behauptung.
 \end{proof}

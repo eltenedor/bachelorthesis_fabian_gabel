@@ -18,6 +18,7 @@ Wir definieren also für geeignete Funktionen $f$ und $g$ den Ausdruck
 $$
 \langle f, g \rangle := \int f \cdot g \d x.
 $$
+Falls nicht anders vermerkt bezeichnet $n$ immer eine von Null verschiedene natürliche Zahl.
 
 
 \subsection{Glatte Funktionen und der Raum der Testfunktionen}
@@ -272,9 +273,10 @@ $$
 und definieren für alle 
 $$\varphi = (\varphi_1, \dots, \varphi_m) \in C_0^\infty(\Omega)^m$$
 die Distribution
-$$
-[F, \varphi] := [F_1, \varphi_1] + \dots + [F_m, \varphi_m].
-$$
+\begin{equation}
+  \label{eq:pairingVector}
+  [F, \varphi] := [F_1, \varphi_1] + \dots + [F_m, \varphi_m].
+\end{equation}
 Durch Betrachtung von Funktionen des Typs $\psi^{(i)} = (0, \dots,0, \psi_i, 0,\dots,0) \in C_0^\infty(\Omega)^m$ mit $i \in \{1,\dots,m\}$ erkennen wir, dass jedes stetige Funktional auf $C_0^\infty(\Omega)^m$ diese Form besitzt.
 Der Raum der Distributionen zu den Testfunktionen $C_0^\infty(\Omega)^m$ besitzt also die Form
 
