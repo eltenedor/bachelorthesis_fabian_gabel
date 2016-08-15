@@ -1,5 +1,6 @@
 \chapter{Lösungen von $\nabla p = f$}
 \section{Lipschitz-Gebiete und Gebietsapproximation}
+\label{sec:lipschitzDomains}
 
 In diesem Abschnitt stellen wir einige technische Lemmata vor, die es ermöglichen werden beliebige Gebiete durch Gebiete deren Ränder eine höhere Regularität aufweisen auszuschöpfen.
 Im Folgenden sei $\R^n$ immer mit der \euklid ischen Metrik versehen. Es bezeichne zudem
@@ -210,7 +211,7 @@ Dieses Einbettungsresultat können wir nun nutzen, um die folgende Abschätzung 
 \end{lem}
 
 \begin{proof}
-  Wir halten zunächst fest, dass für alle Folgen $(v_j)_{j \in \N}$ mit $v_j \in C_0^\infty(\Omega)^n$ für alle $j \in \N$ und $\lim_{j \to \infty} \norm{v_j - v}_{1,q} = 0$ für ein $v \in \overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$ auch $\lim_{j \to \infty} \norm{\div v_j - \div v} = 0$ gilt.  
+  Wir halten zunächst fest, dass für alle Folgen $(v_j)_{j \in \N}$ mit $v_j \in C_0^\infty(\Omega)^n$ für alle $j \in \N$ und $$\lim_{j \to \infty} \norm{v_j - v}_{1,q} = 0$$ für ein $v \in \overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$ auch $$\lim_{j \to \infty} \norm{\div v_j - \div v} = 0$$ gilt.  
   Hiermit ergibt sich für ein $u \in L^q(\Omega)$ folgende Darstellung der linearen Fortsetzung der Distribution $\nabla u \in (C_0^\infty(\Omega)^n)'$ auf den Raum $\overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$:
   $$
     [\nabla u, \cdot] \colon v \to [\nabla u, v] 

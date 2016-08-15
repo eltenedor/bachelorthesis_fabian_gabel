@@ -12,6 +12,7 @@ $$
 den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne ein skalares Potential besitzen.
 
 \begin{lem}
+  \label{lem:Helmholtz}
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beliebiges Gebiet.
   Dann gilt
   $$
@@ -21,9 +22,10 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
 
 \begin{proof}
   Wir zeigen, dass 
-  $$
-  G_2(\Omega) = L_\sigma^2(\Omega)^\perp
-  $$
+  \begin{equation}
+    \label{eq:orthComplement}
+    G_2(\Omega) = L_\sigma^2(\Omega)^\perp
+  \end{equation}
   gilt
   Die zu zeigende Aussage folgt dann aus dem Fundament der Theorie der \hilbert\hyp{}Räume: dem Satz von der Orthogonalprojektion.
 
@@ -62,5 +64,76 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   \end{align*}
   für alle $v \in C_{0, \sigma}^\infty(\Omega)$ und da $\nabla p \in L^2(\Omega)$ gilt dies aufgrund der Stetigkeit des Skalarproduktes auch für alle $v \in \overline{C_{0, \sigma}^\infty(\Omega)} = L_\sigma^2(\Omega)$.
   Damit ist $f \in L_{0,\sigma}^2(\Omega)^\perp$.
+\end{proof}
+
+Aus Gleichung (\ref{eq:orthComplement}) folgt insbesondere, dass der Raum $G_2(\Omega)$ abgeschlossen bezüglich $\norm{\cdot}_2$ abgeschlossen ist.
+
+Im Falle $\Omega = \R^n$ lassen sich die Räume $G_2(\Omega)$ und $L_\sigma^2(\Omega)$ noch auf eine andere Art charakterisieren.
+Dies ist Inhalt des folgenden Lemmas.
+
+\begin{lem}
+  Sei $n \in \N$ mit $n \geq 2$.
+  Dann gilt
+  $$
+  L_\sigma^2(\R^n) = \{ f \in L^2(\R^n)^n \mid \div f = 0 \}
+  $$
+  und $G(\R^n)$ ist der Abschluss des Raumes
+  $$
+  \nabla C_0^\infty(\R^n) := \{ \nabla p \mid p \in C_0^\infty(\R^n) \}
+  $$
+  bezüglich der Norm $\norm{\cdot}_{L^2(\R^n)^n}$.
+  Es gilt also
+  \begin{equation}
+    \label{eq:GCharacterization}
+    G(\R^n) = \overline{\nabla C_0^\infty(\R^n)}^{\norm{\cdot}_2}.
+  \end{equation}
+\end{lem}
+
+\begin{proof}
+  Im folgenden Beweis wollen wir eine Funktion $\varphi \in C_0^\infty(\R^n)$ mit den Eigenschaften
+  $$
+  0 \leq \varphi \leq 1
+  \quad,\quad
+  \varphi(x) = 1 \text{, falls } |x| \leq 1
+  \quad,\quad
+  \varphi(x) = 0 \text{, falls } |x| \geq 2,
+  $$
+  betrachten.
+  Zudem definieren wir die Funktionen
+  $$
+  \varphi_j \in C_0^\infty(\R^n)
+  \quad,\quad
+  \varphi_j(x) := \varphi\left(\frac{x}{j}\right)
+  \quad,\quad
+  x \in \R^n, j \in \N.
+  $$
+  Nach Konstruktion folgt $\lim_{j \to \infty} = \varphi_j(x) = 1$ für alle $x \in \R^n$.
+  Setzen wir
+  $$
+  B_j := \{ x \in \R^n \mid |x| < j \} 
+  \quad,\quad
+  G_j := B_{2j}\setminus \overline B_j,
+  $$
+  so erhalten wir $\nabla \varphi_j \subseteq \overline G_j$, da nach Definition $\varphi_j$ auf $B_j$ konstant ist sowie $\supp \varphi_j \subseteq \overline B_{2j}, j \in \N$.
+
+  Wir beginnen damit, die Güligkeit der Gleichung (\ref{eq:GCharacterization}) zu zeigen.
+  Da sich der Raum $C_0^\infty(\R^n)$ als Unterraum von $L^2(\R^n)$ auffassen lässt folgt sogleich $G(\R^n) \supseteq \nabla C_0^\infty(\R^n)$.
+  Zudem folgt aus Lemma \ref{lem:Helmholtz}, dass $G(\R^n)$ als orthogonales Komplement ein bezüglich $\norm{\cdot}_2$ abgeschlossener Unterraum von $L^2(\R^n)^n$ ist.
+  Damit gilt auch $G(\R^n) = \overline{G(\R^n)}^{\norm{\cdot}_2} \supseteq \overline{\nabla C_0^\infty(\R^n)}^{\norm{\cdot}_2}$.
+
+  Für die andere Inklusion betrachen wir den Gradienten $\nabla p \in G(\R^n)$.
+  Wir wählen Konstanten $K_j = \int_{G_j} p \d x, j \in \N$.
+  Aus der \poincare\hyp{}Ungleichung \cite[S.44, Lemma 1.1.2]{sohr2001navier} folgt sodann
+  \begin{equation}
+  \norm{p - K_1}_{L^2(G_1)} \leq C \left(\norm{\nabla (p - K_1}_{L^2(G_1)^n} + | \int_{G_1} p - K_1 \d x |\right) =  C \norm{\nabla p}_{L^2(G_1)^n}.
+\end{equation}
+  Mit der Substitutionsregel erhalten wir
+\begin{align*}
+  \norm{p - K_j}_{L^2(G_j} 
+  &= \left( \int_{G_j} |p(x) - K_j|^2 \d x \right)^\frac{1}{2} \\
+  &= \left( \int_{G_1} |p(jy) - K_j|^2 \d y \right)^\frac{1}{2} j^\frac{n}{2} \\
+  \leq 
+\end{align*}<++>
+
   
 \end{proof}
