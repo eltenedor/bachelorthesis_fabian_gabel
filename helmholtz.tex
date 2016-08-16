@@ -66,7 +66,7 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   Damit ist $f \in L_{0,\sigma}^2(\Omega)^\perp$.
 \end{proof}
 
-Aus Gleichung (\ref{eq:orthComplement}) folgt insbesondere, dass der Raum $G_2(\Omega)$ abgeschlossen bezüglich $\norm{\cdot}_2$ abgeschlossen ist.
+Aus Gleichung (\ref{eq:orthComplement}) folgt insbesondere, dass der Raum $G_2(\Omega)$ bezüglich der Norm $\norm{\cdot}_2$ abgeschlossen ist.
 
 Im Falle $\Omega = \R^n$ lassen sich die Räume $G_2(\Omega)$ und $L_\sigma^2(\Omega)$ noch auf eine andere Art charakterisieren.
 Dies ist Inhalt des folgenden Lemmas.
@@ -101,6 +101,7 @@ Dies ist Inhalt des folgenden Lemmas.
   \varphi(x) = 0 \text{, falls } |x| \geq 2,
 \end{equation}
   betrachten.
+  Eine solche Funktion erhält man zum Beispiel aus der Faltung der charakteristischen Funktion $\chi_{B_2(0)}$ mit dem Standardglättungskern $\mathcal{F}_1$.
   Zudem definieren wir die Funktionen
   $$
   \varphi_j \in C_0^\infty(\R^n)
@@ -219,14 +220,28 @@ Dies ist Inhalt des folgenden Lemmas.
   L := \{ f \in L^2(\R^n)^n \mid \div f = 0 \}.
   $$
 
-  \vspace{1cm}
-  INKLUSION $L_\sigma^2(\R^n) \subseteq L$ NICHT KLAR
-  \vspace{1cm}
+  Wir beweisen zunächst die Inklusion $L_\sigma^2(\R^n) \subseteq L$.
+  Sei dazu $f \in L_\sigma^2(\R^n)$.
+  Nach Definition existiert eine Folge $(f_k)_{k \in \N}$ mit $f_k \in C_{0,\sigma}^\infty(\R^n)$ für alle $k \in \N$ und 
+  $$
+  \lim_{k \to \infty} \norm{f_k - f}_{L^2(\R^n)^n} = 0.
+  $$
+  Daraus folgt unter Verwendung der \cauchy\hyp{}\schwartz\hyp{}Ungleichung
+  \begin{align*}
+    |[\div f, \varphi] |
+    &= |[\div f_k - f, \varphi] | \\
+    &= |\langle f_k - f, \nabla \varphi \rangle| \\
+    & \leq C\norm{f_k - f}_{L^2(\R^n)^n} \norm{\varphi}_{L^2(\R^n)^n} 
+    \to 0,
+  \end{align*}
+  für alle $\varphi \in C_0^\infty(\R^n)^n$ und eine aus der Normäquivalenz auf $\R^n$ stammende Konstante $C = C(n)$.
+  Damit folgt $[\div f, \varphi] = 0$ für alle $\varphi \in C_0^\infty(\R^n)^n$.
+  Es gilt also $\div f = 0$ im distributionellen Sinne und wir erhalten $f \in L$.
 
   Zum Beweis der umgekehrten Inklusion sei $f \in L$.
   Dann gilt
   $$
-  \langle f, \nabla p \rangle = -[\div f, p] = - \langle \div f, p \rangle = 0
+  \langle f, \nabla p \rangle = -[\div f, p] = 0
   $$
   für alle $p \in C_0^\infty(\R^n)$.
   Also ist die Abbildung $\langle f, \cdot\rangle$ stetig auf $\nabla (C_0^\infty(\R^n)^n)$ und besitzt somit eine stetige Fortsetzung auf den Abschluss des Definitionsbereichs. 

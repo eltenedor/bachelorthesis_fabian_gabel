@@ -1,15 +1,5 @@
-\chapter{Grundlagen}
+\chapter{Funktionalanalytische Grundlagen}
 \label{cp:grundlagen}
-
-\section{Physikalische Grundlagen}
-
-\begin{itemize}
-  \item Physikalische Motivation dieses Gleichungssystems
-  \item Linearisierung der Navier-Stokes-Gleichungen (Motivation der Stokes-Gleichung)
-  \item Schleichende Strömungen z.B. \cite[S.112,S.489]{spurk10stroemungslehre}. 
-\end{itemize}
-
-\section{Funktionalanalytische Grundlagen}
 
 Dieses Unterkapitel beschäftigt sich mit Definitionen und Eigenschaften, der für die kommenden Kapitel zentralen Funktionenräumen.
 Die Notation orientiert sich an \cite{sohr2001navier}.
@@ -21,7 +11,7 @@ $$
 Falls nicht anders vermerkt, bezeichnet $n$ immer eine von Null verschiedene natürliche Zahl.
 
 
-\subsection{Glatte Funktionen und der Raum der Testfunktionen}
+\section{Glatte Funktionen und der Raum der Testfunktionen}
 \label{subsec:smooth}
 
 Ziel dieses Abschnittes ist, es die nötigen Begriffe und Definitionen im Zusammenhang mit glatten Funktionen bereitzustellen.
@@ -203,7 +193,7 @@ $$
 als zugehörige \emph{reguläre} Distribution.
 Dass diese Zuodrnung sogar injektiv ist und somit zur Inklusionsbeziehung $L^1_{\loc}(\Omega) \subseteq C^\infty_0(\Omega)'$ führt, lässt sich in \cite[S.432, Beispiel (a)]{werner2011fa} nachlesen.
 
-\subsubsection{Differentiation von Distributionen}
+\subsection{Differentiation von Distributionen}
 
 Distributionen ermöglichen es, den für die Analysis grundlegenden Begriff der Differenzierbarkeit zu verallgemeinern.
 Ist $\alpha \in \N_0^n$ ein Multiindex und $D^\alpha \colon C_0^\infty(\Omega) \to C_0^\infty(\Omega)$ der zugehörige Ableitungsoperator, so definieren wir für eine Distribution $F \in C_0^\infty(\Omega)'$ ihre distributionelle Ableitung $D^\alpha F \in C_0^\infty(\Omega)'$ durch
@@ -263,7 +253,7 @@ $$
 $$
 liefert.
 
-\subsubsection{Sobolev-Räume}
+\subsection{Sobolev-Räume}
 
 Im Allgemeinen wird die Ableitung einer regulären Distribution nicht wieder regulär sein.
 Wir definieren daher für alle $k \in \N$ und $1 \leq q \leq \infty$ den $L^q$\hyp{}\sobolev\hyp{}Raum $W^{k,q}(\Omega)$ der Ordnung $k$ durch
@@ -379,7 +369,7 @@ $$
 $$
 
 
-\subsection{Eigenschaften der Faltung}
+\section{Eigenschaften der Faltung}
 \label{subsec:mollification}
 
 Aus der Integrationstheorie ist bekannt, dass sich $L^q$-Funktionen durch Faltungen mit Glättungskernen $\mathcal{F}_\varepsilon$ approximieren lassen.
