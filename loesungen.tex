@@ -586,15 +586,14 @@ $$
     \leq C \norm{F^\varepsilon - F^\eta}_{L^q(\Omega_1)}.
   $$
   Also ist auch $(U_\varepsilon)_{\varepsilon \in \R^+}$ ein \cauchy-Netz, welches aufgrund der Vollständigkeit des Raumes $L^q(\Omega_1)$ einen eindeutig bestimmten Grenzwert $U \in L^q(\Omega_1)$ besitzt.
-  Da zudem $\Omega_0$ beschränkt ist, gilt die Inklusionsbeziehung $L^1(\Omega_0) \subseteq L^q(\Omega_0)$.
-  Damit folgt
+  Da zudem $\Omega_0$ beschränkt ist und damit endliches Maß besitzt, folgt aus der \hoelder\hyp{}Ungleichung
   $$
     | \int_{\Omega_0} U - U_\varepsilon \d x |
-    \leq  \int_{\Omega_0} | U - U_\varepsilon | \d x 
-    = \norm{U - U_\varepsilon}_{L^1(\Omega_0)} 
-    \to 0 \quad\text{für } \varepsilon \to 0,
+    \leq  \norm{U - U_\varepsilon}_{L^1(\Omega_0)} 
+    \underset{\hoelder}{\leq} \norm{U - U_\varepsilon}_{L^q(\Omega_0)}\cdot \norm{1}_{L^{q'}(\Omega_0}
+    \to 0
   $$
-  also auch
+  für $\varepsilon \to 0$, also auch
   $$
     \int_{\Omega_0} U \d x = \lim_{\varepsilon \to 0} \int_{\Omega_0} U_\varepsilon \d x =  0,
   $$
