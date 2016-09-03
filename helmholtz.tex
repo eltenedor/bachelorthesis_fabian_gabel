@@ -7,7 +7,7 @@ Hier ermöglicht der in Theorie der \hilbert\hyp{}Räume grundlegende Begriff de
 
 Wir bezeichnen mit 
 $$
-G_2(\Omega) := \{f \in L^2(\Omega)^n \mid f = \nabla p \text{ für ein } p \in L^2_{\loc}(\Omega)\}
+G(\Omega) := \{f \in L^2(\Omega)^n \mid f = \nabla p \text{ für ein } p \in L^2_{\loc}(\Omega)\}
 $$
 den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne ein skalares Potential besitzen.
 
@@ -16,7 +16,7 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beliebiges Gebiet.
   Dann gilt
   $$
-  L^2(\Omega)^n = G_2(\Omega) \oplus L^2_\sigma(\Omega).
+  L^2(\Omega)^n = G(\Omega) \oplus L^2_\sigma(\Omega).
   $$
 \end{lem}
 
@@ -24,7 +24,7 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   Wir zeigen, dass 
   \begin{equation}
     \label{eq:orthComplement}
-    G_2(\Omega) = L_\sigma^2(\Omega)^\perp
+    G(\Omega) = L_\sigma^2(\Omega)^\perp
   \end{equation}
   gilt
   Die zu zeigende Aussage folgt dann aus dem Fundament der Theorie der \hilbert\hyp{}Räume: dem Satz von der Orthogonalprojektion.
@@ -50,9 +50,9 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   f = \nabla p
   $$
   im distributionellen Sinne erfüllt.
-  Daraus folgt $f \in G_2(\Omega)$.
+  Daraus folgt $f \in G(\Omega)$.
 
-  Sei umgekehrt $f \in G_2(\Omega)$ mit $f = \nabla p$ für ein $p \in L^2_{\loc}(\Omega)$.
+  Sei umgekehrt $f \in G(\Omega)$ mit $f = \nabla p$ für ein $p \in L^2_{\loc}(\Omega)$.
   Dann gilt
   \begin{align*}
   \langle \nabla p, v \rangle
@@ -66,14 +66,14 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   Damit ist $f \in L_{0,\sigma}^2(\Omega)^\perp$.
 \end{proof}
 
-Aus Gleichung (\ref{eq:orthComplement}) folgt insbesondere, dass der Raum $G_2(\Omega)$ bezüglich der Norm $\norm{\cdot}_2$ abgeschlossen ist.
+Aus Gleichung (\ref{eq:orthComplement}) folgt insbesondere, dass der Raum $G(\Omega)$ bezüglich der Norm $\norm{\cdot}_2$ abgeschlossen ist.
 Wie aus der Theorie der \hilbert\hyp{}Räume bekannt ist, existiert zu dem abgeschlossenen Teilraum $L_\sigma^2(\Omega)$ ein eindeutig bestimmter Projektionsoperator
 $$
 P \colon L^2(\Omega)^n \to L_\sigma^2(\Omega),\quad Pf \mapsto f_0,
 $$
-für alle $f = f_0 + \nabla p \in L^2(\Omega)$ mit $f_0 \in L_\sigma^2(\Omega)$ und $\nabla p \in G_2(\Omega)$.
+für alle $f = f_0 + \nabla p \in L^2(\Omega)$ mit $f_0 \in L_\sigma^2(\Omega)$ und $\nabla p \in G(\Omega)$.
 
-Im Falle $\Omega = \R^n$ lassen sich die Räume $G_2(\Omega)$ und $L_\sigma^2(\Omega)$ noch auf eine andere Art charakterisieren.
+Im Falle $\Omega = \R^n$ lassen sich die Räume $G(\Omega)$ und $L_\sigma^2(\Omega)$ noch auf eine andere Art charakterisieren.
 Dies ist Inhalt des folgenden Lemmas.
 
 \begin{lem}
