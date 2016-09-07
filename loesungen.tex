@@ -7,7 +7,7 @@ Die für diese Zerlegung wesentliche Darstellbarkeit von $L^2$\hyp{}Funktionen d
 \section{Lipschitz-Gebiete und Gebietsapproximation}
 \label{sec:lipschitzDomains}
 
-In diesem Abschnitt stellen wir einige technische Lemmata vor, die es ermöglichen werden beliebige Gebiete durch Gebiete deren Ränder eine höhere Regularität aufweisen auszuschöpfen.
+Wir stellen nun einige technische Lemmata vor, die es uns ermöglichen werden beliebige Gebiete durch Gebiete, deren Ränder eine höhere Regularität aufweisen, auszuschöpfen.
 Im Folgenden sei $\R^n$ immer mit der \euklid ischen Metrik versehen. Es bezeichne zudem
 $$
 \dist(X,Y) := \inf\{ \norm{x - y} \mid x \in X, y \in Y\}
@@ -27,9 +27,9 @@ Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{s
 
 \begin{proof}
   Da $\R^n$ ein zusammenhängender Raum ist, sind die einzigen Mengen mit leerem Rand die leere Menge und der ganze Raum.
-  Dies wurde jedoch in der Voraussetzung des Lemmas bereits ausgeschlossen, daher nimmt $\dist$ nur endliche Werte an.
+  Dies wurde jedoch in der Voraussetzung des Lemmas bereits ausgeschlossen, daher nimmt die Funktion$\dist$ nur endliche Werte an.
 
-  Sei nun $a \in A$ und $b \in \partial B$
+  Sei nun $a \in A$ und $b \in \partial B$.
   Wir betrachten den Strahl $s \colon [0,1] \to \mathbb{R}^n$ mit $s(0) = a$ und $s(1) = b$.
   Zudem können wir annehmen, dass $a,b \not\in \partial A$ gilt, da ansonsten die Ungleichung sofort erfüllt ist.
   Wir wollen im Folgenden nachweisen, dass ein $t' \in (0,1)$ mit $s(t') \in \partial A$ existiert.
@@ -43,17 +43,18 @@ Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{s
   Es ist bekannt, dass die Funktion $\dist(\cdot, \partial A)$ stetig ist \cite[S.14]{koenigsberger2004ana2}.
   Auf $\R^n \setminus \partial A$ ist zudem $(1 - 2\chi_A(x))$ konstant gleich $-1$ beziehungsweise $1$, also ist $f$ dort stetig.
 
-  Sei nun $(x_n)_{n \in \N}$ eine Folge in $\R^n$ mit $\lim_{n \to \infty} x_n = x \in \partial A$.
+  Sei nun $(x_j)_{j \in \N}$ eine Folge in $\R^n$ mit $\lim_{j \to \infty} x_j = x \in \partial A$.
   Dann gilt
   $$
-  |(1 - 2\chi_A(x_n)) \cdot \dist(x_n, \partial A)| 
-  \leq \dist(x_n,\partial A)
+  |(1 - 2\chi_A(x_j)) \cdot \dist(x_j, \partial A)| 
+  \leq \dist(x_j,\partial A)
   \to \dist(x,\partial A) 
   = 0,
+  \quad j \to \infty,
   $$
   also auch 
   $$
-  \lim_{n \to \infty} f(x_n) = 0 = f(x),
+  \lim_{j \to \infty} f(x_j) = 0 = f(x),
   $$
   da aufgrund der Abgeschlossenheit von $\partial A$ die Gleichheit $\dist(x,\partial A) = 0$ äquivalent zu $x \in \partial A$ ist ($\ast$).
 
@@ -66,7 +67,7 @@ Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{s
   $$
   \norm{a - b} \geq \norm{a - s(t')} - \norm{s(t') - b} \geq \norm{a - s(t')} \geq \dist(x,\partial A).
   $$
-  Da dies für alle $b \in \partial B$ gilt folgt sogleich $ \dist(a, \partial B) \geq \dist(a, \partial A)$.
+  Da dies für alle $b \in \partial B$ gilt, folgt sogleich $ \dist(a, \partial B) \geq \dist(a, \partial A)$.
 \end{proof}
 
 %\begin{bem}
@@ -82,14 +83,17 @@ Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{s
     \item Für alle $j \in \N$ gilt $\overline{\Omega}_j \subseteq \Omega_{j + 1}$.
     \item Für alle $j \in \N$ gilt $\varepsilon_{j + 1} \leq \dist(\Omega_j, \partial \Omega_{j + 1}).$
     \item Es gilt $\lim_{j \to \infty} \varepsilon_j = 0$.
-    \item Die Gebiete $\Omega_j$ schöpfen $\Omega$ aus.
+    \item Die Gebiete $\Omega_j$ schöpfen $\Omega$ aus, das heißt, es gilt
+      $$
+      \Omega \subseteq \bigcup_{j \in \N} \Omega_j.
+      $$
   \end{enumerate}
 \end{lem}
 
 \begin{proof}
 Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Topologie offenen Ball mit Radius $r$ und Mittelpunkt $x$.
 
-  Für ein festgewähltes $x_0 \in \Omega$ betrachten wir den Schnitt 
+  Für ein fest gewähltes $x_0 \in \Omega$ betrachten wir den Schnitt 
   $$
   \Omega' := \Omega \cap B_1(x_0).
   $$ 
@@ -99,9 +103,9 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   Da die Zusammenhangskomponenten eines topologischen Raumes immer eine Partition desselben bilden, ist $\Omega'$ eindeutig bestimmt.
   Insbesondere gilt für den Rand
   $$ 
-  \partial \widetilde\Omega_1 \subseteq \overline{B_1(x_0)}, 
+  \partial \widetilde\Omega_1 \subseteq \overline{B_1(x_0)}.
   $$
-  er ist somit als abgeschlossene Teilmenge des Kompaktums $\overline{B_1(x_0)}$ selbst kompakt.
+  Er ist somit als abgeschlossene Teilmenge des Kompaktums $\overline{B_1(x_0)}$ selbst kompakt.
   Für alle $\varepsilon > 0$ lässt sich daher $\partial \widetilde\Omega_1$ durch endlich viele Bälle $B_\varepsilon(x_j)$, mit $x_j \in \partial \widetilde\Omega_1$ für alle $j = 1,\dots,m$, überdecken:
   $$ 
   \partial \widetilde\Omega_1 \subseteq \bigcup_{j = 1}^m B_\varepsilon(x_j).
@@ -109,20 +113,20 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
 
   Wir definieren nun 
   $$
-  \widehat\Omega_1 := \widetilde\Omega_1 \setminus \bigcap_{j = 1}^m \overline{B_\varepsilon(x_j)}
+  \widehat\Omega_1 := \widetilde\Omega_1 \setminus \bigcup_{j = 1}^m \overline{B_\varepsilon(x_j)}
   $$
   und wählen $0 < \varepsilon < 1$ so klein, dass zusätzlich $x_0 \in \widehat\Omega_1$ gilt. 
-  Dies lässt sich immer erreichen, da $\widetilde\Omega_1$ als bezüglich Teilraumtopologie offen-abgeschlossene Menge in $\Omega'$ auch in $\R^n$ offen ist und daher ein $\delta > 0$ mit $B_\delta(x_0) \subseteq \Omega'$ existiert.
-  Hiermit besitzt bereits ein $\varepsilon < \dist(x_0, \partial\widetilde\Omega_1) - \delta$ die geforderte Eigenschaft.
+  Dies lässt sich immer erreichen, da $\widetilde\Omega_1$ bezüglich Teilraumtopologie auf $\Omega'$ offen-abgeschlossen und somit auch in $\R^n$ offen ist, weswegen ein $\delta > 0$ existiert mit $B_\delta(x_0) \subseteq \Omega'$.
+  Zum Beispiel erfüllt jedes $\varepsilon < \dist(x_0, \partial\widetilde\Omega_1) - \delta$ die geforderte Bedingung.
 
   Man erkennt nun $\widehat\Omega_1$ als beschränktes \lipschitz\hyp{}Gebiet, da $\partial\widehat\Omega_1$ sämtlich aus Teilen der Ränder der Bälle $B_\varepsilon(x_j)$ besteht.
-  Wir setzen nun $\Omega_1 := \widehat\Omega_1$ und $\epsilon_1 := \epsilon$ und führen diese Konstruktion weiter fort.
+  Wir setzen nun $\Omega_1 := \widehat\Omega_1$ und $\varepsilon_1 := \varepsilon$ und führen diese Konstruktion weiter fort.
 
   Wir wählen wieder 
   $$
   \widetilde\Omega_2 \subseteq \Omega \cap B_2(x_0)
   $$
-  als die $x_0$ enthaltende Zusammenhangskomponente des Schnitts von $\Omega$ und $B_2(x_0)$ und konstruieren analog zum ersten Schritt ein Gebiet $\widehat\Omega_2$ mit $0 < \varepsilon < \tfrac{1}{2}$ und $\varepsilon < \dist(\Omega_1, \partial\widetilde\Omega_2)$.
+  als die $x_0$ enthaltende Zusammenhangskomponente des Schnitts von $\Omega$ und $B_2(x_0)$ und konstruieren analog zum ersten Schritt ein Gebiet $\widehat\Omega_2$ für das $0 < \varepsilon < \tfrac{1}{2}$ und zusätzlich $\varepsilon < \tfrac{1}{2}\dist(\Omega_1, \partial\widetilde\Omega_2)$ gilt.
   Dies ist jedoch nur möglich, falls $0 < \dist(\Omega_1, \partial\widetilde\Omega_2)$ gilt, was wir im Folgenden beweisen werden.
 
   Zunächst gilt nach Konstruktion die Inklusionskette
@@ -155,33 +159,58 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   & \leq \frac{1}{2} (\dist(\Omega_1, \partial\widehat\Omega_2) + \dist(\partial\widehat\Omega_2, \widetilde\Omega_2)) \\
   & \leq \frac{1}{2} (\dist(\Omega_1, \partial\widehat\Omega_2) + \varepsilon_2).
   \end{align*}
+  Hierbei haben wir im letzten Schritt verwendet, dass konstruktionsbedingt für alle $x \in \partial \widehat\Omega_2$ die Ungleichung $\dist(x, \Omega_2) \leq \varepsilon_2$ gilt.
 
-  Setzt man das beschriebene Vorgehen induktiv fort, so erhält man eine Folge $(\Omega_j)_{j \in \N}$ von \lipschitz\hyp{}Gebieten und eine Folge $(\varepsilon_j)_{j \in \N}$ für die nach Konstruktion $0 < \varepsilon_j < \tfrac{1}{j}$ für alle $j \in \N$ gilt.
+  Setzt man das beschriebene Vorgehen induktiv fort, so erhält man eine Folge $(\Omega_j)_{j \in \N}$ von \lipschitz\hyp{}Gebieten und eine Folge $(\varepsilon_j)_{j \in \N}$, für die nach Konstruktion $0 < \varepsilon_j < \tfrac{1}{j}$ für alle $j \in \N$ gilt.
   Die Eigenschaften a), b) und c) werden also erfüllt.
 
   Es gilt noch zu zeigen, dass die so konstruierte Folge $(\Omega_j)_{j \in \N}$ auch Eigenschaft d) erfüllt, also $ \Omega \subseteq \bigcup_{j \in \N} \Omega_j $ gilt.
   Sei dazu $x \in \Omega$ beliebig.
-  Weil $\Omega$ zusammenhängend ist, existiert ein $j_0 \in \N$, sodass
+  Weil $\Omega$ insbesondere wegzusammenhängend ist, existiert ein $j_0 \in \N$, sodass
   $$
   x \in \widetilde\Omega_{j_0} \subseteq \Omega \cap B_{j_0}(x_0)
   $$
   gilt.
-  Sei $d:=\dist(x, \partial\widetilde\Omega_{j_0})$.
-  Dann existiert ein $j_1 > j_0$ mit $\varepsilon_{j_1} < d$.
-  Da die Inklusion $\widetilde\Omega_{j_0} \subseteq \widetilde\Omega_{j_1}$ gilt, folgt mit Lemma \ref{lem:distBoundary} die Ungleichung $\varepsilon_{j_1} < \dist(x,\partial\widetilde\Omega_{j_1})$, was wiederum $x \in \widehat\Omega_{j_1} = \Omega_{j_1}$ impliziert.
+  Denn jeder stetige Weg $\gamma \colon [0,1] \to \Omega$ mit $\gamma(0) = x_0$ und $\gamma(1) = x$ besitzt ein kompaktes Bild in $\Omega$.
+  Und da $\bigcup_{j \in \N_0} B_j(x_0) = \R^n$ gilt, existiert auch ein Ball $B_{j_0}(x_0)$, der das Bild des Weges $\gamma$ überdeckt.
+  Aus $\gamma([0,1]) \subset \Omega$ folgt sodann die Behauptung.
+
+  %Sei nun $d:=\dist(x, \partial\widetilde\Omega_{j_0})$.
+  Da $(\varepsilon_j)_{j \in \N}$ eine Nullfolge ist, existiert ein $j_1 > j_0$ mit $\varepsilon_{j_1} < \dist(x, \partial\widetilde\Omega_{j_0})$.
+  Über die Inklusion $\widetilde\Omega_{j_0} \subseteq \widetilde\Omega_{j_1}$ folgt mit Lemma \ref{lem:distBoundary} sodann die Ungleichung $\varepsilon_{j_1} < \dist(x,\partial\widetilde\Omega_{j_1})$, was schließlich $x \in \widehat\Omega_{j_1} = \Omega_{j_1}$ impliziert.
   Damit gilt auch Eigenschaft d).
 \end{proof}
 
 \begin{bemnumber}
   \label{bem:boundedSubset}
-  Mit der im Beweis von Lemma \ref{lem:lipschitzExhaust} verwendeten Konstruktion gilt nun auch, dass für alle beschränkten Teilgebiete $\Omega' \subseteq \Omega$ mit $\overline{\Omega'} \subseteq \Omega$ ein $j \in \N$ existiert, sodass $\Omega' \subseteq \Omega_j$
+  Mit der im Beweis von Lemma \ref{lem:lipschitzExhaust} verwendeten Konstruktion gilt nun auch, dass für alle beschränkten Teilgebiete $\Omega' \subseteq \Omega$ mit $\overline{\Omega'} \subseteq \Omega$ ein $j \in \N$ existiert, sodass $\Omega' \subseteq \Omega_j$ gilt.
+  Denn aufgrund der Beschränktheit von $\Omega'$ existiert zu einem beliebigen $x \in \Omega'$ ein $j \in \N$ mit $\Omega' \subseteq \Omega \cap B_j(x)$.
+  Da $(\varepsilon_j)_{j \in \N}$ eine Nullfolge und $(\widetilde\Omega_j)_{j \in \N}$ eine aufsteigende Mengenfolge ist, kann man insbesondere $\varepsilon_j \leq \tfrac{1}{2} \dist(\Omega', \partial\widetilde\Omega_j)$ voraussetzen.
+  Daraus folgt sogleich $\Omega' \subseteq \widehat\Omega_j$.
 \end{bemnumber}
 
 \section{Kompakte Einbettungen}
 
 Auch in diesem Abschnitt stellen wir technische Aussagen vor, die wir im Folgenden benötigen werden.
 Diesmal handelt es sich um Einbettungseigenschaften von \sobolev\hyp{}Räumen.
-Zu Beginn notieren wir eine Einbettungseigenschaft, welche sich aus einem Spezialfall des Einbettungssatzes von \rellich\hyp{}\kondrachov\ ergibt. 
+In diesem Zusammenhang oft verwendete Werkzeuge sind die sogenannten \poincare\hyp{}Ungleichungen.
+Eine dieser Ungleichungen, die wir im Folgenden oft verwenden werden, halten wir an dieser Stelle fest. Ein Beweis findet sich in \cite[S.183, Theorem 6.30]{adams2003sobolev}.
+
+\begin{lem}
+  \label{lem:poincare}
+  Sei $\Omega \subseteq \R^n$, $n \geq 1$ ein beschränktes Gebiet.
+  Zudem sei $1 < q < \infty$ und 
+  $$
+  d := \diam(\Omega) := \sup_{x, y \in \Omega} | x - y |.
+  $$
+  Dann gilt
+  $$
+  \norm{u}_{L^q(\Omega)} \leq C \norm{\nabla u}_{L^q(\Omega)^n}
+  $$
+  für alle $u \in W_0^{1,q}(\Omega)$, wobei $C = C(q,d) > 0$ lediglich von $q$ und $d$ abhängt. \qed
+\end{lem}
+
+Als Nächstes notieren wir eine Einbettungseigenschaft, welche sich aus einem Spezialfall des Einbettungssatzes von \rellich\hyp{}\kondrachov\ ergibt. 
 Wir verzichten auf einen Beweis und verweisen auf \cite[S.168, Theorem 6.3]{adams2003sobolev}.
 
 \begin{lem}
@@ -216,12 +245,28 @@ Dieses Einbettungsresultat können wir nun nutzen, um die folgende Abschätzung 
 \end{lem}
 
 \begin{proof}
-  Wir halten zunächst fest, dass für alle Folgen $(v_j)_{j \in \N}$ mit $v_j \in C_0^\infty(\Omega)^n$ für alle $j \in \N$ und $$\lim_{j \to \infty} \norm{v_j - v}_{1,q} = 0$$ für ein $v \in \overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$ auch $$\lim_{j \to \infty} \norm{\div v_j - \div v} = 0$$ gilt.  
-  Hiermit ergibt sich für ein $u \in L^q(\Omega)$ folgende Darstellung der linearen Fortsetzung der Distribution $\nabla u \in (C_0^\infty(\Omega)^n)'$ auf den Raum $\overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q}}$:
+  Wir halten zunächst fest, dass für alle Folgen $(v_j)_{j \in \N}$ mit $v_j \in C_0^\infty(\Omega)^n$ für alle $j \in \N$ und 
   $$
-    [\nabla u, \cdot] \colon v \to [\nabla u, v] 
-    = - \langle u, \div v \rangle 
-    = - \int_{\Omega} u\; \div v \d x.
+  \lim_{j \to \infty} \norm{v_j - v}_{1,q'} = 0
+  $$ 
+  für ein $v \in \overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q'}}$ auch 
+  $$
+  \lim_{j \to \infty} \norm{\div v_j - \div v}_{q'} = 0
+  $$ 
+  gilt.
+  Somit gilt 
+  $$
+  \int_\Omega | u ( \div v_i - \div v) | \leq \norm{u}_q \norm{\div v_i - \div v}_{q'} \to 0, \quad i \to \infty,
+  $$
+  also insbesondere auch
+  $$
+  \lim_{i \to \infty} \langle u, \div v_i \rangle = \langle u, \div_v \rangle.
+  $$
+  Hiermit ergibt sich für ein $u \in L^q(\Omega)$ folgende Darstellung der linearen Fortsetzung der Distribution $\nabla u \in (C_0^\infty(\Omega)^n)'$ auf den Raum $\overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q'}}$:
+  $$
+    [\nabla u, \cdot] \colon v \mapsto [\nabla u, v] 
+    = - \langle u, \div v \rangle.
+    %= - \int_{\Omega} u\; \div v \d x.
   $$
   Wir können somit $\nabla u$ als Element von $W^{-1,q}(\Omega)$ auffassen.
   Mit dieser Eigenschaft lässt sich der zweite Teil der Ungleichung (\ref{eq:compactInequality}) beweisen. 
@@ -234,76 +279,88 @@ Dieses Einbettungsresultat können wir nun nutzen, um die folgende Abschätzung 
     &\leq C_2 \norm{u}_q \norm{v}_{W^{1,q'}(\Omega)^n},
   \end{align*}
   mit einem aus der Normäquivalenz auf $\R^n$ stammenden $C_2 = C_2(n)$.
+  Für alle $v \in W_0^{1,q'}(\Omega) \setminus\{0\}$ folgt daraus
+  $$
+  \frac{|[\nabla u, v]|}{\norm{v}_{1,q'}} \leq C_2 \norm{u}_q.
+  $$
+  Mit der Definition der Operatornorm ergibt sich nun
+  $$
+  \norm{\nabla u}_{1,q} \leq C_2\norm{u}_q.
+  $$
 
   Wir beweisen nun den ersten Teil der Ungleichung (\ref{eq:compactInequality}) durch einen Widerspruchsbeweis.
   Dazu nehmen wir an, es existiere keine Konstante $C > 0$, sodass die Ungleichung
   $$
   \norm{u}_q \leq C \norm{\nabla u}_{-1,q}
   $$
-  für alle $u \in L^q(\Omega)$ mit $\int_{\Omega0} u \d x = 0$ gelte.
+  für alle $u \in L^q(\Omega)$ mit $\int_{\Omega_0} u \d x = 0$ gelte.
   Dann existiert insbesondere für alle $j \in \N$ ein $u_j \in L^q(\Omega)$ mit
   $$
   \norm{u_j}_q > j \norm{\nabla u_j}_{-1,q}
   $$
   und $\int_{\Omega_0} u_j \d x = 0$.
-  Wir betrachten nun die normierte Folge $(\tilde u_j)_{n \in \N}$ mit 
+  Es gilt also insbesondere $\norm{u_j}_q \neq 0$.
+  Wir betrachten nun die normierte Folge $(\tilde u_j)_{j \in \N}$ mit 
   $$
-  \tilde u_j := \frac{u_j}{\norm{u_j}_{q}}, \quad n \in \N.
+  \tilde u_j := \frac{u_j}{\norm{u_j}_{q}}, \quad j \in \N.
   $$
   So gilt weiterhin aufgrund der Homogenität des Integrals $\int_{\Omega_0} \tilde u_j \d x = 0$. 
-  Darüberhinaus gilt $\norm{\tilde u_j}_q = 1$ und die Ungleichung 
-  \begin{displaymath}
-    \norm{\nabla \tilde u_j}_{-1,q} < \frac{1}{j}, \quad j \in \N. \tag{$\ast$}
-  \end{displaymath}
+  Darüber hinaus gelten $\norm{\tilde u_j}_q = 1$ und die Ungleichung 
+  \begin{equation}
+    \label{eq:normLeq1byJ}
+    \norm{\nabla \tilde u_j}_{-1,q} < \frac{1}{j}, \quad j \in \N.
+  \end{equation}
 
   Nach dem Satz von \banach\hyp{}\alaoglu\ ist die Einheitskugel in reflexiven \banach\hyp{}Räumen schwach kompakt.
-  Damit folgt, dass die beschränkte Folge $(\tilde u_j)_{j \in \N}$ eine schwach konvergente Teilfolge mit Grenzwert $u \in L^q(\Omega)$ enthält.
+  Da nach Voraussetzung $1 < q < \infty$ gilt, folgt hiermit, dass die beschränkte Folge $(\tilde u_j)_{j \in \N}$ eine schwach konvergente Teilfolge mit Grenzwert $u \in L^q(\Omega)$ enthält.
   Zur Vereinfachung bezeichnen wir diese konvergente Teilfolge wieder mit $(\tilde u_j)_{j \in \N}$.
   Nach Definition der schwachen Konvergenz gilt somit
   $$
   \langle u, v \rangle = \lim_{j \to \infty} \langle \tilde u_j, v \rangle
   $$
   für alle $v \in L^{q'}(\Omega)$.
-  Insbesondere gilt aufgrund der vorausgesetzten Beschränktheit von $\Omega$ auch $\1 \in L^q(\Omega)$ und damit
+  Insbesondere gilt aufgrund der vorausgesetzten Beschränktheit von $\Omega$ auch $\1 \in L^{q'}(\Omega)$ und damit
   $$
   \langle u, \1 \rangle = \int_{\Omega_0} u \d x = 0.
   $$
-  Unter Verwendung der Ungleichung ($\ast$) folgt
-  \begin{displaymath}
-    \lim_{j \to \infty} \norm{\nabla \tilde u_j}_{-1,q} = 0 \tag{$\ast\ast$}.
-  \end{displaymath}
+  Unter Verwendung der Ungleichung (\ref{eq:normLeq1byJ}) folgt
+  \begin{equation}
+    \label{eq:limNablaU}
+    \lim_{j \to \infty} \norm{\nabla \tilde u_j}_{-1,q} = 0. 
+  \end{equation}
   Für alle $v \in W_0^{1,q'}(\Omega)^n$ und $j \in \N$ gilt zudem 
   \begin{align*}
-    |\nabla \tilde u_j, v]|
+    |[\nabla \tilde u_j, v]|
     &= |\langle \tilde u_j, \div v \rangle| \\
-    &\leq \norm{\tilde u_j}_q \norm{\div v}_{1,q} \tag{\hoelder}\\
-    &\leq \norm{\tilde u_j}_q \norm{v}_{1,q} \\
-    &\leq \norm{\nabla \tilde u_j}_{-1,q} \norm{v}_{1,q}, \tag{\poincare}
+    &\leq \norm{\tilde u_j}_q \norm{\div v}_{1,q'} \tag{\hoelder}\\
+    &\leq \norm{\tilde u_j}_q \norm{v}_{1,q'} \\
+    &\leq \norm{\nabla \tilde u_j}_{-1,q} \norm{v}_{1,q'}, \tag{\poincare}
   \end{align*}
   woraus schließlich
   \begin{align*}
     |[\nabla u, v]|
-    &= |\langle u, \div v \rangle \\
-    &= \lim_{j \to \infty}|\langle \tilde u_j, \div v \rangle \\
+    &= |\langle u, \div v \rangle| \\
+    &= \lim_{j \to \infty}|\langle \tilde u_j, \div v \rangle| \\
     &= \lim_{j \to \infty} |[\nabla \tilde u_j, v ]| \\
     &= 0
   \end{align*}
   folgt.
   Im distributionellen Sinne gilt damit $\nabla u = 0$.
-  In Abschnitt \ref{subsec:mollification} haben wir gezeigt, das dies gerade impliziert, dass $u$ konstant ist.
+  In Abschnitt \ref{subsec:mollification} haben wir bewiesen, dass dies gerade impliziert, dass $u$ konstant ist.
   Aus der Bedingung $\int_{\Omega_0} u \d x = 0$ folgt nun $u = 0$. 
   
   Nach \cite[S.45 Lemma 1.1.3]{sohr2001navier} existiert eine Konstante $C > 0$, sodass für alle $j \in \N$ die Ungleichung
-  \begin{displaymath}
-    1 = \norm{\tilde u_j}_q \leq C (\norm{\nabla \tilde u_j}_{-1,q} + \norm{\tilde u_j}_{-1,q}) \tag{$\ast\ast\ast$}
-  \end{displaymath}
-  gilt.
+  \begin{equation}
+    \label{eq:1leqCNablaUplusU}
+    1 = \norm{\tilde u_j}_q \leq C (\norm{\nabla \tilde u_j}_{-1,q} + \norm{\tilde u_j}_{-1,q})
+  \end{equation}
+  erfüllt ist.
   Da die Folge $(\tilde u_j)_{j \in \N}$ beschränkt in $L^q(\Omega)$ ist und zudem die Einbettung nach Lemma $\ref{lem:compactEmbedding0}$ kompakt ist, existiert eine bezüglich der Norm auf $W^{-1,q}(\Omega)$ konvergente Teilfolge von $(\tilde u_j)_{j \in \N}$, welche gegen eine Funktion $\tilde u$ konvergiert. 
   Wir wollen die Teilfolge wieder mit $(\tilde u_j)_{j \in \N}$ bezeichnen.
-  Insbesondere konvergiert die Folge $(\tilde u_j)_{j \in \N}$ schwach gegen $\tilde u$.
-  Dann gilt aber $\lim_{j \to \infty} \tilde u_j = \tilde u = u = 0$ aufgrund der \hausdorff\hyp{}Eigenschaft der schwachen Topologie.
+  Insbesondere konvergiert die Folge $(\tilde u_j)_{j \in \N}$ aufgrund der \hoelder\hyp{}Ungleichung auch schwach gegen $\tilde u$.
+  Dann gilt aber $\tilde u = u = 0$, da schwache Grenzwerte aufgrund der \hausdorff\hyp{}Eigenschaft der schwachen Topologie eindeutig sind.
 
-  Aus den Gleichungen ($\ast\ast$) und ($\ast\ast\ast$) folgt nun der Widerspruch
+  Aus den Gleichungen (\ref{eq:limNablaU}) und (\ref{eq:1leqCNablaUplusU}) folgt nun der Widerspruch
   \begin{displaymath}
   1 \leq \lim_{j \to \infty} ( \norm{\nabla \tilde u_j }_{-1,q} + \norm{\tilde u_j}_{-1,q} ) = 0.\qedhere
   \end{displaymath}
@@ -313,7 +370,7 @@ Dieses Einbettungsresultat können wir nun nutzen, um die folgende Abschätzung 
 
 \section{Darstellung von Funktionalen}
 
-Zunächst beschäftigen wir uns mit dem Gradientenoperator.
+Als Nächstes beschäftigen wir uns mit dem Gradientenoperator auf $L^q(\Omega)^n$.
 Wir wollen zeigen, dass er unter gewissen Zusatzvoraussetzungen ein abgeschlossenes Bild besitzt.
 Dies ist Inhalt des folgenden Lemmas.
 
@@ -323,6 +380,7 @@ Dies ist Inhalt des folgenden Lemmas.
   Dann gilt für die Abbildung
   $$
   \nabla \colon L^{q}(\Omega)^{n} \to (C_0^\infty(\Omega)^n)',
+  \quad v \mapsto \nabla v := (D_j v_l)_{j,l=1,\dots,n}, 
   $$
   dass das Bild
   $$
@@ -334,30 +392,36 @@ Dies ist Inhalt des folgenden Lemmas.
 \begin{proof}
   Sei $(v_j)_{j \in \N}$ eine Folge in $W_0^{1,q}(\Omega)^n$, sodass die Folge der Gradienten $(\nabla v_j)_{j \in \N}$ in $L^q(\Omega)^{n^2}$ konvergiert.
   Als konvergente Folge ist diese insbesondere eine \cauchy\hyp{}Folge.
-  Da $\Omega$ nach Voraussetzung ein beschränktes Gebiet ist, lässt sich die \poincare\hyp{}Ungleichung anwenden.
+  Da $\Omega$ nach Voraussetzung ein beschränktes Gebiet ist, lässt sich die \poincare\hyp{}Ungleichung \ref{lem:poincare} anwenden.
+  Es gilt also
+  $$
+  \norm{v_j - v_k}_q \leq C \norm{\nabla(v_j - v_k)}_q \leq C \norm{\nabla v_j - \nabla v_k}_q
+  $$
+  für alle $j,k \in \N$.
   Daraus folgt, dass auch die Folge $(v_j)_{j \in \N}$ eine \cauchy\hyp{}Folge in $L^q(\Omega)^n$ ist.
   Dann gilt jedoch mit der Definition der \sobolev\hyp{}Norm die Ungleichung
   $$
-  \norm{v_j - v_k}_{W_{1,q}} \leq c (\norm{v_j - v_k}_q + \norm{\nabla v_j - \nabla v_k}_q)
+  \norm{v_j - v_k}_{W_{1,q}} \leq c\, (\norm{v_j - v_k}_q + \norm{\nabla v_j - \nabla v_k}_q)
   $$
-  für ein aufgrund der verwendeten Normäquivalenz existierendes $c > 0$ und alle $j,k \in \N$.
+  für ein aufgrund der verwendeten Normäquivalenz auf $\R^n$ existierendes $c = c(n) > 0$ und alle $j,k \in \N$.
   Die Folge $(v_j)_{j \in \N}$ ist also auch eine \cauchy\hyp{}Folge bezüglich \sobolev\hyp{}Norm.
-  Der Raum $W_0^{1,q}$ ist nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}$ und damit gilt $\lim_{j \to \infty} v_j = v \in W_0^{1,q}$.
+  Der Raum $W_0^{1,q}(\Omega)$ ist nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}(\Omega)$ als solcher also insbesondere vollständig und damit gilt $\lim_{j \to \infty} v_j = v$ für ein $v \in W_0^{1,q}(\Omega)$.
   Da zudem
   $$
-  \norm{\nabla v_j}_{L_{1,q}} \leq \norm{v}_{W_{1,q}}  
+  \norm{\nabla v_j}_q \leq \norm{v}_{W_{1,q}}  
   $$
   gilt, muss also auch $\lim_{j \to \infty} \nabla v_j = \nabla v$ gelten.
   Dies beweist, dass $D$ ein abgeschlossener Unterraum von $L^q(\Omega)^{n^2}$ ist.
 \end{proof}
 
-Basierend auf \cite[S.61, Lemma 1.6.1]{sohr2001navier} beweisen wir nun eine Verallgemeinerung des zitierten Lemmas. 
-Hierzu erweitern wir die Wirkung des Divergenzoperators zunächst auf Matrizen $F = (F_{jl})_{j,l=1}^n$ durch
+Wir erweitern die Wirkung des Divergenzoperators auf Matrizen $F = (F_{jl})_{j,l=1}^n$ durch
 \begin{equation}
   \label{eq:divMatrix}
   \div(F) := (\sum_{j = 1}^n D_j F_{jl})_{l = 1,\dots,n},
 \end{equation}
 der Operator berechnet also spaltenweise die Divergenz.
+Wir wollen zeigen, dass sich Funktionale aus $W^{-1,q}(\Omega)^n$ durch die Anwendung dieses Divergenzoperators auf $L^q$\hyp{}wertige Matrizen gewinnen lassen.
+Im Folgenden geben wir dazu einen auf $L^q$\hyp{}Räume verallgemeinerten Beweis des Darstellungssatzes \cite[S.61, Lemma 1.6.1]{sohr2001navier} an.
 
 \begin{lem}
   \label{lem:divRepresentation}
@@ -365,11 +429,12 @@ der Operator berechnet also spaltenweise die Divergenz.
   Dann existiert eine Matrix $F \in L^q(\Omega)^{n^2}$, welche die Gleichung
   $$ f = \div F $$
   im distributionellen Sinne und die Ungleichungen
-  $$
-  \norm{ f }_{W^{-1,q}(\Omega)^n} 
-  \leq \norm{ F }_{L^q(\Omega)^{n^2}} 
-  \leq C \norm{ f }_{W^{-1,q}(\Omega)^n}
-  $$
+  \begin{equation}
+    \label{eq:ineqDivRepresentation}
+    \norm{ f }_{W^{-1,q}(\Omega)^n} 
+    \leq \norm{ F }_{L^q(\Omega)^{n^2}} 
+    \leq C \norm{ f }_{W^{-1,q}(\Omega)^n}
+  \end{equation}
   mit $C = C(\Omega) > 0$ erfüllt.
 \end{lem}
 
@@ -386,17 +451,20 @@ der Operator berechnet also spaltenweise die Divergenz.
   \tilde f \colon \nabla v \mapsto [\tilde f, \nabla v]\;, \quad \nabla v \in D
   $$
   durch $[\tilde f, \nabla v] := [f, v]$ für alle $v \in W_0^{1,q'}(\Omega)^n$.
-  Dann liefert die \hoelder\hyp{}Ungleichung zusammen mit der \poincare\hyp{}Ungleichung eine Konstante $C = C(\Omega) > 0$, sodass 
+  Dann liefert die Eigenschaft der Operatornorm zusammen mit der \poincare\hyp{}Ungleichung \ref{lem:poincare} eine Konstante $C = C(\Omega) > 0$, sodass 
   $$
   |[\tilde f, \nabla v]| 
   = |[f, v]| 
-  \underset{\hoelder}{\leq} \norm{f}_{-1,q} \norm{v}_{1,q'}
+  \underset{Op.norm}{\leq} \norm{f}_{-1,q} \norm{v}_{1,q'}
   \underset{\poincare}{\leq} C \norm{f}_{-1,q} \norm{\nabla v }_{q'}
   $$
   für alle $\nabla v \in D$ gilt.
-  Somit ist $\tilde f$ ein stetiges Funktional auf $D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
-  $$\norm{\tilde f}_{D'} \leq C\norm{f}_{-1,q}.$$
-  Der Satz von \hahn\hyp{}\banach\ liefert eine normgleiche Fortsetzung von $D$ nach $L^{q'}(\Omega)^{n^2}$.
+  Somit ist $\tilde f$ ein stetiges Funktional auf der abgeschlossenen Teilmenge$D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
+  \begin{equation}
+    \label{eq:tildeFineq}
+    \norm{\tilde f}_{D'} \leq C\norm{f}_{-1,q}.
+  \end{equation}
+  Der Satz von \hahn\hyp{}\banach\ liefert nun eine normgleiche Fortsetzung des Funktionals von $D$ nach $L^{q'}(\Omega)^{n^2}$.
   Nach dem Darstellungssatz von \riesz\ über Funktionale auf $L^{q}$  existiert nun eine Matrix $F \in L^{q}(\Omega)^{n^2}$ mit
   $$
   \langle F, \nabla v \rangle
@@ -406,9 +474,12 @@ der Operator berechnet also spaltenweise die Divergenz.
   = [f, v]
   $$
   für alle $v = (v_1,\dots,v_n) \in W_0^{1,q'}(\Omega)^n$.
-  Beweise des Darstellungssatzes finden sich in \cite[S.47, Theorem 2.44]{adams2003sobolev} und \cite[S.60, Satz II.2.4]{werner2011fa}.
+  Beweise des verwendeten Darstellungssatzes finden sich unter anderem in \cite[S.47, Theorem 2.44]{adams2003sobolev} und \cite[S.60, Satz II.2.4]{werner2011fa}.
   Zudem gilt
-  $$ \norm{F}_{L^q(\Omega)^{n^2}} = \norm{\tilde f}_{(L^{q'}(\Omega)^{n^2})'} \leq C \norm{f}_{-1,q},$$
+  $$ 
+  \norm{F}_{L^q(\Omega)^{n^2}} 
+  = \norm{\tilde f}_{D'} 
+  \underset{(\ref{eq:tildeFineq})}{\leq} C \norm{f}_{-1,q},$$
   da die Identifikation von Funktionalen auf $L^{q'}(\Omega)^{n^2}$ mit Funktionen aus $L^q(\Omega)^{n^2}$ isometrisch ist.
   Des Weiteren gilt für alle $v \in W_0^{1,q'}(\Omega)^n$ mit der \hoelder\hyp{}Ungleichung
   \begin{align*}
@@ -425,12 +496,14 @@ der Operator berechnet also spaltenweise die Divergenz.
   Ist nun $v \in C_0^\infty(\Omega)^n$, so gilt
   \begin{align*}
     [f,v]
+    &= [\tilde f, \nabla v] \\
     &= \langle F, \nabla v\rangle \\
     &= \sum_{j,l=1}^n \langle F_{jl}, D_j v_l \rangle \\
     &= -\sum_{j,l=1}^n \langle D_j F_{jl}, v_l \rangle \\
-    &= -[\div F, v], \\
+    &= - \langle \sum_{l = 1}^n ( \sum_{j = 1}^n D_j F_{jl} ) v_l \rangle \\
+    &\underset{(\ref{eq:pairingVector})}{=} -[\div F, v]. \\
   \end{align*}
-  die Abbildungen $[f,\cdot]$ und $[-\div F, \cdot]$ stimmen also als Distributionen überein, die zu zeigende Aussage folgt durch den Übergang von $F$ zu $-F$.
+  Die Abbildungen $[f,\cdot]$ und $[-\div F, \cdot]$ stimmen also als Distributionen überein, die zu zeigende Aussage folgt durch den Übergang von $F$ zu $-F$.
 \end{proof}
 
 \section{Das Gradientenkriterium}
