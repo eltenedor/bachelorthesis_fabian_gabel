@@ -9,16 +9,16 @@ Wir bezeichnen mit
 $$
 G(\Omega) := \{f \in L^2(\Omega)^n \mid f = \nabla p \text{ für ein } p \in L^2_{\loc}(\Omega)\}
 $$
-den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne ein skalares Potential besitzen.
+den Raum aller Funktionen $f \in L^2(\Omega)^n$, die im distributionellen Sinne ein skalares Potential besitzen.
 
-\begin{lem}
+\begin{thm}
   \label{lem:helmholtz}
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein beliebiges Gebiet.
   Dann gilt
   $$
   L^2(\Omega)^n = G(\Omega) \oplus L^2_\sigma(\Omega).
   $$
-\end{lem}
+\end{thm}
 
 \begin{proof}
   Wir zeigen, dass 
@@ -30,12 +30,12 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   Die zu zeigende Aussage folgt dann aus dem Fundament der Theorie der \hilbert\hyp{}Räume: dem Satz von der Orthogonalprojektion.
 
   Sei dazu $f \in L_\sigma^2(\Omega)^\perp$.
-  Wir fassen $f$ als Distribution, also als Element von $(C_0^\infty(\Omega)^n)'$ auf.
-  Für jedes beschränkte Teilgebiet $\Omega_0 \subseteq \Omega$ mit $\overline\Omega_0 \subseteq \Omega$ folgt für alle $v \in C_0^\infty(\Omega_0)^n$ mit der \poincare\hyp{}Ungleichung \ref{lem:poincare}
+  Wir fassen $f$ als Distribution auf, also als Element von $(C_0^\infty(\Omega)^n)'$.
+  Für jedes beschränkte Teilgebiet $\Omega_0 \subseteq \Omega$ mit $\overline\Omega_0 \subseteq \Omega$ folgt für alle $v \in C_0^\infty(\Omega_0)^n$ mit der \cauchy\hyp\schwartz-\ (C.S.) und \poincare\hyp{}Ungleichung \ref{lem:poincare}
   $$
   |[f, v]| 
   = |\langle f, v \rangle| 
-  \underset{\hoelder}{\leq}  \norm{f}_2 \norm{v}_{L^2(\Omega_0)^n}
+  \underset{C.S.}{\leq}  \norm{f}_2 \norm{v}_{L^2(\Omega_0)^n}
   \underset{\poincare}{\leq} C \norm{f}_2 \norm{\nabla v}_{L^2(\Omega_0)^{n^2}},
   $$
   mit einer Konstante $C = C(\Omega_0) > 0$.
@@ -45,29 +45,30 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$ die im distributionellen Sinne e
   [f,v] = \langle f, v \rangle = 0
   $$
   für alle $v \in C_{0, \sigma}^\infty(\Omega)$.
-  Die Anwendung des Gradientenkriteriums \ref{lem:gradientCriterion} liefert nun die Existenz einer Funktion $p \in L_{\loc}^2(\Omega)$, welche die Gleichung
+  Die Anwendung des Gradientenkriteriums aus Lemma \ref{lem:gradientCriterion} liefert nun die Existenz einer Funktion $p \in L_{\loc}^2(\Omega)$, welche die Gleichung
   $$
   f = \nabla p
   $$
-  im distributionellen Sinne erfüllt.
+  im distributionellen Sinne löst.
   Daraus folgt $f \in G(\Omega)$.
 
   Sei umgekehrt $f \in G(\Omega)$ mit $f = \nabla p$ für ein $p \in L^2_{\loc}(\Omega)$.
   Dann gilt
   \begin{align*}
-  \langle \nabla p, v \rangle
-  &= \sum_{j = 1}^n \int_\Omega (D^j p)\;v_j \d x \\
-  &= - \sum_{j = 1}^n \int_\Omega p\;(D^j v_j) \d x \\
+  \langle f, v \rangle
+  &= [ \nabla p, v ] \\
+  &= \sum_{j = 1}^n [ D^j p , v_j ] \\
+  &= - \sum_{j = 1}^n \langle p, D^jv \rangle \\
   &= - \langle p, \div v \rangle  \\
   &= - \langle p, 0 \rangle  \\
   &= 0
   \end{align*}
-  für alle $v \in C_{0, \sigma}^\infty(\Omega)$ und wegen der Beziehung $\nabla p \in L^2(\Omega)$ gilt dies aufgrund der Stetigkeit des Skalarproduktes auch für alle $v \in \overline{C_{0, \sigma}^\infty(\Omega)} = L_\sigma^2(\Omega)$.
+  für alle $v \in C_{0, \sigma}^\infty(\Omega)$ und wegen der Beziehung $\nabla p \in L^2(\Omega)$ gilt dies aufgrund der Stetigkeit des Skalarproduktes auch für alle $v \in \overline{C_{0, \sigma}^\infty(\Omega)}_{\norm{\cdot}_2} = L_\sigma^2(\Omega)$.
   Damit ist $f \in L_{0,\sigma}^2(\Omega)^\perp$.
 \end{proof}
 
 Aus Gleichung (\ref{eq:orthComplement}) folgt insbesondere, dass der Raum $G(\Omega)$ bezüglich der Norm $\norm{\cdot}_2$ abgeschlossen ist.
-Wie aus der Theorie der \hilbert\hyp{}Räume bekannt ist, existiert zu dem abgeschlossenen Teilraum $L_\sigma^2(\Omega)$ ein eindeutig bestimmter Projektionsoperator
+Wie aus der Theorie der \hilbert\hyp{}Räume bekannt ist, existiert zu dem abgeschlossenen Teilraum $L_\sigma^2(\Omega)$ ein eindeutig bestimmter Projektionsoperator, die sogenannte \helmholtz\hyp{}Projektion
 $$
 P \colon L^2(\Omega)^n \to L_\sigma^2(\Omega),\quad Pf \mapsto f_0,
 $$
@@ -76,7 +77,7 @@ für alle $f = f_0 + \nabla p \in L^2(\Omega)$ mit $f_0 \in L_\sigma^2(\Omega)$ 
 Im Falle $\Omega = \R^n$ lassen sich die Räume $G(\Omega)$ und $L_\sigma^2(\Omega)$ noch auf eine andere Art charakterisieren.
 Dies ist Inhalt des folgenden Lemmas.
 
-\begin{lem}
+\begin{thm}
   Sei $n \in \N$ mit $n \geq 2$.
   Dann gilt
   \begin{equation}
@@ -93,7 +94,7 @@ Dies ist Inhalt des folgenden Lemmas.
     \label{eq:GCharacterization}
     G(\R^n) = \overline{\nabla C_0^\infty(\R^n)}^{\norm{\cdot}_2}.
   \end{equation}
-\end{lem}
+\end{thm}
 
 \begin{proof}
   Im folgenden Beweis wollen wir eine Funktion $\varphi \in C_0^\infty(\R^n)$ mit den Eigenschaften
@@ -127,11 +128,11 @@ Dies ist Inhalt des folgenden Lemmas.
   \quad,\quad
   G_j := B_{2j}\setminus \overline B_j,
   $$
-  so erhalten wir $\nabla \varphi_j \subseteq \overline G_j$, da nach Definition $\varphi_j$ auf $B_j$ konstant ist sowie $\supp \varphi_j \subseteq \overline B_{2j}, j \in \N$.
+  so erhalten wir $\supp \nabla \varphi_j \subseteq \overline G_j$, da nach Definition $\varphi_j$ auf $B_j$ konstant ist sowie $\supp \varphi_j \subseteq \overline B_{2j}, j \in \N$.
 
   Wir beginnen damit, die Güligkeit der Gleichung (\ref{eq:GCharacterization}) zu zeigen.
-  Da sich der Raum $C_0^\infty(\R^n)$ als Unterraum von $L^2(\R^n)$ auffassen lässt folgt sogleich $G(\R^n) \supseteq \nabla C_0^\infty(\R^n)$.
-  Zudem folgt aus Lemma \ref{lem:helmholtz}, dass $G(\R^n)$ als orthogonales Komplement ein bezüglich $\norm{\cdot}_2$ abgeschlossener Unterraum von $L^2(\R^n)^n$ ist.
+  Da sich der Raum $C_0^\infty(\R^n)$ als Unterraum von $L^2(\R^n)$ auffassen lässt, folgt sogleich $G(\R^n) \supseteq \nabla C_0^\infty(\R^n)$.
+  Zudem folgt aus Satz \ref{lem:helmholtz}, dass $G(\R^n)$ als orthogonales Komplement ein bezüglich $\norm{\cdot}_2$ abgeschlossener Unterraum von $L^2(\R^n)^n$ ist.
   Damit gilt auch $G(\R^n) = \overline{G(\R^n)}^{\norm{\cdot}_2} \supseteq \overline{\nabla C_0^\infty(\R^n)}^{\norm{\cdot}_2}$.
 
   Für die andere Inklusion betrachen wir den Gradienten $\nabla p \in G(\R^n)$.
@@ -139,15 +140,15 @@ Dies ist Inhalt des folgenden Lemmas.
   Aus der \poincare\hyp{}Ungleichung \cite[S.44, Lemma 1.1.2]{sohr2001navier} folgt sodann
   \begin{equation}
     \label{eq:poincareP}
-  \norm{p - K_1}_{L^2(G_1)} \leq C \left(\norm{\nabla (p - K_1}_{L^2(G_1)^n} + | \int_{G_1} p - K_1 \d x |\right) =  C \norm{\nabla p}_{L^2(G_1)^n}.
+  \norm{p - K_1}_{L^2(G_1)} \leq C \left(\norm{\nabla (p - K_1)}_{L^2(G_1)^n} + | \int_{G_1} p - K_1 \d x |\right) =  C \norm{\nabla p}_{L^2(G_1)^n}.
 \end{equation}
   Mit der Substitutionsregel erhalten wir
 \begin{align*}
   \norm{p - K_j}_{L^2(G_j} 
   &= \left( \int_{G_j} |p(x) - K_j|^2 \d x \right)^\frac{1}{2} \\
-  &= \left( \int_{G_1} |p(jy) - K_j|^2 \d y \right)^\frac{1}{2} j^\frac{n}{2} \\
+  &= \left( \int_{G_1} |p(jy) - K_j|^2 \d y \right)^\frac{1}{2} j^\frac{n}{2} \tag{Substitutionsregel}\\
   &\leq C j^{\frac{n}{2}}\left( \int_{G_1} |\nabla_y p(jy) |^2 \d y )^{\frac{n}{2}} \right)^{\frac{1}{2}} \tag{mit Gleichung (\ref{eq:poincareP})}\\
-  &= C j^{\frac{n}{2}}j \left( \int_{G_j} |\nabla p(x) |^2 \d x )^{\frac{n}{2}} \right)^{\frac{1}{2}} \tag{Ketten- und Substitutionsregel} \\
+  &= C j^{\frac{n}{2}}j^{-\frac{n}{2}}j \left( \int_{G_j} |\nabla p(x) |^2 \d x )^{\frac{n}{2}} \right)^{\frac{1}{2}} \tag{Ketten- und Substitutionsregel} \\
   &= C j \norm{\nabla p}_{L^2(G_j)^n}
 \end{align*}
   für alle $j \in \N$.
@@ -159,36 +160,33 @@ Dies ist Inhalt des folgenden Lemmas.
 
   Wir definieren nun $p_j := \varphi_j (p - K_j)$.
   Die komponentenweise Anwendung der Produktregel ergibt 
-  $$
-  \nabla p_j =  (\nabla \varphi_j)(p - K_j) + \varphi_j \nabla p,
-  $$
-  wobei $\nabla \varphi_j = \frac{1}{j} \nabla(\varphi)(\frac{1}{j})$ gilt.
+  \begin{equation}
+    \label{eq:productrule}
+    \nabla p_j =  (\nabla \varphi_j)(p - K_j) + \varphi_j \nabla p,
+  \end{equation}
+  wobei $\nabla \varphi_j(x) = \frac{1}{j} \nabla \varphi (\frac{x}{j})$ gilt.
   Hierraus leiten wir unter Verwendung der Konstanten $C' := \sup_x |\nabla \varphi(x)|$ und Gleichung (\ref{eq:gradientInequality}) die folgende Abschätzung ab:
   \begin{align}
     \norm{\nabla p - \nabla p_j}_{L^2(\R^n)^n}
-    &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \norm{\varphi_j \nabla p_j}_{L^2(\R^n)^n} \nonumber\\
-    &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \frac{C'}{j} \norm{p - K_j}_{L^2(G_j)^n}\nonumber\\
+    &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \norm{\varphi_j \nabla p - \nabla p_j}_{L^2(\R^n)^n} \nonumber\\
+    &\hspace{-0.15cm}\underset{(\ref{eq:productrule})}{=} \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n}    + \norm{\nabla\varphi_j (p - K_j)}_{L^2(\R^n)^n} \nonumber\\
+    &\hspace{-0.15cm}\underset{(\ref{eq:gradientInequality})} \leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \frac{C'}{j} \norm{p - K_j}_{L^2(G_j)^n}\nonumber\\
     &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + C'C \norm{\nabla p}_{L^2(G_j)^n} \label{eq:gradDiff}.
   \end{align}
 
-  Aus Gleichung (\ref{eq:propPhi}) folgt $|1 - \varphi_j(x)| = |1 - \varphi(x)| \leq 2$. 
+  Aus Gleichung (\ref{eq:propPhi}) folgt $|1 - \varphi_j(x)| = |1 - \varphi(\tfrac{x}{j})| \leq 2$. 
   Die Glieder der Funktionenfolge $\left((1 - \varphi_j)\nabla p\right)_{j \in \N}$ besitzen somit die integrierbare Majorante $(2 \nabla p) \in L^2(\R^n)^n$.
-  Mit dem Satz von \lebesgue\ über majorisierte Konvergenz ergibt sich daraus mit Gleichung (\ref{eq:limPhi})
+  Mit dem Satz von \lebesgue\ über majorisierte Konvergenz ergibt sich daraus unter Verwendung von Gleichung (\ref{eq:limPhi})
   \begin{equation}
     \label{eq:lebesgueDom}
   \lim_{j \to \infty} \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n}
   = \left( \int_{\R^n} (\lim_{j \to \infty} |1 - \varphi_j(x)|^2 ) |\nabla p(x)|^2 \d x \right)^\frac{1}{2} = 0.
   \end{equation}
-  Des Weiteren gilt
-  $$
-  \sum_{j = 1}^\infty \norm{\nabla p}_{L^2(G_j)^n}
-  \leq \norm{\nabla p}_{L^2(R^n)^n}
-  < \infty
-  $$
-  und daraus folgt
+  Ebenso folgt aus dem Satz über majorisierte Konvergenz 
   \begin{equation}
     \label{eq:limitGradient}
   \lim_{j \to \infty} \norm{\nabla p}_{L^2(G_j)^n}
+  = \lim_{j \to \infty} \int_{\R^n} \nabla p(x) \chi_{G_j}(x) \d x
   = 0.
   \end{equation}
   Aus Gleichung (\ref{eq:gradDiff}) folgt nun mit (\ref{eq:lebesgueDom}) und (\ref{eq:limitGradient})
@@ -251,17 +249,17 @@ Dies ist Inhalt des folgenden Lemmas.
   für alle $p \in C_0^\infty(\R^n)$.
   Also ist die Abbildung $\langle f, \cdot\rangle$ stetig auf $\nabla (C_0^\infty(\R^n)^n)$ und besitzt somit eine stetige Fortsetzung auf den Abschluss des Definitionsbereichs. 
   Dieser stimmt jedoch aus dem ersten Teil des Beweises mit $G(\R^n)$ über ein.
-  Daher erfüllt die Fortsetzung
+  Daher erfüllt die Fortsetzung die Identität
   $$
   \langle f, \nabla p \rangle = 0 
   $$
   für alle $\nabla p \in G(\R^n)$.
-  Dies bedeutet aber gerade, dass $f \in G(\R^n)^\perp$ gilt und aus Lemma \ref{lem:helmholtz} zur \helmholtz\hyp{}Zerlegung folgt damit
+  Dies bedeutet aber gerade, dass $f \in G(\R^n)^\perp$ gilt und aus Satz \ref{lem:helmholtz} zur \helmholtz\hyp{}Zerlegung folgt damit
   $$
   f \in G(\R^n)^\perp 
   = L_\sigma^2(\R^n)^{\perp\perp} 
   = \overline{L_\sigma^2(\R^n)}^{\norm{\cdot}_2}
   = L_\sigma^2(\R^n).
   $$
-  Daraus folgt $L \subseteq L_\sigma^2(\R^n)$ und damit ist Gleichung (\ref{eq:LCharacterization}) bewiesen.
+  Daraus folgt $L \subseteq L_\sigma^2(\R^n)$ und Gleichung (\ref{eq:LCharacterization}) ist bewiesen.
 \end{proof}
