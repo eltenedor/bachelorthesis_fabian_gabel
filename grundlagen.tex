@@ -14,7 +14,7 @@ Falls nicht anders vermerkt, bezeichnet $n$ immer eine von Null verschiedene nat
 \section{Glatte Funktionen und der Raum der Testfunktionen}
 \label{subsec:smooth}
 
-Ziel dieses Abschnittes ist, es die nötigen Begriffe und Definitionen im Zusammenhang mit glatten Funktionen bereitzustellen.
+Ziel dieses Abschnittes ist es, die nötigen Begriffe und Definitionen im Zusammenhang mit glatten Funktionen bereitzustellen.
 Im Folgenden bezeichne $\Omega \subseteq \R^n$ stets ein nichtleeres Gebiet.
 
 Sei $k \in \N$. Mit $C^k(\Omega)$ bezeichnen wir die Menge aller Funktionen
@@ -41,7 +41,7 @@ benötigen.
 Aufgrund der Eigenschaft ($\ast$) lässt sich der Raum $C^\infty(\overline\Omega)$ mit einer Norm ausstatten:
 \begin{equation}
   \label{eq:cInftyNorm}
-  \norm{u}_{C^\infty} = \norm{u}_{C^\infty(\overline\Omega)} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
+  \norm{u}_{C^\infty} := \norm{u}_{C^\infty(\overline\Omega)} := \sup_{|\alpha|\leq k, x \in \overline\Omega} |D^\alpha u(x)|.
 \end{equation}
 
 Alle eingeführten Räume lassen sich auf natürliche Weise zu Räumen von Vektor\-feldern verallgemeinern.
@@ -53,7 +53,7 @@ Man erhält so
 \end{align*}
 wobei der letzte Vektorraum durch die Norm
 $$
-\norm{u}_{C^\infty} = \norm{u}_{C^\infty(\overline\Omega)}^m := \sup_{j = 1,\dots, m} \norm{u_j}_{C^\infty(\overline\Omega)}
+\norm{u}_{C^\infty} := \norm{u}_{C^\infty(\overline\Omega)}^m := \sup_{j = 1,\dots, m} \norm{u_j}_{C^\infty(\overline\Omega)}
 $$
 zu einem normierten Vektorraum wird.
 
@@ -63,7 +63,7 @@ Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lem
 \begin{lem}
   \label{lem:CInftyClosedOmega}
   Sei $\Omega \subseteq \R^n$ ein beschränktes Gebiet.
-  Für eine Funktion $u \colon \overline\Omega \to \R$ schreiben wir
+  Für eine Funktion $u \colon \overline\Omega \to \R$ schreiben wir:
   \begin{enumerate}[(a)]
     \item $u \in C^\infty_\bullet(\overline\Omega)$,
       falls eine Funktion $f \in C^\infty(\R^n)$ mit $\sup_{|\alpha| < \infty, x \in \R^n} \norm{D^\alpha f(x)} <  \infty$ exsistiert mit $u = f|_{\overline\Omega}$.\cite[S.23, I.3.1]{sohr2001navier}
@@ -73,7 +73,6 @@ Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lem
 
     \item $ u \in C^\infty_{\bullet\bullet\bullet}(\overline\Omega)$,
     falls $u|_\Omega \in C^\infty(\Omega)$ gilt und sich für alle Multiindices $|\alpha|\leq k$ die Funktion $D^\alpha u$ stetig auf $\overline\Omega$ fortsetzen lässt.\cite[S.10, 1.28]{adams2003sobolev},\cite[S.35, II.1.3]{galdi2011navier}
-   
   \end{enumerate}
 
   Dann gilt
@@ -113,7 +112,7 @@ Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lem
              \end{cases}
   $$
   und $\supp \psi \subseteq B_r(0)$ gilt.
-  Eine solche Funktion erhält man zum Beispiel aus der Faltung der charakteristischen Funktion $\chi_{\overline\Omega}$ mit einem Glättungskern, wie der Beweis des \urysohn\hyp{}Lemmas für glatte Funktionen zeigt. \cite[S.88, Proposition 6.5]{folland2009ra}.
+  Eine solche Funktion erhält man zum Beispiel aus der Faltung der charakteristischen Funktion $\chi_{\overline\Omega}$ mit einem Glättungskern, wie der Beweis des \urysohn\hyp{}Lemmas für glatte Funktionen zeigt. \cite[S.88, Proposition 6.5]{folland2009ra}
   Für $f := \tilde u \cdot \psi$ erhalten wir
   $$
   \sup_{|\alpha| < \infty, x \in \R^n}\norm{ D^\alpha f}
@@ -141,7 +140,7 @@ Es bezeichne im Folgenden wieder $\Omega \subseteq \R^n$ ein offenes Gebiet mit 
 Wir werden im Folgenden oft eine Obermenge der bezüglich des \lebesgue\hyp{}Maßes auf $\R^n$ integrierbaren Funktionen verwenden:
 Für $1 \leq q \leq \infty$ schreiben wir
 $$
-  u \in L^q_{\loc}(\Omega),
+  u \in L^q_{\loc}(\Omega)
 $$
 und nennen $u$ \emph{lokal integrierbar}, falls $u \in L^q(B)$ für alle offenen Bälle $B \subseteq \Omega$ mit $\overline B \subseteq \Omega$ gilt.
 
@@ -152,7 +151,7 @@ und nennen $u$ \emph{lokal integrierbar}, falls $u \in L^q(B)$ für alle offenen
   Tatsächlich ist sie äquivalent zur obigen Definiton.
   Denn einerseits ist für alle Bälle $B$ auch $\overline B$ ein Kompaktum und die Aussage folgt aus der Inklusionsbeziehung $L^q(\overline B) \subseteq L^q(B)$.
   Andererseits lässt sich jedes Kompaktum $K$ mit endlich vielen Bällen $B_1, \dots, B_n$ mit $\overline B_i \subseteq \Omega, i =1,\dots,n,$ überdecken. 
-  Ist gilt nun $u \in B_i$ für alle $i = 1, \dots, n$, so gilt insbesondere $u \in \cup_{i = 1}^n B_i \supseteq K$ und die Umkehrung der Aussage folgt aus der Inklusionsbeziehung $L^q(\cup_{i = 1}^n B_i) \subseteq L^q(K)$.
+  Gilt nun $u \in L^q(B_i)$ für alle $i = 1, \dots, n$, so gilt insbesondere $u \in \cup_{i = 1}^n L^q(B_i)$ und die Umkehrung der Aussage folgt aus der Inklusionsbeziehung $L^q(\cup_{i = 1}^n B_i) \subseteq L^q(K)$.
 \end{bem}
 
 Des Weiteren schreiben wir
@@ -168,16 +167,16 @@ $$
 \subsection{Distributionen}
 
 In Abschnitt \ref{subsec:smooth} hatten wir bereits den Raum der Testfunktionen $C_0^\infty(\Omega)$ kennengelernt.
-Wir werden und vor allem für seinen Dualraum, den Raum der stetigen Funktionale auf $C_0^\infty(\Omega)$, existieren.
+Wir werden uns vor allem für seinen Dualraum, den Raum der stetigen Funktionale auf $C_0^\infty(\Omega)$, interessieren.
 Um überhaupt über Stetigkeit von Funktionalen auf $C_0^\infty(\Omega)$ sprechen zu können, müssen wir jedoch zunächst eine Topologie festlegen.
-Wir werden dies durch die Spezifikation einer Konvergenzstruktur tun, dabei beschränken wir uns auf den resultierenden Stetigkeitsbegriff:
+Dabei beschränken wir uns auf den aus der Topologie resultierenden Stetigkeitsbegriff:
 Ein lineares Funktional $F \colon C_0^\infty(\Omega) \to \R$ ist stetig, genau dann, wenn für jedes beschränkte Teilgebiet $G \subseteq \Omega$ mit $\overline G \subseteq \Omega$ ein $k \in \N_0$ und $C = C(F,G)$ existiert, sodass
 $$
 |F(\varphi)| \leq C \norm{\varphi}_{C^k}(\overline G)
 $$
 gilt, wobei $\norm{\cdot}_{C^k}(\overline G)$ gerade die in Gleichung (\ref{eq:cInftyNorm}) definierte Norm bezeichnet.
-Diese Konvergenzstruktur ist topologisierbar und macht $C_0^\infty(\Omega)$ zu einem lokalkonvexen Vektorraum.
-Genauere Ausführungen finden sich in \cite[S.433f.]{werner2011fa}.
+Die hinter diesem Stetigkeitsbegriff stehende Topologie macht $C_0^\infty(\Omega)$ zu einem lokalkonvexen Vektorraum.
+Genauere Ausführungen der beschriebenen Topologie finden sich in \cite[S.433f.]{werner2011fa}.
 Den Raum $C_0^\infty(\Omega)'$ aller im obigen Sinne stetigen Funktionale
 $$
 F \colon C_0^\infty(\Omega) \to \R, \quad \varphi \mapsto F(\varphi) = [F, \varphi],
@@ -186,12 +185,12 @@ bezeichnen wir als den Raum der \emph{Distributionen}.
 Hierbei stellt $[\cdot,\cdot]$ die duale Paarung auf $\Omega$ dar. 
 
 Wir betrachten nun spezielle Distributionen.
-Ist $f \in L^1_{\loc}$ so bezeichnet man 
+Ist $f \in L^1_{\loc}$ so verstehen wir unter 
 $$
 f \mapsto \langle f, \varphi \rangle := \int_\Omega f \varphi \d x
 $$
-als zugehörige \emph{reguläre} Distribution.
-Dass diese Zuodrnung sogar injektiv ist und somit zur Inklusionsbeziehung $L^1_{\loc}(\Omega) \subseteq C^\infty_0(\Omega)'$ führt, lässt sich in \cite[S.432, Beispiel (a)]{werner2011fa} nachlesen.
+die zu $f$ gehörige \emph{reguläre} Distribution.
+Dass diese Zuordnung sogar injektiv ist und somit zur Inklusionsbeziehung $L^1_{\loc}(\Omega) \subseteq C^\infty_0(\Omega)'$ führt, lässt sich in \cite[S.432, Beispiel (a)]{werner2011fa} nachlesen.
 
 \subsection{Differentiation von Distributionen}
 
@@ -203,8 +202,8 @@ $$
 Bis auf ein Vorzeichen stimmt also die distributionelle Ableitung mit der zum Ableitungsoperator dualen Abbildung $(D^\alpha)' \colon C_0^\infty(\Omega)' \to C_0^\infty(\Omega)'$ überein.
 Dass die distributionelle Ableitung wohldefiniert und sogar schwach*-stetig ist, lässt sich in \cite[S.434, Lemma VIII.5.7]{werner2011fa} nachlesen.
 
-Im Unterabschnitt zu glatten Funktionen hatten wir die dortigen Definitionen auf auf Produkträume ausgeweitet.
-Wir versehen den so entstandenen Produktraum $C_0^\infty(\Omega)^m$ mit der Produkttopologie und wenden uns nun dem zugehörigen Distributionenraum $C_0^\infty(\Omega)'^m$ zu.
+Im Unterabschnitt zu glatten Funktionen hatten wir die dortigen Definitionen auf Produkträume ausgeweitet.
+Wir versehen den so entstandenen Produktraum $C_0^\infty(\Omega)^m$ mit der Produkttopologie und wenden uns nun dem zugehörigen Distributionenraum $(C_0^\infty(\Omega)^m)'$ zu.
 
 Wir betrachten dazu die Funktion
 $$
@@ -217,11 +216,17 @@ die Distribution
   \label{eq:pairingVector}
   [F, \varphi] := [F_1, \varphi_1] + \dots + [F_m, \varphi_m].
 \end{equation}
-Durch Betrachtung von Funktionen des Typs $\psi^{(i)} = (0, \dots,0, \psi_i, 0,\dots,0) \in C_0^\infty(\Omega)^m$ mit $i \in \{1,\dots,m\}$ erkennen wir, dass jedes stetige Funktional auf $C_0^\infty(\Omega)^m$ diese Form besitzt.
-Der Raum der Distributionen zu den Testfunktionen $C_0^\infty(\Omega)^m$ besitzt also die Form
+Durch Betrachtung von Funktionen des Typs $\psi^{(i)} = (0, \dots,0, \psi_i, 0,\dots,0) \in C_0^\infty(\Omega)^m$ mit $i \in \{1,\dots,m\}$ erkennen wir, dass jedes bezüglich der Produkttopologie stetige Funktional auf $C_0^\infty(\Omega)^m$ diese Form besitzt.
+Für den Raum der Distributionen zu den Testfunktionen $C_0^\infty(\Omega)^m$ gilt also
+\begin{align*}
+  (C_0^\infty(\Omega)')^m 
+  &= (C_0^\infty(\Omega)^m)' \\
+  &= \{(F_1,\dots,F_m) \mid F_j \in C_0^\infty(\Omega)', j = 1, \dots,m\}.
+\end{align*}
 
-Wir erinnern uns an dem im Unterabschnitt zu glatten Funktionen definierten Lösungsraum $C_{0, \sigma}^\infty(\Omega)$ der divergenzfreien Funktionen.
-Nach dem Fortetzungssatz von \hahn\hyp{}\banach\ für lokalkonvexe Vektorräume (\cite[S.408, Satz VIII.2.8]{werner2011fa}) erhalten wir die stetigen Funktionale auf $C_{0,\sigma}^\infty$ gerade als Einschränkungen der stetigen Funktionale auf $C_0^\infty(\Omega)^n$. Es gilt somit
+Wir erinnern uns an den im Unterabschnitt zu glatten Funktionen definierten Lösungsraum $C_{0, \sigma}^\infty(\Omega) \subseteq C_0^\infty(\Omega)^n$ der divergenzfreien Funktionen.
+Nach dem Fortsetzungssatz von \hahn\hyp{}\banach\ für lokalkonvexe Vektorräume (\cite[S.408, Satz VIII.2.8]{werner2011fa}) erhalten wir die stetigen Funktionale auf $C_{0,\sigma}^\infty$ gerade als Einschränkungen der stetigen Funktionale auf $C_0^\infty(\Omega)^n$. 
+Es gilt somit
 $$
 C_{0,\sigma}^\infty(\Omega)' = \{F|_{C_{0,\sigma}^\infty(\Omega)} \mid F \in (C_0^\infty(\Omega)^n)'\}.
 $$
@@ -285,30 +290,42 @@ $$
   $$
   \lim_{j \to \infty} \norm{D^\alpha u_j - u_\alpha}_q = 0.
   $$
-  Sei $f_0 := f_{(0,\dots,0)}$.
-  Wir behaupten nun, dass die Identität $D^\alpha f_0 = f_\alpha$ für alle $|\alpha| \leq k$ beziehungsweise im Falle $k = \infty$ für alle $|\alpha| < \infty$ gilt.
+  Sei $u_0 := u_{(0,\dots,0)}$.
+  Wir behaupten nun, dass im distributionellen Sinne die Identität $u_\alpha = D^\alpha u_0$ für alle $|\alpha| \leq k$ beziehungsweise im Falle $k = \infty$ für alle $|\alpha| < \infty$ gilt.
+  Wir zeigen dazu, dass für alle $\varphi \in C_0^\infty(\Omega)$ die Identität
+  $$
+  [u_\alpha, \varphi] = [D^\alpha u_0, \varphi]
+  $$
+  gilt.
   Dazu halten wir zunächst fest, dass mit der \hoelder\hyp{}Ungleichung
   $$
-  \int_\Omega (D^\alpha f_j - f_\alpha) \varphi \d x
-  \leq \norm{(D^\alpha f_j - f_\alpha)}_q \norm{\varphi}_{q'} \to 0
+  \int_\Omega |(D^\alpha u_j - u_\alpha)| \varphi \d x
+  \leq \norm{(D^\alpha u_j - u_\alpha)}_q \norm{\varphi}_{q'} \to 0, \quad j \to \infty
   $$
   sowie
   $$
-  \int_\Omega (f_j - f_0) D^\alpha \varphi \d x
-  \leq \norm{(f_j - f_0)}_q \norm{\varphi}_{q'} \to 0
+  \int_\Omega |(u_j - u_0) D^\alpha \varphi| \d x
+  \leq \norm{(u_j - u_0)}_q \norm{D^\alpha \varphi}_{q'} \to 0, \quad j \to \infty
   $$
-  folgt, wobei $q'$ den zu $q$ konjugierten Exponenten bezeichne.
-  Damit erhalten wir
-  \begin{align*}
-    [f_\alpha, \varphi] 
-    &= [\lim_{j \to \infty} D^\alpha f_j, \varphi] \tag{Limes bezüglich $\norm{\cdot}_q$} \\
-    &= \lim_{j \to \infty} [D^\alpha f_j, \varphi] \\
-    &= \lim_{j \to \infty} (-1)^{|\alpha|}[f_j, D^\alpha \varphi] \\
-    &=  (-1)^{|\alpha|}[\lim_{j \to \infty} f_j, D^\alpha \varphi] \\
-    &=  (-1)^{|\alpha|}[f_0, D^\alpha \varphi].
-  \end{align*}
-  Daraus folgt jedoch gerade die Behauptung $D^\alpha f_0 = f_\alpha$.
-  Insgesamt ergibt sich also $\lim_{j \to \infty} \norm{f_j - f_0}_{k,q} =  0$, was zu beweisen war.
+  folgen, wobei $q'$ den zu $q$ konjugierten Exponenten bezeichne.
+  Hieraus folgen die Identitäten
+  $$
+  \lim_{j \to \infty} [D^\alpha u_j, \varphi] = \lim_{j \to \infty} \int_\Omega D^\alpha u_j \varphi \d x =  \int_\Omega u_\alpha \varphi \d x =  [u_\alpha, \varphi] 
+  $$
+  und
+  $$
+    \lim_{j \to \infty} [u_j, D^\alpha\varphi] = \lim_{j \to \infty} \int_\Omega u_j D^\alpha\varphi \d x =  \int_\Omega u_0 D^\alpha \varphi \d x = [u_0, D^\alpha \varphi].
+  $$
+  Dies impliziert schließlich
+  $$ 
+  [u_\alpha, \varphi] 
+  = \lim_{j \to \infty} [D^\alpha u_j, \varphi] \\
+  = \lim_{j \to \infty} (-1)^{|\alpha|}[u_j, D^\alpha \varphi] \\
+  =  (-1)^{|\alpha|}[u_0, D^\alpha \varphi]
+  = [D^\alpha u_0, \varphi].
+  $$
+  Daraus folgt jedoch gerade die Behauptung $D^\alpha u_0 = u_\alpha$.
+  Insgesamt ergibt sich also $\lim_{j \to \infty} \norm{u_j - u_0}_{k,q} =  0$, was zu beweisen war.
 \end{proof}
 
 Wir definieren den Unterraum
@@ -322,7 +339,11 @@ Für $1 < q < \infty$ definieren wir die \sobolev\hyp{}Räume negativer Ordnung
 $$
   W^{-k,q}(\Omega) := W_0^{k,q'}(\Omega)'.
 $$
-Wie für den Dualraum eines normierten Raumes üblich, ist $W^{-k,q}(\Omega)$ mit Operatornorm ein \banach\hyp{}Raum.
+Wie für den Dualraum eines normierten Raumes üblich, ist $W^{-k,q}(\Omega)$ mit Operatornorm 
+$$
+\norm{F}_{W^{-k,q}(\Omega)} := \norm{F}_{W^{-k,q}} := \norm{F}_{-k,q} := \sup_{0 \neq \varphi \in C_0^\infty(\Omega)} \frac{|[F,\varphi]|}{\norm{\varphi}_{k,q'}}
+$$
+ein \banach\hyp{}Raum.
 
 Es ist möglich einen \sobolev\hyp{}Raum $W^{k,q}(\Omega)$ für $1 < q < \infty$ als abgeschlossenen Teilraum eines $L^q$\hyp{}Raumes zu realisieren \cite[S.61, 3.5]{adams2003sobolev}.
 Als solcher ist er insbesondere reflexiv.
@@ -342,8 +363,8 @@ $$
 $$
 identifizieren.
 
-Wir definieren nun die $W^{k,q}_{\loc}$\hyp{}Räume.
-Wir bezeichnen mit $W^{k,q}_{\loc}(\Omega)$ den Raum aller Funktionen $u$ mit $D^\alpha u \in L^q_{\loc}(\Omega)$ für alle Multiindices $|\alpha| \leq k$.
+%Wir definieren nun die $W^{k,q}_{\loc}$\hyp{}Räume.
+Wir bezeichnen mit $W^{k,q}_{\loc}(\Omega)$ den Raum aller Funktionen $u$ mit $D^\alpha u \in L^q_{\loc}(\Omega)$ für alle Multiindices $\alpha \in \N_0^n$ mit $|\alpha| \leq k$.
 Des Weiteren definieren definieren wir $W^{k,q}(\overline\Omega)$ als den Raum aller Funktionen $u$ mit $D^\alpha u \in L^q_{\loc}(\overline\Omega)$.
 Nun zu den \sobolev\hyp{}Räumen negativer Ordnung. 
 Wir definieren den Raum $W^{-k,q}_{\loc}(\Omega)$ als den Raum aller Distributionen
@@ -356,7 +377,8 @@ $$
 $$
 für alle beschränkten Teilgebiete $\Omega_0 \subseteq \Omega$ mit $\overline\Omega_0 \subseteq \Omega$ gilt.
 
-Wie schon im Unterabschnitt zu glatten Funktionen können wir auch die Definition der \sobolev\hyp{}Räue auf Produkträume ausdehnen. 
+%% TODO %%
+Wie schon im Unterabschnitt zu glatten Funktionen vorgestellt, können wir auch die Definition der \sobolev\hyp{}Räue auf Produkträume ausdehnen. 
 Wir definieren hierzu
 $$
 W^{k,q}(\Omega)^m := \{ (u_1,\dots,u_m) \mid u_j \in W^{k,q}(\Omega), \quad j = 1,\dots, m\}
@@ -378,7 +400,7 @@ $$
 \mathcal{F}(x) := \begin{cases}
                      & c \cdot \exp\left(-\frac{1}{1 - \norm{x}}\right), \quad \norm{x} < 1 \\
                      & 0, \quad  \text{sonst}
-                  \end{cases}, x \in \R^n
+                  \end{cases}, \quad\quad x \in \R^n
 $$
 zu betrachten und
 $$
@@ -416,7 +438,7 @@ u^\varepsilon := \mathcal{F}_\varepsilon \ast u
 $$
 von Glättungskernen $\mathcal{F}_\varepsilon \ast u$ mit Distributionen $u \in C_0^\infty(\Omega)'$ erweitern.
 Einerseits zählt dazu, dass $u^\varepsilon \in C^\infty(\R^n)$ gilt.
-Da $\Omega_0$ als beschränkt vorausgesetzt wurde, gilt nach Lemma \ref{lem:CInftyClosedOmega} sogar $u^\varepsilon \in C^\infty(\overline\Omega_0)$.
+Da $\Omega_0$ als beschränkt vorausgesetzt wurde, gilt nach Lemma \ref{lem:CInftyClosedOmega}(b$\implies$a) sogar $u^\varepsilon \in C^\infty(\overline\Omega_0)$.
 Andererseits ist für alle Multiindices $\alpha \in \N_0^n$ und alle $x \in \Omega_0$ die folgende Gleichung gültig:
 \begin{equation}
   \label{eq:convolutionDiff}
@@ -433,10 +455,10 @@ Andererseits ist für alle Multiindices $\alpha \in \N_0^n$ und alle $x \in \Ome
 \begin{proof}
   Für alle beschränkten Teilgebiete $\Omega_0 \subseteq \Omega$ und $\varepsilon$ wie in Ungleichung (\ref{eq:convolutionEpsilon}) folgern wir unter Verwendung der Gleichung (\ref{eq:convolutionDiff})
   \begin{align*}
-    \nabla u^\varepsilon(x)
+    \nabla u^\varepsilon
     &= (D^1 (\mathcal{F}_\varepsilon \ast u), \dots, D^n (\mathcal{F}_\varepsilon \ast u))^T \\
     &= ( \mathcal{F}_\varepsilon \ast D^1 u, \dots, \mathcal{F}_\varepsilon \ast D^n u)^T \\
-    &= (0, \dots, 0)^T, x \in \Omega_0.
+    &= (0, \dots, 0)^T.
   \end{align*}
   Es ist $u^\varepsilon$ eine glatte Funktion.
   Zudem ist $\Omega_0$ als offene zusammenhängende Teilmenge von $\R^n$ insbesondere wegzusammenhängend.
