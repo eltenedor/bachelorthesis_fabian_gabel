@@ -27,7 +27,7 @@ Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{s
 
 \begin{proof}
   Da $\R^n$ ein zusammenhängender Raum ist, sind die einzigen Mengen mit leerem Rand die leere Menge und der ganze Raum.
-  Dies wurde jedoch in der Voraussetzung des Lemmas bereits ausgeschlossen, daher nimmt die Funktion$\dist$ nur endliche Werte an.
+  Dies wurde jedoch in der Voraussetzung des Lemmas bereits ausgeschlossen, daher nimmt die Funktion $\dist$ nur endliche Werte an.
 
   Sei nun $a \in A$ und $b \in \partial B$.
   Wir betrachten den Strahl $s \colon [0,1] \to \mathbb{R}^n$ mit $s(0) = a$ und $s(1) = b$.
@@ -58,14 +58,14 @@ Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{s
   $$
   da aufgrund der Abgeschlossenheit von $\partial A$ die Gleichheit $\dist(x,\partial A) = 0$ äquivalent zu $x \in \partial A$ ist ($\ast$).
 
-  Auf $f \circ s$ lässt sich nun der Zwischenwertsatz anwenden, denn nach Voraussetzung gelten
+  Auf die Funktion $f \circ s$ lässt sich nun der Zwischenwertsatz anwenden, denn nach Voraussetzung gelten
   $$
   (f \circ s)(0) = f(a) = -1 \quad\text{und}\quad (f \circ s)(1) = f(b) = 1.
   $$
   Somit existiert also ein $t' \in (0,1)$ mit $(f\circ s)(t') = f(s(t')) = 0$, was nach ($\ast$) äquivalent zu $s(t') \in \partial A$ ist.
   Es ist also
   $$
-  \norm{a - b} \geq \norm{a - s(t')} - \norm{s(t') - b} \geq \norm{a - s(t')} \geq \dist(x,\partial A).
+  \norm{a - b} \geq \norm{a - s(t')} + \norm{s(t') - b} \geq \norm{a - s(t')} \geq \dist(x,\partial A).
   $$
   Da dies für alle $b \in \partial B$ gilt, folgt sogleich $ \dist(a, \partial B) \geq \dist(a, \partial A)$.
 \end{proof}
@@ -116,7 +116,9 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   \widehat\Omega_1 := \widetilde\Omega_1 \setminus \bigcup_{j = 1}^m \overline{B_\varepsilon(x_j)}
   $$
   und wählen $0 < \varepsilon < 1$ so klein, dass zusätzlich $x_0 \in \widehat\Omega_1$ gilt. 
-  Dies lässt sich immer erreichen, da $\widetilde\Omega_1$ bezüglich Teilraumtopologie auf $\Omega'$ offen-abgeschlossen und somit auch in $\R^n$ offen ist, weswegen ein $\delta > 0$ existiert mit $B_\delta(x_0) \subseteq \Omega'$.
+  Dies lässt sich immer erreichen. 
+  Denn $\widetilde\Omega_1$ ist bezüglich Teilraumtopologie auf $\Omega'$ offen-abgeschlossen und somit auch in $\R^n$ offen.
+  Deswegen existiert ein $\delta > 0$ mit $B_\delta(x_0) \subseteq \Omega'$.
   Zum Beispiel erfüllt jedes $\varepsilon < \dist(x_0, \partial\widetilde\Omega_1) - \delta$ die geforderte Bedingung.
 
   Man erkennt nun $\widehat\Omega_1$ als beschränktes \lipschitz\hyp{}Gebiet, da $\partial\widehat\Omega_1$ sämtlich aus Teilen der Ränder der Bälle $B_\varepsilon(x_j)$ besteht.
@@ -133,13 +135,13 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   $$
   \widehat\Omega_1 \subseteq \widetilde\Omega_1 \subseteq \widetilde\Omega_2.
   $$
-  Hieraus folgt mit Lemma \ref{lem:distBoundary}, dass
+  Hieraus folgt mit Lemma \ref{lem:distBoundary} die Ungleichungskette
   \begin{displaymath}
     \dist(x,\partial\widehat\Omega_1) 
     \leq \dist(x,\partial\widetilde\Omega_1) 
     \leq \dist(x,\partial\widetilde\Omega_2) \tag{$\ast$}
   \end{displaymath}
-  für alle $x \in \widehat\Omega_1$ gilt.
+  für alle $x \in \widehat\Omega_1$.
   Des Weiteren gilt 
   \begin{displaymath}
   0 < \lambda \leq \dist(\widehat\Omega_1,\partial\widetilde\Omega_1) \tag{$\ast\ast$},
@@ -152,7 +154,7 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   \widehat\Omega_1 \cup \partial\widehat\Omega_1 = \overline{\widehat\Omega}_1 \subseteq \widehat\Omega_2.
   $$
 
-  Andererseits gilt $\varepsilon_2 < \dist(\Omega_1, \partial\Omega_2)$, denn
+  Andererseits gilt $\varepsilon_2 < \dist(\Omega_1, \partial\Omega_2)$ aufgrund der Abschätzung
   \begin{align*}
   \varepsilon_2 
   &< \frac{1}{2} \dist(\Omega_1, \partial\widetilde\Omega_2) \\
@@ -260,7 +262,7 @@ Dieses Einbettungsresultat können wir nun nutzen, um die folgende Abschätzung 
   $$
   also insbesondere auch
   $$
-  \lim_{i \to \infty} \langle u, \div v_i \rangle = \langle u, \div_v \rangle.
+  \lim_{i \to \infty} \langle u, \div v_i \rangle = \langle u, \div v \rangle.
   $$
   Hiermit ergibt sich für ein $u \in L^q(\Omega)$ folgende Darstellung der linearen Fortsetzung der Distribution $\nabla u \in (C_0^\infty(\Omega)^n)'$ auf den Raum $\overline{C_0^\infty(\Omega)^n}^{\norm{\cdot}_{1,q'}}$:
   $$
@@ -285,7 +287,7 @@ Dieses Einbettungsresultat können wir nun nutzen, um die folgende Abschätzung 
   $$
   Mit der Definition der Operatornorm ergibt sich nun
   $$
-  \norm{\nabla u}_{1,q} \leq C_2\norm{u}_q.
+  \norm{\nabla u}_{-1,q} \leq C_2\norm{u}_q.
   $$
 
   Wir beweisen nun den ersten Teil der Ungleichung (\ref{eq:compactInequality}) durch einen Widerspruchsbeweis.
@@ -332,7 +334,7 @@ Dieses Einbettungsresultat können wir nun nutzen, um die folgende Abschätzung 
   \begin{align*}
     |[\nabla \tilde u_j, v]|
     &= |\langle \tilde u_j, \div v \rangle| \\
-    &\leq \norm{\tilde u_j}_q \norm{\div v}_{1,q'} \tag{\hoelder}\\
+    &\leq \norm{\tilde u_j}_q \norm{\div v}_{q'} \tag{\hoelder}\\
     &\leq \norm{\tilde u_j}_q \norm{v}_{1,q'} \\
     &\leq \norm{\nabla \tilde u_j}_{-1,q} \norm{v}_{1,q'}, \tag{\poincare}
   \end{align*}
@@ -406,7 +408,8 @@ Dies ist Inhalt des folgenden Lemmas.
   $$
   für ein aufgrund der verwendeten Normäquivalenz auf $\R^n$ existierendes $c = c(n) > 0$ und alle $j,k \in \N$.
   Die Folge $(v_j)_{j \in \N}$ ist also auch eine \cauchy\hyp{}Folge bezüglich \sobolev\hyp{}Norm.
-  Der Raum $W_0^{1,q}(\Omega)$ ist nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}(\Omega)$ als solcher also insbesondere vollständig und damit gilt $\lim_{j \to \infty} v_j = v$ für ein $v \in W_0^{1,q}(\Omega)$.
+  Der Raum $W_0^{1,q}(\Omega)$ ist nach Definition ein bezüglich \sobolev\hyp{}Norm abgeschlossener Unterraum von $W^{1,q}(\Omega)$ und als solcher insbesondere vollständig.
+  Damit gilt $\lim_{j \to \infty} v_j = v$ für ein $v \in W_0^{1,q}(\Omega)$.
   Da zudem
   $$
   \norm{\nabla v_j}_q \leq \norm{v}_{W_{1,q}}  
@@ -449,7 +452,7 @@ Im Folgenden geben wir dazu einen auf $L^q$\hyp{}Räume verallgemeinerten Beweis
 
   Wir definieren das Funktional
   $$
-  \tilde f \colon \nabla v \mapsto [\tilde f, \nabla v]\;, \quad \nabla v \in D
+  \tilde f \colon \nabla v \mapsto [\tilde f, \nabla v]\;, \quad \nabla v \in D,
   $$
   durch $[\tilde f, \nabla v] := [f, v]$ für alle $v \in W_0^{1,q'}(\Omega)^n$.
   Dann liefert die Eigenschaft der Operatornorm zusammen mit der \poincare\hyp{}Ungleichung \ref{lem:poincare} eine Konstante $C = C(\Omega) > 0$, sodass 
@@ -460,7 +463,7 @@ Im Folgenden geben wir dazu einen auf $L^q$\hyp{}Räume verallgemeinerten Beweis
   \underset{\poincare}{\leq} C \norm{f}_{-1,q} \norm{\nabla v }_{q'}
   $$
   für alle $\nabla v \in D$ gilt.
-  Somit ist $\tilde f$ ein stetiges Funktional auf der abgeschlossenen Teilmenge$D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
+  Somit ist $\tilde f$ ein stetiges Funktional auf der abgeschlossenen Teilmenge $D \subseteq L^{q'}(\Omega)^{n^2}$ mit 
   \begin{equation}
     \label{eq:tildeFineq}
     \norm{\tilde f}_{D'} \leq C\norm{f}_{-1,q}.
@@ -484,7 +487,7 @@ Im Folgenden geben wir dazu einen auf $L^q$\hyp{}Räume verallgemeinerten Beweis
   da die Identifikation von Funktionalen auf $L^{q'}(\Omega)^{n^2}$ mit Funktionen aus $L^q(\Omega)^{n^2}$ isometrisch ist.
   Damit haben wir den rechten Teil der Ungleichung (\ref{eq:ineqDivRepresentation}) gezeigt.
 
-  Des Weiteren gilt für alle $v \in W_0^{1,q'}(\Omega)^n$ mit der \hoelder\hyp{}Ungleichung
+  Andererseits ergibt sich für alle $v \in W_0^{1,q'}(\Omega)^n$ mit der \hoelder\hyp{}Ungleichung
   \begin{align*}
     |[f,v]| 
     &= |\langle F, \nabla v\rangle|  \\
@@ -508,14 +511,14 @@ Im Folgenden geben wir dazu einen auf $L^q$\hyp{}Räume verallgemeinerten Beweis
     &= - \langle \sum_{l = 1}^n ( \sum_{j = 1}^n D_j F_{jl} ) v_l \rangle \\
     &\underset{(\ref{eq:pairingVector})}{=} -[\div F, v]. \\
   \end{align*}
-  Die Abbildungen $[f,\cdot]$ und $[-\div F, \cdot]$ stimmen also als Distributionen überein und die zu zeigende Aussage folgt durch den Übergang von $F$ zu $-F$.
+  Die Abbildungen $f$ und $-\div F$ stimmen also als Distributionen überein und die zu zeigende Aussage folgt durch den Übergang von $F$ zu $-F$.
   Die bereits für $F$ bewiesenen Ungleichungen behalten ihre Gültigkeit.
 \end{proof}
 
 \newpage
 \section{Das Gradientenkriterium}
 
-In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundamentales Kriterium vor, nach welchem es möglich ist, Funktionen $f \in W^{1,q}(\Omega)^n$ im distributionellen Sinne als Gradienten $f = \nabla p$ mit $p \in L^q(\Omega)$ darzustellen.
+In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundamentales Kriterium vor, nach welchem es möglich ist, Funktionen $f \in W^{-1,q}(\Omega)^n$ im distributionellen Sinne als Gradienten $f = \nabla p$ mit $p \in L^q(\Omega)$ darzustellen.
 
 Wir stellen eine Modifikation eines aus der Funktionentheorie bekannten Lemmas voran.
 
@@ -533,10 +536,10 @@ $$
   Mit dem Wissen aus der Funktionentheorie folgt zunächst die Existenz einer Funktion $U \in C^\infty(\Omega)$, welche auf $\Omega$ die Gleichung $g = \nabla U$ erfüllt.
   Nach Voraussetzung ist $g \in C^\infty(\overline\Omega)$.
   %% TODO %%
-  Daraus folgt mit Lemma \ref{lem:CInftyClosedOmega}, dass sich sowohl die Funktion $g|_\Omega = \nabla U$ als auch sämtliche partielle Ableitungen der Komponenten von $\nabla U$ gleichmäßig stetig auf $\Omega$ sind und sich daher stetig auf $\overline\Omega$ fortsetzen lassen.
+  Daraus folgt mit Lemma \ref{lem:CInftyClosedOmega}, dass sowohl die Funktion $g|_\Omega = \nabla U$ als auch sämtliche partielle Ableitungen der Komponenten von $\nabla U$ gleichmäßig stetig auf $\Omega$ sind und sich daher stetig auf $\overline\Omega$ fortsetzen lassen.
   %Also folgt wieder nach Lemma \ref{lem:CInftyClosedOmega}, dass auch $U \in C^\infty(\overline\Omega)$ gilt.
   Aufgrund der Kompaktheit von $\overline\Omega$ ist die Funktion $U$ \lipschitz\hyp{}stetig, wie durch eine Anwendung des Schrankensatzes folgt.
-  Als \lipschitz\hyp{}stetige Funktion besitzt $U$ somit auch eine stetige Fortsetzung auf $\overline\Omega$.
+  Als \lipschitz\hyp{}stetige Funktion besitzt $U$ somit auch eine stetige Fortsetzung nach $\overline\Omega$.
   Daraus folgt mit Lemma \ref{lem:CInftyClosedOmega} schließlich $U \in C^\infty(\overline\Omega)$ 
 \end{proof}
 
@@ -664,7 +667,7 @@ $$
     &= -[\nabla U_\varepsilon, v].
   \end{align*}
 
-  Eine wesentliche Eigenschaft der Glättungskerne ist, dass $\lim_{\varepsilon \to 0} \norm{F - F^\varepsilon}_{L^q(\Omega_1)} = 0$ nach Lemma \ref{lem:mollification} gilt.
+  Nach Lemma \ref{lem:mollification} gilt $\lim_{\varepsilon \to 0} \norm{F - F^\varepsilon}_{L^q(\Omega_1)} = 0$.
   Das Netz $(F^\varepsilon)_{\varepsilon \in \R^+}$ ist, da es konvergiert, auch ein \cauchy-Netz.
   Ersetzen wir in Ungleichung (\ref{eq:inequalityUEpsilon}) die Funktion $U_\varepsilon$ durch die Differenz $U_\varepsilon - U_\eta$, was ohne Einschränkung funktioniert, da $L^q$ ein Vektorraum und der Gradientenoperator $\nabla$ linear ist, so gilt für alle $0 < \eta < \varepsilon$ die Ungleichung
   $$
@@ -681,13 +684,19 @@ $$
   $$
   Es gilt also auch
   $$
-  \int_{\Omega_0} U \d x = \lim_{\varepsilon \to 0} \int_{\Omega_0} U_\varepsilon \d x = \lim_{\varepsilon \to 0} \int_{\Omega_0} 0 \d x =  0,
+  \int_{\Omega_0} U \d x 
+  = \lim_{\varepsilon \to 0} \int_{\Omega_0} U_\varepsilon \d x 
+  = \lim_{\varepsilon \to 0}\, 0 =  0,
   $$
   aufgrund der Wahl von $U^\varepsilon$.
 
   Nun zeigen wir noch, dass auf $\Omega_1$ im distributionellen Sinne die Gleichheit $\div F = \nabla U$ gilt. 
-  Wir halten dazu zunächst fest, dass die Konvergenz auf $L^q(\Omega_1)^{n^2}$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
-  Es gilt somit $$\lim_{\varepsilon \to 0} \norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} = 0$$ für alle $j,l \in \{ 1,\dots,n\}$.
+  Wir halten dazu zunächst fest, dass die Konvergenz auf dem Produktraum $L^q(\Omega_1)^{n^2}$ die komponentenweise Konvergenz auf $L^q(\Omega_1)$ impliziert.
+  Es gilt somit 
+  $$
+  \lim_{\varepsilon \to 0} \norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} = 0, \quad j,l \in \{ 1,\dots,n\}. 
+  $$ 
+  %für alle $j,l \in \{ 1,\dots,n\}$.
   Sei nun $v \in C_0^\infty(\Omega_1)^n$.
   Dann folgt
   \begin{align*}
@@ -704,7 +713,7 @@ $$
   wobei bei ($\ast\ast$) verwendet wurde, dass $\Omega_1$ beschränkt ist und somit Integration und Limesbildung für normkonvergente Folgen vertauschbar sind.
 
   Zuletzt zeigen wir, wie sich die gesuchte Funktion $p$ konstruieren lässt.
-  Wie der Beweis zeigt, lässt sich für jedes beschränkte \lipschitz\hyp{}Gebiet $\Omega_1$ mit $\overline\Omega_0 \subseteq \Omega_1 \subseteq \overline\Omega \subseteq \Omega$ ein $U \in L^q(\Omega_1)$ finden, welches die Gleichung $\nabla U = f$ im distributionellen Sinne erfüllt und zudem aufgrund der Forderung 
+  Wie der Beweis zeigt, lässt sich für jedes beschränkte \lipschitz\hyp{}Gebiet $\Omega_1$ mit $\overline\Omega_0 \subseteq \Omega_1 \subseteq \overline\Omega_1 \subseteq \Omega$ ein $U \in L^q(\Omega_1)$ finden, welches die Gleichung $\nabla U = f$ im distributionellen Sinne erfüllt und zudem aufgrund der Forderung 
   $$
   \int_{\Omega_0} U \d x = 0
   $$
