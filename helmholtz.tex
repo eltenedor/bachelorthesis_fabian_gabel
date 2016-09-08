@@ -39,7 +39,14 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$, die im distributionellen Sinne 
   \underset{\poincare}{\leq} C \norm{f}_2 \norm{\nabla v}_{L^2(\Omega_0)^{n^2}},
   $$
   mit einer Konstante $C = C(\Omega_0) > 0$.
-  Daraus folgt $f \in W_{\loc}^{-1,2}(\Omega)^n$.
+  Es gilt also 
+  \begin{align*}
+    |[f, v]| 
+    &\leq \norm{f}_2 \cdot ( \max(C,1)) \cdot (\norm{v}_2 + \norm{\nabla v}_2) \\
+    &\leq \norm{f}_2 \cdot C'(n) \cdot ( \max(C,1)) \cdot \norm{v}_{1,2}
+  \end{align*}
+  mit einem aus der Normäquivalenz der \sobolev\hyp{}Normen folgenden $C'(n)$.
+  Unter Berücksichtigung von Gleichung (\ref{eq:operatornorm}) folgt daraus $f \in W_{\loc}^{-1,2}(\Omega)^n$.
   Nach Voraussetzung gilt zudem 
   $$
   [f,v] = \langle f, v \rangle = 0
