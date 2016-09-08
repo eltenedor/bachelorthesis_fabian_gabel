@@ -82,7 +82,7 @@ $$
 für alle $f = f_0 + \nabla p \in L^2(\Omega)$ mit $f_0 \in L_\sigma^2(\Omega)$ und $\nabla p \in G(\Omega)$.
 
 Im Falle $\Omega = \R^n$ lassen sich die Räume $G(\Omega)$ und $L_\sigma^2(\Omega)$ noch auf eine andere Art charakterisieren.
-Dies ist Inhalt des folgenden Lemmas.
+Dies ist Inhalt des folgenden Satzes.
 
 \begin{thm}
   Sei $n \in \N$ mit $n \geq 2$.
@@ -114,7 +114,7 @@ Dies ist Inhalt des folgenden Lemmas.
   \varphi(x) = 0 \text{, falls } |x| \geq 2,
 \end{equation}
   betrachten.
-  Eine solche Funktion erhält man zum Beispiel aus der Faltung der charakteristischen Funktion $\chi_{B_2(0)}$ mit dem Standardglättungskern $\mathcal{F}_1$.
+  Eine solche Funktion erhält man zum Beispiel aus der Faltung der charakteristischen Funktion $\chi_{B_{3/2}}(0)$ mit dem Standardglättungskern $\mathcal{F}_{1/2}$.
   Zudem definieren wir die Funktionen
   $$
   \varphi_j \in C_0^\infty(\R^n)
@@ -135,27 +135,31 @@ Dies ist Inhalt des folgenden Lemmas.
   \quad,\quad
   G_j := B_{2j}\setminus \overline B_j,
   $$
-  so erhalten wir $\supp \nabla \varphi_j \subseteq \overline G_j$, da nach Definition $\varphi_j$ auf $B_j$ konstant ist sowie $\supp \varphi_j \subseteq \overline B_{2j}, j \in \N$.
+  so erhalten wir $\supp \nabla \varphi_j \subseteq \overline G_j$, da nach Definition $\varphi_j$ auf $B_j$ konstant ist sowie $\supp \varphi_j \subseteq \overline B_{2j}, j \in \N$ gilt.
 
-  Wir beginnen damit, die Gültigkeit der Gleichung (\ref{eq:GCharacterization}) zu zeigen.
+  Wir beginnen damit, die Gültigkeit von Gleichung (\ref{eq:GCharacterization}) zu zeigen.
   Da sich der Raum $C_0^\infty(\R^n)$ als Unterraum von $L^2(\R^n)$ auffassen lässt, folgt sogleich $G(\R^n) \supseteq \nabla C_0^\infty(\R^n)$.
   Zudem folgt aus Satz \ref{lem:helmholtz}, dass $G(\R^n)$ als orthogonales Komplement ein bezüglich $\norm{\cdot}_2$ abgeschlossener Unterraum von $L^2(\R^n)^n$ ist.
   Damit gilt auch $G(\R^n) = \overline{G(\R^n)}^{\norm{\cdot}_2} \supseteq \overline{\nabla C_0^\infty(\R^n)}^{\norm{\cdot}_2}$.
 
   Für die andere Inklusion betrachten wir den Gradienten $\nabla p \in G(\R^n)$.
-  Wir wählen Konstanten $K_j = \int_{G_j} p \d x, j \in \N$.
+  Wir wählen Konstanten 
+  $$
+  K_j := \frac{\int_{G_j} p \d x}{\int_{G_j} \1 \d x}, \quad j \in \N.
+  $$
   Aus der \poincare\hyp{}Ungleichung \cite[S.44, Lemma 1.1.2]{sohr2001navier} folgt sodann
-  \begin{equation}
+  \begin{align}
+  \norm{p - K_1}_{L^2(G_1)} &\leq C \left(\norm{\nabla (p - K_1)}_{L^2(G_1)^n} + | \int_{G_1} p - K_1 \d x |\right) \nonumber\\
     \label{eq:poincareP}
-  \norm{p - K_1}_{L^2(G_1)} \leq C \left(\norm{\nabla (p - K_1)}_{L^2(G_1)^n} + | \int_{G_1} p - K_1 \d x |\right) =  C \norm{\nabla p}_{L^2(G_1)^n}.
-\end{equation}
+  &=  C \;\norm{\nabla p}_{L^2(G_1)^n}.
+\end{align}
   Mit der Substitutionsregel erhalten wir
 \begin{align*}
-  \norm{p - K_j}_{L^2(G_j} 
+  \norm{p - K_j}_{L^2(G_j)} 
   &= \left( \int_{G_j} |p(x) - K_j|^2 \d x \right)^\frac{1}{2} \\
   &= \left( \int_{G_1} |p(jy) - K_j|^2 \d y \right)^\frac{1}{2} j^\frac{n}{2} \tag{Substitutionsregel}\\
-  &\leq C j^{\frac{n}{2}}\left( \int_{G_1} |\nabla_y p(jy) |^2 \d y )^{\frac{n}{2}} \right)^{\frac{1}{2}} \tag{mit Gleichung (\ref{eq:poincareP})}\\
-  &= C j^{\frac{n}{2}}j^{-\frac{n}{2}}j \left( \int_{G_j} |\nabla p(x) |^2 \d x )^{\frac{n}{2}} \right)^{\frac{1}{2}} \tag{Ketten- und Substitutionsregel} \\
+  &\leq C j^{\frac{n}{2}}\left( \int_{G_1} |\nabla_y p(jy) |^2 \d y \right)^{\frac{1}{2}} \tag{mit Gleichung (\ref{eq:poincareP})}\\
+  &= C j^{\frac{n}{2}}j^{-\frac{n}{2}}j \left( \int_{G_j} |\nabla p(x) |^2 \d x \right)^{\frac{1}{2}} \tag{Ketten- u. Substitutionsregel} \\
   &= C j \norm{\nabla p}_{L^2(G_j)^n}
 \end{align*}
   für alle $j \in \N$.
@@ -172,7 +176,7 @@ Dies ist Inhalt des folgenden Lemmas.
     \nabla p_j =  (\nabla \varphi_j)(p - K_j) + \varphi_j \nabla p,
   \end{equation}
   wobei $\nabla \varphi_j(x) = \frac{1}{j} \nabla \varphi (\frac{x}{j})$ gilt.
-  Hieraus leiten wir unter Verwendung der Konstanten $C' := \sup_x |\nabla \varphi(x)|$ und Gleichung (\ref{eq:gradientInequality}) die folgende Abschätzung ab:
+  Hieraus erhalten wir unter Verwendung der Konstanten $C' := \sup_x |\nabla \varphi(x)|$ und Gleichung (\ref{eq:gradientInequality}) die folgende Abschätzung:
   \begin{align}
     \norm{\nabla p - \nabla p_j}_{L^2(\R^n)^n}
     &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \norm{\varphi_j \nabla p - \nabla p_j}_{L^2(\R^n)^n} \nonumber\\
@@ -180,6 +184,7 @@ Dies ist Inhalt des folgenden Lemmas.
     &\hspace{-0.15cm}\underset{(\ref{eq:gradientInequality})} \leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \frac{C'}{j} \norm{p - K_j}_{L^2(G_j)^n}\nonumber\\
     &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + C'C \norm{\nabla p}_{L^2(G_j)^n} \label{eq:gradDiff}.
   \end{align}
+  Hierbei wurde beim Übergang von $\norm{\cdot}_{L^2(\R^n)^n}$ zu $\norm{\cdot}_{L^2(G_j)^n}$ ausgenutzt, dass nach Konstruktion $\supp \nabla \varphi_j \subseteq G_j$ gilt.
 
   Aus Gleichung (\ref{eq:propPhi}) folgt $|1 - \varphi_j(x)| = |1 - \varphi(\tfrac{x}{j})| \leq 2$. 
   Die Glieder der Funktionenfolge $\left((1 - \varphi_j)\nabla p\right)_{j \in \N}$ besitzen somit die integrierbare Majorante $(2 \nabla p) \in L^2(\R^n)^n$.
@@ -255,7 +260,7 @@ Dies ist Inhalt des folgenden Lemmas.
   $$
   für alle $p \in C_0^\infty(\R^n)$.
   Also ist die Abbildung $\langle f, \cdot\rangle$ stetig auf $\nabla (C_0^\infty(\R^n)^n)$ und besitzt somit eine stetige Fortsetzung auf den Abschluss des Definitionsbereichs. 
-  Dieser stimmt jedoch aus dem ersten Teil des Beweises mit $G(\R^n)$ über ein.
+  Dieser stimmt jedoch aus dem ersten Teil des Beweises mit $G(\R^n)$ überein.
   Daher erfüllt die Fortsetzung die Identität
   $$
   \langle f, \nabla p \rangle = 0 
