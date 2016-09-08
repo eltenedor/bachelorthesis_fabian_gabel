@@ -130,12 +130,12 @@ Dies ist Inhalt des folgenden Lemmas.
   $$
   so erhalten wir $\supp \nabla \varphi_j \subseteq \overline G_j$, da nach Definition $\varphi_j$ auf $B_j$ konstant ist sowie $\supp \varphi_j \subseteq \overline B_{2j}, j \in \N$.
 
-  Wir beginnen damit, die Güligkeit der Gleichung (\ref{eq:GCharacterization}) zu zeigen.
+  Wir beginnen damit, die Gültigkeit der Gleichung (\ref{eq:GCharacterization}) zu zeigen.
   Da sich der Raum $C_0^\infty(\R^n)$ als Unterraum von $L^2(\R^n)$ auffassen lässt, folgt sogleich $G(\R^n) \supseteq \nabla C_0^\infty(\R^n)$.
   Zudem folgt aus Satz \ref{lem:helmholtz}, dass $G(\R^n)$ als orthogonales Komplement ein bezüglich $\norm{\cdot}_2$ abgeschlossener Unterraum von $L^2(\R^n)^n$ ist.
   Damit gilt auch $G(\R^n) = \overline{G(\R^n)}^{\norm{\cdot}_2} \supseteq \overline{\nabla C_0^\infty(\R^n)}^{\norm{\cdot}_2}$.
 
-  Für die andere Inklusion betrachen wir den Gradienten $\nabla p \in G(\R^n)$.
+  Für die andere Inklusion betrachten wir den Gradienten $\nabla p \in G(\R^n)$.
   Wir wählen Konstanten $K_j = \int_{G_j} p \d x, j \in \N$.
   Aus der \poincare\hyp{}Ungleichung \cite[S.44, Lemma 1.1.2]{sohr2001navier} folgt sodann
   \begin{equation}
@@ -165,7 +165,7 @@ Dies ist Inhalt des folgenden Lemmas.
     \nabla p_j =  (\nabla \varphi_j)(p - K_j) + \varphi_j \nabla p,
   \end{equation}
   wobei $\nabla \varphi_j(x) = \frac{1}{j} \nabla \varphi (\frac{x}{j})$ gilt.
-  Hierraus leiten wir unter Verwendung der Konstanten $C' := \sup_x |\nabla \varphi(x)|$ und Gleichung (\ref{eq:gradientInequality}) die folgende Abschätzung ab:
+  Hieraus leiten wir unter Verwendung der Konstanten $C' := \sup_x |\nabla \varphi(x)|$ und Gleichung (\ref{eq:gradientInequality}) die folgende Abschätzung ab:
   \begin{align}
     \norm{\nabla p - \nabla p_j}_{L^2(\R^n)^n}
     &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \norm{\varphi_j \nabla p - \nabla p_j}_{L^2(\R^n)^n} \nonumber\\
