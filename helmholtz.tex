@@ -35,17 +35,17 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$, die im distributionellen Sinne 
   $$
   |[f, v]| 
   = |\langle f, v \rangle| 
-  \underset{C.S.}{\leq}  \norm{f}_2 \norm{v}_{L^2(\Omega_0)^n}
-  \underset{\poincare}{\leq} C \norm{f}_2 \norm{\nabla v}_{L^2(\Omega_0)^{n^2}},
+  \underset{C.S.}{\leq}  \norm{f}_{L^2(\Omega_0)^n} \norm{v}_{L^2(\Omega_0)^n}
+  \underset{\poincare}{\leq} C \norm{f}_{L^2(\Omega_0)^n} \norm{\nabla v}_{L^2(\Omega_0)^{n^2}},
   $$
   mit einer Konstante $C = C(\Omega_0) > 0$.
   Es gilt also 
   \begin{align*}
     |[f, v]| 
-    &\leq \norm{f}_2 \cdot ( \max(C,1)) \cdot (\norm{v}_2 + \norm{\nabla v}_2) \\
-    &\leq \norm{f}_2 \cdot C'(n) \cdot ( \max(C,1)) \cdot \norm{v}_{1,2}
+    &\leq \norm{f}_{L^2(\Omega_0)^n} \cdot ( C + 1) \cdot (\norm{v}_{L^2(\Omega_0)^n} + \norm{\nabla v}_{L^2(\Omega_0)^{n^2}}) \\
+    &\leq \norm{f}_{L^2(\Omega_0)^n} \cdot C'(n) \cdot ( C + 1) \cdot \norm{v}_{1,2}
   \end{align*}
-  mit einem aus der Normäquivalenz der \sobolev\hyp{}Normen folgenden $C'(n)$.
+  mit einem aus der Normäquivalenz der Normen auf $\R^n$ folgenden $C'(n)$.
   Unter Berücksichtigung von Gleichung (\ref{eq:operatornorm}) folgt daraus $f \in W_{\loc}^{-1,2}(\Omega)^n$.
   Nach Voraussetzung gilt zudem 
   $$
@@ -64,8 +64,8 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$, die im distributionellen Sinne 
   \begin{align*}
   \langle f, v \rangle
   &= [ \nabla p, v ] \\
-  &= \sum_{j = 1}^n [ D^j p , v_j ] \\
-  &= - \sum_{j = 1}^n \langle p, D^jv \rangle \\
+  &= \sum_{j = 1}^n [ D_j p , v_j ] \\
+  &= - \sum_{j = 1}^n \langle p, D_j v \rangle \\
   &= - \langle p, \div v \rangle  \\
   &= - \langle p, 0 \rangle  \\
   &= 0
@@ -187,32 +187,40 @@ Dies ist Inhalt des folgenden Satzes.
   Hierbei wurde beim Übergang von $\norm{\cdot}_{L^2(\R^n)^n}$ zu $\norm{\cdot}_{L^2(G_j)^n}$ ausgenutzt, dass nach Konstruktion $\supp \nabla \varphi_j \subseteq G_j$ gilt.
 
   Aus Gleichung (\ref{eq:propPhi}) folgt $|1 - \varphi_j(x)| = |1 - \varphi(\tfrac{x}{j})| \leq 2$. 
-  Die Glieder der Funktionenfolge $\left((1 - \varphi_j)\nabla p\right)_{j \in \N}$ besitzen somit die integrierbare Majorante $(2 \nabla p) \in L^2(\R^n)^n$.
+  Die Glieder der Funktionenfolge $\left((1 - \varphi_j) D_k p\right)_{j \in \N}$ besitzen somit die integrierbare Majorante $2\, D_k p \in L^2(\R^n)$ für $k = 1, \dots n$.
   Mit dem Satz von \lebesgue\ über majorisierte Konvergenz ergibt sich daraus unter Verwendung von Gleichung (\ref{eq:limPhi})
+  $$
+  \lim_{j \to \infty} \norm{(1 - \varphi_j) \,D_k p}_2 
+  = \left( \lim_{j \to \infty} |(1 - \varphi_j)|^2 |\,D_k p|^2 \d x \right)^{\frac{1}{2}}
+  = 0,
+  $$
+  was wiederum
   \begin{equation}
     \label{eq:lebesgueDom}
   \lim_{j \to \infty} \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n}
-  = \left( \int_{\R^n} (\lim_{j \to \infty} |1 - \varphi_j(x)|^2 ) |\nabla p(x)|^2 \d x \right)^\frac{1}{2} = 0.
+  = \left(\, \sum_{k = 1}^n \lim_{j \to \infty} \norm{(1 - \varphi_j)\, D_k p}_2^2  \right)^\frac{1}{2} = 0
   \end{equation}
+  impliziert.
   Ebenso folgt aus dem Satz über majorisierte Konvergenz 
   \begin{equation}
     \label{eq:limitGradient}
   \lim_{j \to \infty} \norm{\nabla p}_{L^2(G_j)^n}
-  = \lim_{j \to \infty} \int_{\R^n} \nabla p(x) \chi_{G_j}(x) \d x
   = 0.
   \end{equation}
   Aus Gleichung (\ref{eq:gradDiff}) folgt nun mit (\ref{eq:lebesgueDom}) und (\ref{eq:limitGradient})
-  $$
+  \begin{equation}
+    \label{eq:limNablaP}
     \lim_{j \to \infty} \norm{\nabla p - \nabla p_j}_{L^2(\R^n)^n} = 0.
-  $$
+  \end{equation}
 
   Nach Konstruktion gilt $\nabla p_j \in L^2(\R^n)^n$.
   Durch Lemma \ref{lem:mollification} lässt sich somit $\nabla p_j$ als Grenzwert von glatten Funktionen mit kompaktem Träger darstellen. Für alle $j \in \N$ existiert daher ein $\varepsilon_j > 0$ mit
-  $$
+  \begin{equation}
+    \label{eq:convolutionNablaP}
   \norm{\nabla p_j - \nabla (\mathcal{F}_{\varepsilon_j} \ast p_j)}_{L^2(\R^n)^n}
   \overset{(\ref{eq:convolutionDiff})}{=} \norm{\nabla p_j - \mathcal{F}_{\varepsilon_j} \ast \nabla p_j}_{L^2(\R^n)^n}
   \leq \frac{1}{j}.
-  $$
+  \end{equation}
   Definieren wir nun $\tilde p_j := \mathcal{F}_{\varepsilon_j} \ast p_j$ so gilt $\tilde p_j \in C_0^\infty$, da 
   $$
   \supp p_j = \supp \varphi_j(p - K_j) 
@@ -220,12 +228,12 @@ Dies ist Inhalt des folgenden Satzes.
   \subseteq \overline B_{2j}
   $$
   impliziert, dass $p_j$ einen kompakten Träger besitzt und selbiges auch für $\tilde p_j$ als Faltung zweier Funktionen mit kompaktem Träger gilt.
-  Dies ergibt
+  Mit Gleichungen (\ref{eq:limNablaP}) und (\ref{eq:convolutionNablaP}) erhält man
   $$
-  \lim_{j \to \infty} \norm{\nabla p - \nabla \tilde p_j}
+  \lim_{j \to \infty} \norm{\nabla p - \nabla \tilde p_j}_{L^2(\R^n)^n}
   \leq 
-  \lim_{j \to \infty} \norm{\nabla p - \nabla p_j} + \lim_{j \to \infty} \norm{\nabla p_j - \nabla \tilde p_j}
-  = 0,
+  \lim_{j \to \infty} \norm{\nabla p - \nabla p_j}_{L^2(\R^n)^n} + \lim_{j \to \infty} \norm{\nabla p_j - \nabla \tilde p_j}_{L^2(\R^n)^n}
+  = 0, 
   $$
   woraus die Behauptung aus Gleichung (\ref{eq:GCharacterization}) folgt.
 
@@ -237,20 +245,20 @@ Dies ist Inhalt des folgenden Satzes.
 
   Wir beweisen zunächst die Inklusion $L_\sigma^2(\R^n) \subseteq L$.
   Sei dazu $f \in L_\sigma^2(\R^n)$.
-  Nach Definition existiert eine Folge $(f_k)_{k \in \N}$ mit $f_k \in C_{0,\sigma}^\infty(\R^n)$ für alle $k \in \N$ und 
+  Nach Definition existiert eine Folge $(f_j)_{j \in \N}$ mit $f_j \in C_{0,\sigma}^\infty(\R^n)$ für alle $j \in \N$ und 
   $$
-  \lim_{k \to \infty} \norm{f_k - f}_{L^2(\R^n)^n} = 0.
+  \lim_{j \to \infty} \norm{f_j - f}_{L^2(\R^n)^n} = 0.
   $$
   Daraus folgt unter Verwendung der \cauchy\hyp{}\schwartz\hyp{}Ungleichung
   \begin{align*}
     |[\div f, \varphi] |
-    &= |[\div f_k - f, \varphi] | \\
-    &= |\langle f_k - f, \nabla \varphi \rangle| \\
-    & \leq C\norm{f_k - f}_{L^2(\R^n)^n} \norm{\varphi}_{L^2(\R^n)^n} 
-    \to 0,
+    &= |[\div f_j - f, \varphi] | \\
+    &= |\langle f_j - f, \nabla \varphi \rangle| \\
+    & \leq \norm{f_j - f}_{L^2(\R^n)^n} \norm{\nabla \varphi}_{L^2(\R^n)^n} 
+    \to 0, \quad j \to \infty,
   \end{align*}
-  für alle $\varphi \in C_0^\infty(\R^n)^n$ und eine aus der Normäquivalenz auf $\R^n$ stammende Konstante $C = C(n)$.
-  Damit folgt $[\div f, \varphi] = 0$ für alle $\varphi \in C_0^\infty(\R^n)^n$.
+  für alle $\varphi \in C_0^\infty(\R^n)^n$.
+  Damit folgt $[\div f, \varphi] = 0$ für alle $\varphi \in C_0^\infty(\R^n)$.
   Es gilt also $\div f = 0$ im distributionellen Sinne und wir erhalten $f \in L$.
 
   Zum Beweis der umgekehrten Inklusion sei $f \in L$.
@@ -259,8 +267,8 @@ Dies ist Inhalt des folgenden Satzes.
   \langle f, \nabla p \rangle = -[\div f, p] = 0
   $$
   für alle $p \in C_0^\infty(\R^n)$.
-  Also ist die Abbildung $\langle f, \cdot\rangle$ stetig auf $\nabla (C_0^\infty(\R^n)^n)$ und besitzt somit eine stetige Fortsetzung auf den Abschluss des Definitionsbereichs. 
-  Dieser stimmt jedoch aus dem ersten Teil des Beweises mit $G(\R^n)$ überein.
+  Also ist die Abbildung $\langle f, \cdot\rangle$ stetig auf $\nabla (C_0^\infty(\R^n))$ und besitzt somit eine stetige Fortsetzung auf den Abschluss des Definitionsbereichs. 
+  Dieser stimmt jedoch nach dem ersten Teil des Beweises mit $G(\R^n)$ überein.
   Daher erfüllt die Fortsetzung die Identität
   $$
   \langle f, \nabla p \rangle = 0 
