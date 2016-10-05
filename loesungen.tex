@@ -129,7 +129,7 @@ Im Folgenden bezeichne $B_r(x) \subseteq \R^n$ den bezüglich \euklid ischer Top
   Deswegen existiert ein $\delta > 0$ mit $B_\delta(x_0) \subseteq \Omega'$.
   Zum Beispiel erfüllt jedes $\varepsilon < \dist(x_0, \partial\widetilde\Omega_1) - \delta$ die geforderte Bedingung.
 
-  Man erkennt nun $\widehat\Omega_1$, da $\partial\widehat\Omega_1$ sämtlich aus Teilen der Ränder der Bälle $B_\varepsilon(x_j)$ besteht, als beschränktes \lipschitz\hyp{}Gebiet, sofern man durch eventuelle Vergrößerung der an der Überdeckung beteiligten endlich vielen Bälle sicherstellt, dass der Rand von $\widehat\Omega_1$ keine Spitzen enthält
+  Man erkennt nun $\widehat\Omega_1$, da $\partial\widehat\Omega_1$ sämtlich aus Teilen der Ränder der Bälle $B_\varepsilon(x_j)$ besteht, als beschränktes \lipschitz\hyp{}Gebiet, sofern man durch eventuelle Vergrößerung der an der Überdeckung beteiligten endlich vielen Bälle sicherstellt, dass der Rand von $\widehat\Omega_1$ keine Kuspen enthält
   An diesen würde sonst die \lipschitz\hyp{}Eigenschaft des Randes verloren gehen.
   Wir setzen nun $\Omega_1 := \widehat\Omega_1$ und $\varepsilon_1 := \varepsilon$ und führen diese Konstruktion weiter fort.
 
@@ -694,7 +694,7 @@ $$
   Also ist auch $(U_\varepsilon)_{\varepsilon \in \R^+}$ ein \cauchy-Netz, welches aufgrund der Vollständigkeit des Raumes $L^q(\Omega_1)$ einen eindeutig bestimmten Grenzwert $U \in L^q(\Omega_1)$ besitzt.
   Da zudem $\Omega_0$ beschränkt ist und damit endliches Maß besitzt, folgt aus der \hoelder\hyp{}Ungleichung
   $$
-    | \int_{\Omega_0} (U - U_\varepsilon) \d x |
+    \left| \int_{\Omega_0} (U - U_\varepsilon) \d x \right|
     \leq  \norm{U - U_\varepsilon}_{L^1(\Omega_0)} 
     \underset{\hoelder}{\leq} \norm{U - U_\varepsilon}_{L^q(\Omega_0)}\cdot \norm{\1}_{L^{q'}(\Omega_0)}
     \to 0, \quad \varepsilon \to 0.

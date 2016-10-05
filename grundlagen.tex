@@ -53,8 +53,17 @@ $$
 zu einem normierten Vektorraum wird.
 
 In der Literatur findet man eine Reihe anderer Definitionen des Symbols $C^\infty(\overline\Omega)$.
-Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lemma beweist.
+Für beschränkte Gebiete stimmen sie jedoch alle überein, wie wir im Folgenden beweisen wollen.
+Dazu benötigen wir ein Fortsetzungsresultat von \stein \cite[S.172, Proposition 2.2]{stein1970singular}.
 
+\begin{prop}
+  \label{prop:stein}
+  Sei $f$ eine Funktion auf der abgeschlossenen Menge $F \subseteq \R^n$.
+  Dann existiert eine Fortsetzung $\mathcal{E}_0(f)$ von $f$ auf $\R^n$.
+  Ist $f$ zusätzlich stetig auf $F$, so ist die Fortsetzung $\mathcal{E}_0$ stetig auf $\R^n$ und glatt auf $F^c$.
+\end{prop}
+
+\newpage
 \begin{lem}
   \label{lem:CInftyClosedOmega}
   Sei $\Omega \subseteq \R^n$ ein beschränktes Gebiet.
@@ -92,7 +101,7 @@ Für beschränkte Gebiete stimmen sie jedoch alle überein, wie das folgende Lem
   Sei dazu $u \in C^\infty_{\bullet\bullet}(\overline\Omega)$.
   %Es ist eine Eigenschaft von \hausdorff\hyp{}Räumen, dass stetige Abbildungen höchstens eine Fortsetzung auf den Abschluss ihres Definitionsberechs besitzen \cite[S.112, Lemma 4.2.4]{bartsch2015topologie}.
   %Wir wollen daher $u$ mit seiner Fortsetzung auf $\overline\Omega$ identifizieren.
-  Der \emph{Fortsetzungssatz von \stein} \cite[S.172, Proposition 2.2]{stein1970singular} erlaubt es, die stetige Funktion $u$ ausgehend von der abgeschlossenen Menge $\overline\Omega$ auf ganz $\R^n$ zu einer Funktion $\tilde u$ fortzusetzen.
+  Das Fortsetzungsresultat von \stein \ref{prop:stein} erlaubt es, die stetige Funktion $u$ ausgehend von der abgeschlossenen Menge $\overline\Omega$ auf ganz $\R^n$ zu einer Funktion $\tilde u$ fortzusetzen.
   Diese Fortsetzung besitzt jedoch im Allgemeinen keine beschränkten Ableitungen wie in der Definition von $C^\infty(\overline\Omega)$ gefordert.
   Wir werden daher $\tilde u$ außerhalb von $\overline\Omega$ geeignet modifizieren.
   Da $\Omega$ als beschränkt vorausgesetzt wurde, existiert ein offener Ball $B_r(0)$ mit Radius $r > 0$ und 
@@ -211,7 +220,9 @@ die Distribution
   \label{eq:pairingVector}
   [F, \varphi] := [F_1, \varphi_1] + \dots + [F_m, \varphi_m].
 \end{equation}
-Durch Betrachtung von Funktionen des Typs $\psi^{(i)} = (0, \dots,0, \psi_i, 0,\dots,0) \in C_0^\infty(\Omega)^m$ mit $i \in \{1,\dots,m\}$ erkennen wir, dass jedes bezüglich der Produkttopologie stetige Funktional auf $C_0^\infty(\Omega)^m$ diese Form besitzt.
+Durch Betrachtung von Funktionen des Typs 
+$$\psi^{(i)} = (0, \dots,0, \psi_i, 0,\dots,0) \in C_0^\infty(\Omega)^m, \quad i \in \{1,\dots,m\}, $$
+erkennen wir, dass jedes bezüglich der Produkttopologie stetige Funktional auf $C_0^\infty(\Omega)^m$ diese Form besitzt.
 Für den Raum der Distributionen auf den Testfunktionen $C_0^\infty(\Omega)^m$ gilt also
 \begin{align*}
   (C_0^\infty(\Omega)')^m 
@@ -396,8 +407,8 @@ Aus der Integrationstheorie ist bekannt, dass sich $L^q$-Funktionen durch Faltun
 Für unsere Zwecke wird es dafür ausreichend sein den Standardkern
 $$
 \mathcal{F}(x) := \begin{cases}
-                     & c \cdot \exp\left(-\frac{1}{1 - \norm{x}}\right), \quad \norm{x} < 1 \\
-                     & 0, \quad  \text{sonst}
+                     c \cdot \exp\left(-\frac{1}{1 - \norm{x}}\right), \quad &\norm{x} < 1 \\
+                     0, \quad  &\text{sonst}
                   \end{cases} \quad,\quad x \in \R^n
 $$
 zu betrachten und
