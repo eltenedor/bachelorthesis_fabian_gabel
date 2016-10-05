@@ -42,8 +42,8 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$, die im distributionellen Sinne 
   Es gilt also 
   \begin{align*}
     |[f, v]| 
-    &\leq \norm{f}_{L^2(\Omega_0)^n} \cdot ( C + 1) \cdot (\norm{v}_{L^2(\Omega_0)^n} + \norm{\nabla v}_{L^2(\Omega_0)^{n^2}}) \\
-    &\leq \norm{f}_{L^2(\Omega_0)^n} \cdot C'(n) \cdot ( C + 1) \cdot \norm{v}_{1,2}
+    &\leq \norm{f}_{L^2(\Omega_0)^n} \cdot ( C ) \cdot (\norm{v}_{L^2(\Omega_0)^n} + \norm{\nabla v}_{L^2(\Omega_0)^{n^2}}) \\
+    &\leq \norm{f}_{L^2(\Omega_0)^n} \cdot C'(n) \cdot ( C ) \cdot \norm{v}_{1,2}
   \end{align*}
   mit einem aus der Normäquivalenz der Normen auf $\R^n$ folgenden $C'(n)$.
   Unter Berücksichtigung von Gleichung (\ref{eq:operatornorm}) folgt daraus $f \in W_{\loc}^{-1,2}(\Omega)^n$.
@@ -70,19 +70,31 @@ den Raum aller Funktionen $f \in L^2(\Omega)^n$, die im distributionellen Sinne 
   &= - \langle p, 0 \rangle  \\
   &= 0
   \end{align*}
-  für alle $v \in C_{0, \sigma}^\infty(\Omega)$ und wegen der Beziehung $\nabla p \in L^2(\Omega)$ gilt dies aufgrund der Stetigkeit des Skalarproduktes auch für alle $v \in \overline{C_{0, \sigma}^\infty(\Omega)}_{\norm{\cdot}_2} = L_\sigma^2(\Omega)$.
+  für alle $v \in C_{0, \sigma}^\infty(\Omega)$ und wegen der Beziehung $\nabla p \in L^2(\Omega)$ gilt dies aufgrund der Stetigkeit des Skalarproduktes auch für alle $v \in \overline{C_{0, \sigma}^\infty(\Omega)}^{\norm{\cdot}_2} = L_\sigma^2(\Omega)$.
   Damit ist $f \in L_{0,\sigma}^2(\Omega)^\perp$.
 \end{proof}
 
 Aus Gleichung (\ref{eq:orthComplement}) folgt insbesondere, dass der Raum $G(\Omega)$ bezüglich der Norm $\norm{\cdot}_2$ abgeschlossen ist.
-Wie aus der Theorie der \hilbert\hyp{}Räume bekannt ist, existiert zu dem abgeschlossenen Teilraum $L_\sigma^2(\Omega)$ ein eindeutig bestimmter Projektionsoperator, die sogenannte \helmholtz\hyp{}Projektion
+Als wichtiges Resultat der Theorie der \hilbert\hyp{}Räume, existiert zu dem abgeschlossenen Teilraum $L_\sigma^2(\Omega)$ ein eindeutig bestimmter Projektionsoperator, die sogenannte \helmholtz\hyp{}Projektion
 $$
 P \colon L^2(\Omega)^n \to L_\sigma^2(\Omega),\quad Pf \mapsto f_0,
 $$
-für alle $f = f_0 + \nabla p \in L^2(\Omega)$ mit $f_0 \in L_\sigma^2(\Omega)$ und $\nabla p \in G(\Omega)$.
+für alle $f = f_0 + \nabla p \in L^2(\Omega)$ mit $f_0 \in L_\sigma^2(\Omega)$ und $\nabla p \in G(\Omega)$ \cite[S.226f., Theorem V.3.4]{werner2011fa}.
 
 Im Falle $\Omega = \R^n$ lassen sich die Räume $G(\Omega)$ und $L_\sigma^2(\Omega)$ noch auf eine andere Art charakterisieren.
 Dies ist Inhalt des folgenden Satzes.
+Zuvor erwähnen wir noch ein dazu benötigtes Hilfsresultat.
+Einen Beweis dazu findet man in \cite[S.44, Lemma 1.1.2]{sohr2001navier}.
+
+\begin{lem}
+  Sei $\Omega \subseteq \R^n$ ein beschränktes Lipschitz gebiet mit $n \geq 2$, $\Omega_0 \subseteq \Omega$ ein Teilgebiet und $1 < q < \infty$.
+  Dann gilt die Ungleichung
+  $$
+  \norm{u}_{L^q(\Omega)} \leq C \left( \norm{\nabla u}_{L^q(\Omega)^n} + \left| \int_{\Omega_0} u \d x \right|\, \right)
+  $$
+  für alle $u \in W^{1,q}(\Omega)$, wobei $C = C(q,\Omega, \Omega_0) > 0$ eine Konstante sei.
+  \label{lem:poincare2}
+\end{lem}
 
 \begin{thm}
   Sei $n \in \N$ mit $n \geq 2$.
@@ -147,9 +159,11 @@ Dies ist Inhalt des folgenden Satzes.
   $$
   K_j := \frac{\int_{G_j} p \d x}{\int_{G_j} \1 \d x}, \quad j \in \N.
   $$
-  Aus der \poincare\hyp{}Ungleichung \cite[S.44, Lemma 1.1.2]{sohr2001navier} folgt sodann
+  Aus der \poincare\hyp{}Ungleichung aus Lemma \ref{lem:poincare2} folgt sodann
   \begin{align}
-  \norm{p - K_1}_{L^2(G_1)} &\leq C \left(\norm{\nabla (p - K_1)}_{L^2(G_1)^n} + | \int_{G_1} p - K_1 \d x |\right) \nonumber\\
+  \norm{p - K_1}_{L^2(G_1)} 
+  &\leq C \left(\norm{\nabla (p - K_1)}_{L^2(G_1)^n} + | \int_{G_1} p - K_1 \d x |\right) \nonumber\\
+  &= C \left(\norm{\nabla p - \nabla K_1)}_{L^2(G_1)^n} + | \int_{G_1} p \d x  - \int_{G_1} \left(\frac{\int_{G_1} p \d y}{\int_{G_1} \1 \d y} \right) \d x |\right) \nonumber\\
     \label{eq:poincareP}
   &=  C \;\norm{\nabla p}_{L^2(G_1)^n}.
 \end{align}
@@ -176,22 +190,27 @@ Dies ist Inhalt des folgenden Satzes.
     \nabla p_j =  (\nabla \varphi_j)(p - K_j) + \varphi_j \nabla p,
   \end{equation}
   wobei $\nabla \varphi_j(x) = \frac{1}{j} \nabla \varphi (\frac{x}{j})$ gilt.
-  Hieraus erhalten wir unter Verwendung der Konstanten $C' := \sup_x |\nabla \varphi(x)|$ und Gleichung (\ref{eq:gradientInequality}) die folgende Abschätzung:
+  Hieraus erhalten wir unter Verwendung der Konstanten 
+  \begin{equation}
+    \label{eq:constantCprime}
+    C' := \sup_x |\nabla \varphi(x)|
+  \end{equation}
+  und Gleichung (\ref{eq:gradientInequality}) die folgende Abschätzung:
   \begin{align}
     \norm{\nabla p - \nabla p_j}_{L^2(\R^n)^n}
     &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \norm{\varphi_j \nabla p - \nabla p_j}_{L^2(\R^n)^n} \nonumber\\
     &\hspace{-0.15cm}\underset{(\ref{eq:productrule})}{=} \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n}    + \norm{\nabla\varphi_j (p - K_j)}_{L^2(\R^n)^n} \nonumber\\
-    &\hspace{-0.15cm}\underset{(\ref{eq:gradientInequality})} \leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \frac{C'}{j} \norm{p - K_j}_{L^2(G_j)^n}\nonumber\\
-    &\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + C'C \norm{\nabla p}_{L^2(G_j)^n} \label{eq:gradDiff}.
+    &\hspace{-0.15cm}\underset{(\ref{eq:constantCprime})}{\leq} \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + \frac{C'}{j} \norm{p - K_j}_{L^2(G_j)^n}\nonumber\\
+    &\hspace{-0.15cm}\underset{(\ref{eq:gradientInequality})}\leq \norm{\nabla p - \varphi_j \nabla p}_{L^2(\R^n)^n} + C'C \norm{\nabla p}_{L^2(G_j)^n} \label{eq:gradDiff}.
   \end{align}
   Hierbei wurde beim Übergang von $\norm{\cdot}_{L^2(\R^n)^n}$ zu $\norm{\cdot}_{L^2(G_j)^n}$ ausgenutzt, dass nach Konstruktion $\supp \nabla \varphi_j \subseteq G_j$ gilt.
 
   Aus Gleichung (\ref{eq:propPhi}) folgt $|1 - \varphi_j(x)| = |1 - \varphi(\tfrac{x}{j})| \leq 2$. 
-  Die Glieder der Funktionenfolge $\left((1 - \varphi_j) D_k p\right)_{j \in \N}$ besitzen somit die integrierbare Majorante $2\, D_k p \in L^2(\R^n)$ für $k = 1, \dots n$.
+  Die Glieder der Funktionenfolge $\left((1 - \varphi_j) D_k p\right)_{j \in \N}$ besitzen somit für $k = 1, \dots, n$ die integrierbare Majorante $2\, D_k p \in L^2(\R^n)$.
   Mit dem Satz von \lebesgue\ über majorisierte Konvergenz ergibt sich daraus unter Verwendung von Gleichung (\ref{eq:limPhi})
   $$
   \lim_{j \to \infty} \norm{(1 - \varphi_j) \,D_k p}_2 
-  = \left( \lim_{j \to \infty} |(1 - \varphi_j)|^2 |\,D_k p|^2 \d x \right)^{\frac{1}{2}}
+  = \left( \lim_{j \to \infty} \int_{\R^n} |(1 - \varphi_j)|^2 |\,D_k p|^2 \d x \right)^{\frac{1}{2}}
   = 0,
   $$
   was wiederum
@@ -221,7 +240,7 @@ Dies ist Inhalt des folgenden Satzes.
   \overset{(\ref{eq:convolutionDiff})}{=} \norm{\nabla p_j - \mathcal{F}_{\varepsilon_j} \ast \nabla p_j}_{L^2(\R^n)^n}
   \leq \frac{1}{j}.
   \end{equation}
-  Definieren wir nun $\tilde p_j := \mathcal{F}_{\varepsilon_j} \ast p_j$ so gilt $\tilde p_j \in C_0^\infty$, da 
+  Definieren wir nun $\tilde p_j := \mathcal{F}_{\varepsilon_j} \ast p_j$, so gilt $\tilde p_j \in C_0^\infty$, da 
   $$
   \supp p_j = \supp \varphi_j(p - K_j) 
   \subseteq \supp \varphi_j

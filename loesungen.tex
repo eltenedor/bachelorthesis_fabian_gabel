@@ -24,6 +24,7 @@ als den \euklid ischen Abstand eines Punktes $x \in \R^n$ von einer Menge $Y \su
 
 Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{sohr2001navier} nachzulesen ist. Für unsere Zwecke reicht sie jedoch bereits aus.
 
+\newpage
 \begin{lem}
   \label{lem:distBoundary}
   Seien $\emptyset \subsetneq A,B \subsetneq \R^n$. Gilt $A \subseteq B$, so folgt $\dist(a,\partial A) \leq \dist(a, \partial B)$ für alle $a \in A$.
@@ -83,6 +84,7 @@ Diese Definition lässt sich noch weiter präzisieren, wie in \cite[S.25, 3.2]{s
   %Die Konvexität ist hierbei notwendig, wie man an einem Beispiel zeigen kann.
 %\end{bem}
 
+\newpage
 \begin{lem}
   \label{lem:lipschitzExhaust}
   Sei $\Omega \subseteq \R^n$ mit $n \geq 2$ ein Gebiet.
@@ -384,11 +386,9 @@ Dieses Resultate können wir nun nutzen, um die folgende Abschätzung zu beweise
   \begin{displaymath}
   1 \leq \lim_{j \to \infty} ( \norm{\nabla \tilde u_j }_{-1,q} + \norm{\tilde u_j}_{-1,q} ) = 0.\qedhere
   \end{displaymath}
-  
-
 \end{proof}
 
-\newpage
+%\newpage
 \section{Darstellung von Funktionalen}
 
 Als Nächstes beschäftigen wir uns mit dem Gradientenoperator auf $L^q(\Omega)^n$.
@@ -533,7 +533,7 @@ Im Folgenden geben wir dazu einen auf $L^q$\hyp{}Räume verallgemeinerten Beweis
   Die bereits für $F$ bewiesenen Ungleichungen behalten ihre Gültigkeit.
 \end{proof}
 
-\newpage
+%\newpage
 \section{Das Gradientenkriterium}
 
 In diesem Abschnitt stellen wir ein für die \helmholtz\hyp{}Zerlegung fundamentales Kriterium vor, nach welchem es möglich ist, Funktionen $f \in W^{-1,q}(\Omega)^n$ im distributionellen Sinne als Gradienten $f = \nabla p$ mit $p \in L^q(\Omega)$ darzustellen.
@@ -736,7 +736,9 @@ $$
   $$
   eindeutig bestimmt ist.
   Nach Lemma \ref{lem:lipschitzExhaust} lässt sich jedes Gebiet $\Omega$ durch eine Folge $(\Omega_j)_{j \in \N}$ beschränkter \lipschitz\hyp{}Gebiete ausschöpfen.
-  Führen wir nun den vorangehenden Beweis für $\Omega_j$ anstelle von $\Omega_1$, so erhalten wir eine eindeutig bestimmte Funktion $p \in L^q(\Omega_j)$, die die Gleichung $f = \nabla p$ auf $\Omega_j$ im distributionellen Sinne erfüllt und für die des Weiteren das Integral $\int_{\Omega_0} p \d x$ verschwindet.
+  Wie Bemerkung \ref{bem:boundedSubset} zeigt, existiert ein $j' \in \N$, sodass $\Omega_0 \subseteq \Omega_j'$ gilt.
+  Insbesondere gilt aufgrund Lemma \ref{lem:lipschitzExhaust} die Inklusion $\overline \Omega_j \subseteq \Omega_{j + 1}$ für alle $j \in \N$.
+  Führen wir nun den vorangehenden Beweis für $\Omega_j$ mit $j \geq j'$ anstelle von $\Omega_1$, so erhalten wir eine eindeutig bestimmte Funktion $p \in L^q(\Omega_j)$, die die Gleichung $f = \nabla p$ auf $\Omega_j$ im distributionellen Sinne erfüllt und für die des Weiteren das Integral $\int_{\Omega_0} p \d x$ verschwindet.
   Da nach Lemma \ref{lem:lipschitzExhaust} die Gleichheit $\bigcup_{j \in \N} \Omega_j = \Omega$ gilt, lässt sich $p$ auch eindeutig bis auf Nullmengen auf $\Omega$ definieren.
   Ist zudem $B$ ein Ball mit $\overline B \subseteq \Omega$, so existiert wiederum aufgrund von Bemerkung \ref{bem:boundedSubset} ein $j \in \N$ mit $\overline B \subseteq \Omega_j$.
   Da $p \in L^q(\Omega_j)$ gilt, folgt sofort $p \in L^q(B)$.
@@ -744,3 +746,4 @@ $$
 
   Dies beweist die Behauptung.
 \end{proof}
+
