@@ -1,7 +1,7 @@
 \chapter{Funktionalanalytische Grundlagen}
 \label{cp:grundlagen}
 
-Dieses Unterkapitel beschäftigt sich mit Definitionen und Eigenschaften der für die kommenden Kapitel zentralen Funktionenräume.
+Dieses Kapitel beschäftigt sich mit Definitionen und Eigenschaften der für die kommenden Kapitel zentralen Funktionenräume.
 Die Notation orientiert sich an \cite{sohr2001navier}.
 In Anlehnung an die für \hilbert\hyp{}Räume verbreitete Schreibweise $\langle \cdot, \cdot \rangle$ für das Skalarprodukt wollen wir nicht nur für den Raum $L^2$, sondern auch für alle anderen $L^q$\hyp{}Räume diese Symbolik verwenden.
 Wir definieren also für geeignete Funktionen $f$ und $g$ den Ausdruck
@@ -14,7 +14,7 @@ Falls nicht anders vermerkt, bezeichnet $n$ immer eine von Null verschiedene nat
 \label{subsec:smooth}
 
 Ziel dieses Abschnittes ist es, die nötigen Begriffe und Definitionen im Zusammenhang mit glatten Funktionen bereitzustellen.
-Im Folgenden bezeichne $\Omega \subseteq \R^n$ stets ein Gebiet, also eine nichtleere, offene und zusammenhängente Teilmenge.
+Im Folgenden bezeichne $\Omega \subseteq \R^n$ stets ein Gebiet, also eine nichtleere, offene und zusammenhängende Teilmenge.
 
 Sei $k \in \N$. Mit $C^k(\Omega)$ bezeichnen wir die Menge aller Funktionen $u$, deren partielle Ableitungen $D^\alpha u$ für alle Multiindices $\alpha \in \N_0^n$ mit $0 \leq |\alpha| \leq k$ existieren und stetig sind. 
 Mit
@@ -54,7 +54,7 @@ zu einem normierten Vektorraum wird.
 
 In der Literatur findet man eine Reihe anderer Definitionen des Symbols $C^\infty(\overline\Omega)$.
 Für beschränkte Gebiete stimmen sie jedoch alle überein, wie wir im Folgenden beweisen wollen.
-Dazu benötigen wir ein Fortsetzungsresultat von \stein \cite[S.172, Proposition 2.2]{stein1970singular}.
+Dazu benötigen wir ein Fortsetzungsresultat von \stein\ \cite[S.172, Proposition 2.2]{stein1970singular}.
 
 \begin{prop}
   \label{prop:stein}
@@ -70,13 +70,13 @@ Dazu benötigen wir ein Fortsetzungsresultat von \stein \cite[S.172, Proposition
   Für eine Funktion $u \colon \overline\Omega \to \R$ schreiben wir:
   \begin{enumerate}[(a)]
     \item $u \in C^\infty(\overline\Omega)$,
-      falls eine Funktion $f \in C^\infty(\R^n)$ mit $\sup_{\alpha \in \N^n, x \in \R^n} \norm{D^\alpha f(x)} <  \infty$ existiert mit $u = f|_{\overline\Omega}$.\cite[S.23, I.3.1]{sohr2001navier}
+      falls eine Funktion $f \in C^\infty(\R^n)$ mit $\sup_{\alpha \in \N^n, x \in \R^n} | D^\alpha f(x) | <  \infty$ existiert mit $u = f|_{\overline\Omega}$. \cite[S.23, I.3.1]{sohr2001navier}
 
     \item $u \in C^\infty_{\bullet}(\overline\Omega)$,
       falls eine offene Obermenge $\overline\Omega \subseteq U \subseteq \R^n$ und eine glatte Fortsetzung $\tilde u \colon U \to \R$ von $u$ existieren.
 
     \item $ u \in C^\infty_{\bullet\bullet}(\overline\Omega)$,
-    falls $u|_\Omega \in C^\infty(\Omega)$ gilt und sich für alle Multiindices $\alpha \in \N^n$ die Funktion $D^\alpha u$ stetig auf $\overline\Omega$ fortsetzen lässt.\cite[S.10, 1.28]{adams2003sobolev},\cite[S.35, II.1.3]{galdi2011navier}
+    falls $u|_\Omega \in C^\infty(\Omega)$ gilt und sich für alle Multiindices $\alpha \in \N^n$ die Funktion $D^\alpha u$ stetig auf $\overline\Omega$ fortsetzen lässt. \cite[S.10, 1.28]{adams2003sobolev}, \cite[S.35, II.1.3]{galdi2011navier}
   \end{enumerate}
 
   Dann gilt
@@ -101,7 +101,7 @@ Dazu benötigen wir ein Fortsetzungsresultat von \stein \cite[S.172, Proposition
   Sei dazu $u \in C^\infty_{\bullet\bullet}(\overline\Omega)$.
   %Es ist eine Eigenschaft von \hausdorff\hyp{}Räumen, dass stetige Abbildungen höchstens eine Fortsetzung auf den Abschluss ihres Definitionsberechs besitzen \cite[S.112, Lemma 4.2.4]{bartsch2015topologie}.
   %Wir wollen daher $u$ mit seiner Fortsetzung auf $\overline\Omega$ identifizieren.
-  Das Fortsetzungsresultat von \stein \ref{prop:stein} erlaubt es, die stetige Funktion $u$ ausgehend von der abgeschlossenen Menge $\overline\Omega$ auf ganz $\R^n$ zu einer Funktion $\tilde u$ fortzusetzen.
+  Das Fortsetzungsresultat von \stein\ \ref{prop:stein} erlaubt es, die stetige Funktion $u$ ausgehend von der abgeschlossenen Menge $\overline\Omega$ auf ganz $\R^n$ zu einer Funktion $\tilde u$ fortzusetzen.
   Diese Fortsetzung besitzt jedoch im Allgemeinen keine beschränkten Ableitungen wie in der Definition von $C^\infty(\overline\Omega)$ gefordert.
   Wir werden daher $\tilde u$ außerhalb von $\overline\Omega$ geeignet modifizieren.
   Da $\Omega$ als beschränkt vorausgesetzt wurde, existiert ein offener Ball $B_r(0)$ mit Radius $r > 0$ und 
@@ -116,11 +116,11 @@ Dazu benötigen wir ein Fortsetzungsresultat von \stein \cite[S.172, Proposition
              \end{cases}
   $$
   und folglich $\supp \psi \subseteq B_r(0)$ gilt.
-  Eine solche Funktion erhält man zum Beispiel aus der Faltung der charakteristischen Funktion $\chi_{\overline\Omega}$ mit einem Glättungskern, wie der Beweis des \urysohn\hyp{}Lemmas für glatte Funktionen zeigt. \cite[S.88, Proposition 6.5]{folland2009ra}
+  Eine solche Funktion erhält man zum Beispiel aus der Faltung der charakteristischen Funktion $\chi_{\overline\Omega}$ mit einem Glättungskern, wie der Beweis des \urysohn\hyp{}Lemmas für glatte Funktionen in \cite[S.88, Proposition 6.5]{folland2009ra} zeigt. 
   Für $f := \tilde u \cdot \psi$ erhalten wir
   $$
-  \sup_{|\alpha| < \infty, x \in \R^n}\norm{ D^\alpha f}
-   = \sup_{|\alpha| < \infty, x \in \overline B_r}\norm{ D^\alpha f}
+  \sup_{|\alpha| < \infty, x \in \R^n} | D^\alpha f |
+   = \sup_{|\alpha| < \infty, x \in \overline B_r} | D^\alpha f |
    < \infty,
   $$
   da $\overline B_r$ kompakt ist.
@@ -154,8 +154,8 @@ und nennen $u$ \emph{lokal integrierbar}, falls $u \in L^q(B)$ für alle offenen
   Diese Aussage findet man ebenfalls in der Literatur zur Definition lokaler Integrierbarkeit.
   Tatsächlich ist sie äquivalent zur obigen Definition.
   Denn einerseits ist für alle Bälle $B$ auch $\overline B$ ein Kompaktum und die Aussage folgt aus der Inklusionsbeziehung $L^q(\overline B) \subseteq L^q(B)$.
-  Andererseits lässt sich jedes Kompaktum $K$ durch endlich viele Bälle $B_1, \dots, B_n$ mit $\overline B_i \subseteq \Omega, i =1,\dots,n,$ überdecken. 
-  Gilt nun $u \in L^q(B_i)$ für alle $i = 1, \dots, n$, so gilt insbesondere $u \in L^q(\bigcup_{i = 1}^n B_i)$ und die Umkehrung der Aussage folgt aus der Inklusionsbeziehung $L^q(\bigcup_{i = 1}^n B_i) \subseteq L^q(K)$.
+  Andererseits lässt sich jedes Kompaktum $K$ durch endlich viele Bälle $B_1, \dots, B_n$ mit $\overline B_i \subseteq \Omega, i =1,\dots,m,$ überdecken. 
+  Gilt nun $u \in L^q(B_i)$ für alle $i = 1, \dots, m$, so gilt insbesondere $u \in L^q(\bigcup_{i = 1}^m B_i)$ und die Umkehrung der Aussage folgt aus der Inklusionsbeziehung $L^q(\bigcup_{i = 1}^m B_i) \subseteq L^q(K)$.
 \end{bem}
 
 Des Weiteren schreiben wir
@@ -238,7 +238,7 @@ C_{0,\sigma}^\infty(\Omega)' = \{F|_{C_{0,\sigma}^\infty(\Omega)} \mid F \in (C_
 $$
 
 Betrachten wir nun den \hilbert\hyp{}Raum $L^2(\Omega)^n$.
-Wie Lemma \ref{lem:mollification} noch zeigt, dass die glatten Funktionen mit kompaktem Träger dicht in $L^2(\Omega)$ liegen. 
+Wie Lemma \ref{lem:mollification} noch zeigen wird, liegen die glatten Funktionen mit kompaktem Träger dicht in $L^2(\Omega)$. 
 Ebenso stellt der Produktraum $C_0^\infty(\Omega)^n$ einen dichten Unterraum von $L^2(\Omega)^n$ dar.
 Um diese Tatsache zu imitieren, definieren wir den Unterraum 
 $$

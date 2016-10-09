@@ -12,7 +12,7 @@ that could not be observed.}
 
 Die akkurate Modellierung des Verhaltens \newton scher Fluide ist zentral für unzählige Anwendungen der Aerodynamik, Verbrennungsforschung oder chemischen Industrie.
 Die Grundlage für die Modellierung bildet ein System partieller Differentialgleichungen, welches \navier\ und \stokes\ unabhängig voneinander in der ersten Hälfte des 19. Jahrhunderts einführten. 
-Man bezeichnet dieses Gleichungssystem heute als \navier\hyp\stokes\hyp{}Gleichungen.
+Man bezeichnet dieses Gleichungssystem heute als \navier\hyp\stokes\hyp{}Gleichungen \cite[S.103ff.]{spurk10stroemungslehre}.
 Sie umfassen im inkompressiblen dreidimensionalen Fall eine Gleichung zur Beschreibung der Massenerhaltung, die sogenannte Kontinuitätsgleichung, und für jede Raumrichtung eine Impulsgleichung:
 
 \begin{align*}
@@ -21,12 +21,12 @@ Sie umfassen im inkompressiblen dreidimensionalen Fall eine Gleichung zur Beschr
 \end{align*}
 
 Die Unbekannten in diesem Gleichungssystem sind der Geschwindigkeitsvektor $u = (u_1, u_2, u_3)$ und der Druck $p$.
-Die Existenz und Eindeutigkeit klassischer glatter Lösungen dieses Gleichungssystems gehört nach dem \textsc{Clay}\hyp{}Institute zu einem der wichtigsten ungelösten mathematischen Probleme unseres Jahrtausends und ist daher in der Liste der Millennium Probleme zu finden.
+Die Existenz und Eindeutigkeit klassischer glatter Lösungen dieses Gleichungssystems gehört nach dem \textsc{Clay}\hyp{}Institute zu einem der wichtigsten ungelösten mathematischen Probleme unseres Jahrtausends und ist daher in der Liste der Millennium Probleme zu finden \cite{clay}.
 
 In der Lösungstheorie der \navier\hyp\stokes\hyp{}Gleichungen, aber auch partieller Differentialgleichungen im Allgemeinen, hat es sich als nützlich erwiesen, auf der Suche nach klassischen Lösungen einen Umweg einzuschlagen und zunächst die Existenz sogenannter schwacher Lösungen nachzuweisen.
 In einem zweiten Schritt wird dann überprüft, ob die gefundenen schwachen Lösungen über zusätzliche Regularitätseigenschaften verfügen, welche die Existenz einer Lösung im klassischen Sinne garantieren.
 
-Als nützliche Werkzeuge für die Lösungstheorie haben sich dabei Zerlegungen geeigneter Funktionenräume erwiesen. Die Idee dazu fußt auf einer von \helmholtz\ erstmals 1870 formulierten Zerlegung eines Vektorfeldes in ein skalares Potential und ein Vektorpotential.
+Als nützliche Werkzeuge für die Lösungstheorie haben sich dabei Zerlegungen geeigneter Funktionenräume erwiesen. Die Idee dazu basiert auf einer von \helmholtz\ erstmals 1870 formulierten Zerlegung eines Vektorfeldes in ein skalares Potential und ein Vektorpotential \cite{helmholtz}.
 Im Rahmen der Suche nach schwachen Lösungen im \hilbert\hyp{}Raum $L^2(\Omega)^n$, wobei $\Omega$ ein Teilgebiet des $\R^n$, $n \geq 2$, bezeichne, findet auch das in dieser Arbeit vorgestellte Hilfsmittel Verwendung: die \helmholtz\hyp{}Zerlegung des $L^2$.
 Dabei handelt es sich um eine orthogonale Zerlegung des Lösungsraumes, welche es unter anderem ermöglicht den neben dem gesuchten Geschwindigkeitsfeld $u$ unbekannten Druck $p$ vorerst aus dem Gleichungssystem zu eliminieren und so die Anzahl der Unbekannten zu reduzieren.
 Die Anwendung der \helmholtz\hyp{}Zerlegung auf ein Element des Lösungsraumes zerlegt dieses in einen divergenzfreien und einen rotationsfreien Anteil.
