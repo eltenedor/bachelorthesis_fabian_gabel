@@ -1,3 +1,4 @@
+\allowdisplaybreaks
 \chapter{Lösungen von $\nabla p = f$}
 
 In diesem Kapitel sammeln und beweisen wir eine Reihe von Hilfsaussagen für den Beweis der \helmholtz\hyp{}Zerlegung.
@@ -241,7 +242,7 @@ Wir verzichten auf einen Beweis und verweisen auf \cite[S.168, Theorem 6.3]{adam
 Des Weiteren werden wir das folgende Lemma aus \cite[S.186, Lemma 7.1]{necas2012direct} benötigen.
 \begin{lem}
   \label{lem:necas}
-  Sei $\Omega \subseteq \R^n$, $n \geq 2$, ein beschränktes \lipschitz\hyp{}Gebiet und $1 < q < \infty$.
+  Sei $\Omega \subseteq \R^n$, $n \geq 2$, ein beschränktes \lipschitz\hyp{}Gebiet und zudem $1 < q < \infty$.
   Dann gilt die Ungleichung
   $$
   \norm{u}_{L^q(\Omega)} \leq C(\norm{\nabla u}_{W^{-1,q}(\Omega)^n} + \norm{u}_{W^{-1,q}(\Omega)})
@@ -305,10 +306,12 @@ Diese Resultate können wir nun nutzen, um die folgende Abschätzung zu beweisen
     &\leq C_2 \norm{u}_q \norm{v}_{W^{1,q'}(\Omega)^n},
   \end{align*}
   mit einem aus der Normäquivalenz auf $\R^n$ stammenden $C_2 = C_2(n)$.
-  Für alle $v \in W_0^{1,q'}(\Omega) \setminus\{0\}$ folgt daraus
+  Daraus folgt
   $$
-  \frac{|[\nabla u, v]|}{\norm{v}_{1,q'}} \leq C_2 \norm{u}_q.
+  \frac{|[\nabla u, v]|}{\norm{v}_{1,q'}} \leq C_2 \norm{u}_q,
   $$
+  für alle $v \in W_0^{1,q'}(\Omega) \setminus\{0\}$.
+
   Mit der Definition der Operatornorm ergibt sich nun
   $$
   \norm{\nabla u}_{-1,q} \leq C_2\norm{u}_q.
@@ -473,7 +476,7 @@ Im Folgenden geben wir dazu einen auf $L^q$\hyp{}Räume verallgemeinerten Beweis
   \tilde f \colon D \to \R, \nabla v \mapsto [\tilde f, \nabla v]
   $$
   durch $[\tilde f, \nabla v] := [f, v]$ für alle $v \in W_0^{1,q'}(\Omega)^n$.
-  Dann liefert die Eigenschaft der Operatornorm zusammen mit der \poincare\hyp{}Ungleichung \ref{lem:poincare} eine Konstante $C = C(\Omega) > 0$, sodass 
+  Dann liefert die Eigenschaft der Operatornorm in Zusammenspiel mit der \poincare\hyp{}Ungleichung \ref{lem:poincare} eine Konstante $C = C(\Omega) > 0$, sodass 
   $$
   |[\tilde f, \nabla v]| 
   = |[f, v]| 
@@ -662,8 +665,8 @@ $$
     \norm{U_\varepsilon}_{L^q(\Omega_1)}
     &\leq C \norm{ \nabla U_\varepsilon }_{W^{-1,q}(\Omega_1)} \nonumber\\
     &= C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left(\frac{|[\nabla U_\varepsilon, v]|}{\norm{\nabla v}_{q'}} \right) \nonumber\\
-    &\overset{(\ast)}{=} C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left( \frac{|\langle F^\varepsilon, \nabla v \rangle|}{\norm{\nabla v}_{q'}}\right) \nonumber\\
-    &\leq C \norm{F^\varepsilon}_{L^q(\Omega_1)} 
+    &\overset{(\ast)}{=} C \sup_{0 \neq v \in C_0^\infty(\Omega_1)^n} \left( \frac{|\langle F^\varepsilon, \nabla v \rangle|}{\norm{\nabla v}_{q'}}\right) 
+    \leq C \norm{F^\varepsilon}_{L^q(\Omega_1)} 
     \label{eq:inequalityUEpsilon}
   \end{align}
   \endgroup
@@ -709,6 +712,7 @@ $$
   \lim_{\varepsilon \to 0} \norm{F_{jl} - F_{jl}^\varepsilon}_{L^q(\Omega_1)} = 0, \quad j,l \in \{ 1,\dots,n\}. 
   $$ 
   %für alle $j,l \in \{ 1,\dots,n\}$.
+  \newpage
   Sei nun $v \in C_0^\infty(\Omega_1)^n$.
   Dann folgt
   \begin{align*}
@@ -719,8 +723,8 @@ $$
     &\hspace{-0.10cm}\overset{(\ast\ast)}{=} \lim_{\varepsilon \to 0} \int_{\Omega_1} \nabla U_\varepsilon \cdot v \d x \\
     &\hspace{-0.21cm}\underset{(\ref{eq:divNabla})}{=} \lim_{\varepsilon \to 0} \int_{\Omega_1} \div F^\varepsilon \cdot v \d x \\
     &= -\lim_{\varepsilon \to 0} \int_{\Omega_1} \sum_{j,l=1}^n F_{jl}^\varepsilon (D_j v_l) \d x \\
-    &\hspace{-0.10cm}\overset{(\ast\ast)}{=} \int_{\Omega_1} \sum_{j,l=1}^n (D_j F_{jl}) v_l \d x \\
-    &= \langle \div F, v \rangle,
+    &\hspace{-0.10cm}\overset{(\ast\ast)}{=} \int_{\Omega_1} \sum_{j,l=1}^n (D_j F_{jl}) v_l \d x 
+    = \langle \div F, v \rangle,
   \end{align*}
   wobei bei ($\ast\ast$) verwendet wurde, dass $\Omega_1$ beschränkt ist und somit Integration und Limesbildung für normkonvergente Folgen vertauschbar sind.
 
