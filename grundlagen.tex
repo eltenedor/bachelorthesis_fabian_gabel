@@ -154,7 +154,7 @@ und nennen $u$ \emph{lokal integrierbar}, falls $u \in L^q(B)$ für alle offenen
   Diese Aussage findet man ebenfalls in der Literatur zur Definition lokaler Integrierbarkeit.
   Tatsächlich ist sie äquivalent zur obigen Definition.
   Denn einerseits ist für alle Bälle $B$ auch $\overline B$ ein Kompaktum und die Aussage folgt aus der Inklusionsbeziehung $L^q(\overline B) \subseteq L^q(B)$.
-  Andererseits lässt sich jedes Kompaktum $K$ durch endlich viele Bälle $B_1, \dots, B_n$ mit $\overline B_i \subseteq \Omega, i =1,\dots,m,$ überdecken. 
+  Andererseits lässt sich jedes Kompaktum $K$ durch endlich viele Bälle $B_1, \dots, B_m$ mit $\overline B_i \subseteq \Omega, i =1,\dots,m,$ überdecken. 
   Gilt nun $u \in L^q(B_i)$ für alle $i = 1, \dots, m$, so gilt insbesondere $u \in L^q(\bigcup_{i = 1}^m B_i)$ und die Umkehrung der Aussage folgt aus der Inklusionsbeziehung $L^q(\bigcup_{i = 1}^m B_i) \subseteq L^q(K)$.
 \end{bem}
 
@@ -280,8 +280,8 @@ $$
   := \norm{u}_{W^{k,q}} 
   := \norm{u}_{k,q} 
   := \begin{cases} 
-    \left(\sum_{|\alpha| \leq k} \norm{D^\alpha u}_q^q \right)^\frac{1}{q}\quad&\text{für } 1 \leq q < \infty \\
-    \max_{|\alpha| \leq k} \norm{D^\alpha u}_\infty \quad&\text{für }q = \infty.
+    \left(\sum_{|\alpha| \leq k} \norm{D^\alpha u}_q^q \right)^\frac{1}{q},\quad&\text{für } 1 \leq q < \infty \\
+    \max_{|\alpha| \leq k} \norm{D^\alpha u}_\infty, \quad&\text{für }q = \infty.
     \end{cases}
 $$
 
@@ -306,12 +306,12 @@ $$
   Dazu halten wir zunächst fest, dass mit der \hoelder\hyp{}Ungleichung
   $$
   \int_\Omega |(D^\alpha u_j - u_\alpha)| \varphi \d x
-  \leq \norm{(D^\alpha u_j - u_\alpha)}_q \norm{\varphi}_{q'} \to 0, \quad j \to \infty
+  \leq \norm{(D^\alpha u_j - u_\alpha)}_q \norm{\varphi}_{q'} \to 0, \quad j \to \infty,
   $$
   sowie
   $$
   \int_\Omega |(u_j - u_0) D^\alpha \varphi| \d x
-  \leq \norm{(u_j - u_0)}_q \norm{D^\alpha \varphi}_{q'} \to 0, \quad j \to \infty
+  \leq \norm{(u_j - u_0)}_q \norm{D^\alpha \varphi}_{q'} \to 0, \quad j \to \infty,
   $$
   folgen, wobei $q'$ den zu $q$ konjugierten Exponenten bezeichne.
   Hieraus folgen die Identitäten
@@ -366,7 +366,7 @@ $$
 $$
 Wir können also jede Funktion $u \in W_0^{k,q'}(\Omega)$ mit dem Funktional
 $$
-[\cdot, u] \colon F \mapsto [F, u], \quad F \in W^{-1,q}(\Omega)
+[\cdot, u] \colon F \mapsto [F, u], \quad F \in W^{-1,q}(\Omega),
 $$
 identifizieren.
 
@@ -409,7 +409,7 @@ $$
 \mathcal{F}(x) := \begin{cases}
                      c \cdot \exp\left(-\frac{1}{1 - \norm{x}}\right), \quad &\norm{x} < 1 \\
                      0, \quad  &\text{sonst}
-                  \end{cases} \quad,\quad x \in \R^n
+                  \end{cases} \quad,\quad x \in \R^n,
 $$
 zu betrachten und
 $$
